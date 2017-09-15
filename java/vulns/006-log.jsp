@@ -1,4 +1,4 @@
-<%@page import="java.io.*" %>
+<%@ page import="java.io.*" %>
 <%@ page import="java.util.logging.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
@@ -10,6 +10,8 @@
 <body>
 	<p>本case展示没有打码的敏感信息，包括身份证和银行卡两种</p>
 	<p>日志在 logs/localhost.*</p>
+	<br>
+	<p>目前，OpenRASP 不支持这个检测，我们正在评估中</p>
  <%
  try {
  	Logger log = Logger.getLogger("com.mobilefish.demo.test");

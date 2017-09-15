@@ -7,6 +7,7 @@
 	<title>002 任意文件下载/读取漏洞</title>
 </head>
 <body>
+	<h1>002 - 任意文件下载/读取漏洞（路径拼接）</h1>
 <%
 String reportName = request.getParameter("file");;
 if (reportName != null) {

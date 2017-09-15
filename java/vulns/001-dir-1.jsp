@@ -7,6 +7,7 @@
 	<title>001 任意目录读取</title>
 </head>
 <body>
+	<h1>001 - 使用 File.listFiles 遍历目录（有路径拼接）</h1>
 <%
 String dirname = request.getParameter("dirname");
 if (dirname != null) {
