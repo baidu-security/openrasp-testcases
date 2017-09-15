@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="true" /> -->
+    <constant name="struts.devMode" value="false" />
+    
+
+    <!-- Add packages here -->
+	<package name="S2-013" extends="struts-default">
+		<action name="link" class="com.demo.action.LinkAction">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+</struts>
