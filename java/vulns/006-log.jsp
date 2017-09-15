@@ -8,6 +8,7 @@
 	<title>006 - Log4j 打印敏感信息到日志文件</title>
 </head>
 <body>
+	<h1>006 - 日志中包含敏感信息</h1>
 	<p>本case展示没有打码的敏感信息，包括身份证和银行卡两种，e.g</p>
 	<pre>IdCard=42050319820815801X DepositCard=6222020903001483077 Transaction=1999.22</pre>
 	<br>
