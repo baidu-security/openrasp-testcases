@@ -1,17 +1,17 @@
 <%@ page import="java.io.*" %>
-<%@ page import="java.util.logging.*" %>
+<%@ page import="org.apache.log4j.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>006 Log4j 敏感日志信息</title>
+	<title>006 - Log4j 打印敏感信息到日志文件</title>
 </head>
 <body>
-	<p>本case展示没有打码的敏感信息，包括身份证和银行卡两种</p>
-	<p>日志在 logs/localhost.*</p>
+	<p>本case展示没有打码的敏感信息，包括身份证和银行卡两种，e.g</p>
+	<pre>IdCard=42050319820815801X DepositCard=6222020903001483077 Transaction=1999.22</pre>
 	<br>
-	<p>目前，OpenRASP 不支持这个检测，我们正在评估中</p>
+	<p>目前，OpenRASP 暂时不支持这个类型的安全检测，后面会添加上~</p>
  <%
  try {
  	Logger log = Logger.getLogger("com.mobilefish.demo.test");
