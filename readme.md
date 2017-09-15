@@ -17,7 +17,7 @@ OpenRASP 漏洞测试环境
    * S2-029
    * S2-032
 * Fastjson 反序列化漏洞
-* SQL 注入漏洞（需要先修改账号密码）
+* SQL 注入漏洞（需要先修改账号密码） - 添加中 ..
    * MySQL
    * Oracle
    * PostgreSQL
