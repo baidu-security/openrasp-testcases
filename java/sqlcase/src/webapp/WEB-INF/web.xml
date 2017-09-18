@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>mysql</servlet-name>
+        <servlet-class>com.baidu.rasp.MysqlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mysql</servlet-name>
+        <url-pattern>/mysql</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>mssql</servlet-name>
+        <servlet-class>com.baidu.rasp.MssqlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mssql</servlet-name>
+        <url-pattern>/mssql</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>sqlite</servlet-name>
+        <servlet-class>com.baidu.rasp.SqliteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sqlite</servlet-name>
+        <url-pattern>/sqlite</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>oracle</servlet-name>
+        <servlet-class>com.baidu.rasp.OracleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>oracle</servlet-name>
+        <url-pattern>/oracle</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>pg</servlet-name>
+        <servlet-class>com.baidu.rasp.PgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>pg</servlet-name>
+        <url-pattern>/pg</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -20,9 +20,9 @@ function build_java()
     for x in *
     do
     	log2 "$x"
-	if [ "$x"x = "fastjson"x ]; then 
+	if [ "$x"x = "fastjson"x ] || [ "$x"x = "sqlcase"x ]; then 
 	    cd $x && mvn package
-	    mv target/fastjson.war ../../output/ && rm -rf target && cd ../
+	    mv target/$x.war ../../output/ && rm -rf target && cd ../
 	else
             name="$x.war"
             jar -cf ../output/"$name" "$x"

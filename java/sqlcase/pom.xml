@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.openrasp</groupId>
+    <artifactId>sqlcase</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>sqlcase Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <repositories>
+        <repository>
+            <id>in-project</id>
+            <name>In Project Repo</name>
+            <url>file://${project.basedir}/lib</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>com.openrasp</groupId>
+            <artifactId>sqljdbc</artifactId>
+            <version>4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.openrasp</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>6.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/servlet-api -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>6.0.32</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1212.jre6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.8.11.2</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>sqlcase</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>src\webapp\WEB-INF\web.xml</webXml>
+                    <webResources>
+                        <resource>
+                            <directory>src/webapp</directory>
+                        </resource>
+
+                        <!--<resource>-->
+                            <!--&lt;!&ndash; this is relative to the pom.xml directory &ndash;&gt;-->
+                            <!--<directory>src/webapp/WEB-INF</directory>-->
+                            <!--&lt;!&ndash; the list has a default value of ** &ndash;&gt;-->
+                            <!--<includes>-->
+                                <!--<include>**/*.properties</include>-->
+                            <!--</includes>-->
+                        <!--</resource>-->
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
