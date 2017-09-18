@@ -17,7 +17,7 @@ OpenRASP 漏洞测试环境
    * S2-029
    * S2-032
 * Fastjson 反序列化漏洞
-* SQL 注入漏洞（需在/sqlcasp/WEB-INF/sqlcase.properties中配置SQL相关参数;若需更改jdbc driver版本，请修改pom.xml）
+* SQL 注入漏洞（需在 `/sqlcase/WEB-INF/sqlcase.properties` 中配置SQL相关参数；若需更改jdbc driver版本，请修改pom.xml）
    * MySQL
    * Oracle
    * PostgreSQL
