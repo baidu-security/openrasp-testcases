@@ -2,6 +2,8 @@
 
 OpenRASP 漏洞测试环境
 
+其中，SQL注入漏洞测试案例，需要你先在 `/sqlcase/WEB-INF/sqlcase.properties` 中配置SQL相关参数后，方可使用；若需更改jdbc driver版本，还要修改 pom.xml
+
 # 目录
 
 #### Java 应用服务器
@@ -17,7 +19,7 @@ OpenRASP 漏洞测试环境
    * S2-029
    * S2-032
 * Fastjson 反序列化漏洞
-* SQL 注入漏洞（需在 `/sqlcase/WEB-INF/sqlcase.properties` 中配置SQL相关参数；若需更改jdbc driver版本，请修改pom.xml）
+* SQL 注入漏洞
    * MySQL
    * Oracle
    * PostgreSQL
