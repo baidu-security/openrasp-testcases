@@ -34,6 +34,8 @@ OpenRASP 漏洞测试环境
    * 007 - XXE 漏洞
    * 008 - 基于 common io 上传文件
    * 009 - Transformer 反序列化
+   * 010 - jstl import 任意文件包含
+   * 011 - jsp include 任意文件包含
 
 #### PHP 
 
