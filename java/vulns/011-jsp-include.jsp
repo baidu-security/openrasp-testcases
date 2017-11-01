@@ -1,3 +1,4 @@
++<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +10,6 @@
 <p>不正常调用: </p>
 <pre>curl <%=request.getRequestURL()%>?url=011-jsp-include.jsp</pre>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String url = request.getParameter("url");
     if(url == null) {
