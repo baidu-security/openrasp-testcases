@@ -25,7 +25,7 @@ function build_java()
 	    mv target/$x.war ../../output/ && rm -rf target && cd ../
 	else
             name="$x.war"
-            jar -cf ../output/"$name" "$x"
+            jar -cf ../output/"$name" "$x"/*
 	fi
     done
 }
