@@ -19,14 +19,16 @@ function build_java()
 
     for x in *
     do
-    	log2 "$x"
-	if [ "$x"x = "fastjson"x ] || [ "$x"x = "sqlcase"x ]; then 
-	    cd $x && mvn package
-	    mv target/$x.war ../../output/ && rm -rf target && cd ../
-	else
+        log2 "$x"
+        if [[ "$x" == "fastjson" ]] || [[ "$x" == "sqlcase" ]]; then 
+            cd "$x" && mvn package
+            mv target/$x.war ../../output/ && rm -rf target && cd ../
+        elif [[ "$x" == "vulns" ]]; then
+            cd "$x" && jar -cf "../../output/$x.war" *
+        else
             name="$x.war"
             jar -cf ../output/"$name" "$x"/*
-	fi
+        fi
     done
 }
 
