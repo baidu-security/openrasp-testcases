@@ -33,8 +33,8 @@ else {
 %>
 <p>正常调用: </p>
 <pre>curl <%=request.getRequestURL()%>?dirname=reports</pre>
-<p>不正常调用: </p>
-<pre>curl <%=request.getRequestURL()%>?dirname=../../../../../../../../../../../../../../../</pre>
+<p>不正常调用 - Linux: </p>
+<pre>curl <%=request.getRequestURL()%>?dirname=../../../../../../../../../../../../../../../var/log/</pre>
 <%
 }
 %>
