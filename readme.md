@@ -35,6 +35,7 @@ OpenRASP 漏洞测试环境
    * 008 - 基于 common io 上传文件
    * 009 - Transformer 反序列化
    * 010 - jstl import 任意文件包含
+   * 011 - SSRF 漏洞
 
 #### PHP 
 
