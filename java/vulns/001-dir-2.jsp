@@ -4,10 +4,10 @@
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>001 任意目录读取</title>
+	<title>001 任意目录读取 - 2</title>
 </head>
 <body>
-	<h1>001 - 1 - 使用 File.listFiles 遍历目录（无路径拼接）</h1>
+	<h1>001 - 使用 File.listFiles 遍历目录（无路径拼接）</h1>
 <%
 String dirname = request.getParameter("dirname");
 if (dirname != null) {
