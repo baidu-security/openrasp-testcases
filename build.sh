@@ -24,10 +24,10 @@ function build_java()
             cd "$x" && mvn package
             mv target/$x.war ../../output/ && rm -rf target && cd ../
         elif [[ "$x" == "vulns" ]]; then
-            cd "$x" && jar -cf "../../output/$x.war" *
+            (cd "$x" && jar -cf "../../output/$x.war" *)
         else
             name="$x.war"
-            jar -cf ../output/"$name" "$x"/*
+            (cd "$x" && jar -cf ../../output/"$name" *)
         fi
     done
 }
