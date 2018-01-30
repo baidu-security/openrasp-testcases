@@ -7,7 +7,7 @@
 	<h1>012 - SSRF - CURL 方式</h1>
 
 	<p>不正常调用:</p>
-	<pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?url=http://0/'?></pre>
+	<pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?url=http://requestb.in'?></pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<br>

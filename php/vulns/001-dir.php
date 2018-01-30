@@ -7,7 +7,7 @@
 	<h1>001 - 列目录操作 - scandir 方式</h1>
 
 <p>不正常调用: </p>
-<pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?dir=/etc/'?></pre>
+<pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?dir=/proc'?></pre>
 <br>
 <p>windows 不正常调用: </p>
 <pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?dir=C:'?></pre>
