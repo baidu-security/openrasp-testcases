@@ -21,7 +21,7 @@
 <?php 
 	if (isset ($_GET['file']))
 	{
-		include ('classes/' . $_GET['file']);
+		include ($_GET['file']);
 	}
 ?>
 </body>
