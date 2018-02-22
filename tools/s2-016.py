@@ -32,7 +32,8 @@ def _run(url, cmd):
         payload = payload.replace('#', '%23')
         payload = payload.replace('=', '%3D')
 
-        resp = requests.post(url, data = payload, headers = {'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/x-www-form-urlencoded'})
+        headers = {'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/x-www-form-urlencoded'}
+        resp    = requests.post(url, data = payload, headers = headers, allow_redirects = False)
         print resp.text
     except Exception as e:
         traceback.print_exc()
