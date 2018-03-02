@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.baidu.openrasp</groupId>
+    <artifactId>S2-016</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>S2-016</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <!-- Struts2的核心包 -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.3.14.2</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>S2-016</finalName>
+    </build>
+</project>
