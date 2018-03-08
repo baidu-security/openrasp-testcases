@@ -1,3 +1,4 @@
+#!/usr/bin/python
 ##############################################################################
 #
 # Copyright (c) 2018 Baidu.com, Inc. All Rights Reserved
