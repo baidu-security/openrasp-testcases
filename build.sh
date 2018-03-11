@@ -17,18 +17,11 @@ function build_java()
 {
     cd java
 
-    for x in *
+    for x in S2-016 fastjson vulns
     do
-        log2 "$x"
-        if [[ "$x" == "fastjson" ]] || [[ "$x" == "sqlcase" ]]; then 
-            cd "$x" && mvn package
-            mv target/$x.war ../../output/ && rm -rf target && cd ../
-        elif [[ "$x" == "vulns" ]]; then
-            (cd "$x" && jar -cf "../../output/$x.war" *)
-        else
-            name="$x.war"
-            (cd "$x" && jar -cf ../../output/"$name" *)
-        fi
+        log2 $x
+        cd "$x" && mvn package
+        mv target/$x.war ../../output/ && rm -rf target && cd ../
     done
 }
 
