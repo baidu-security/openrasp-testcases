@@ -28,12 +28,18 @@ function build_java()
     done
 }
 
+function build_php()
+{
+    (cd php; tar -czf ../output/php-vulns.tar.gz vulns)
+}
+
 log 'Preparing ..'
 rm -rf output
 mkdir -p output
 
-log 'Build war(s) ...'
+log 'Build ...'
 build_java
+build_php
 
 log 'See output/'
 ls output
