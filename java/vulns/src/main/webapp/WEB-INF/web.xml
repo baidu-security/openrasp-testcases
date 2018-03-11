@@ -12,8 +12,10 @@
     </servlet>
 
     <!-- Add a mapping for our new default servlet -->
+    <!--
     <servlet-mapping>
         <servlet-name>DefaultServletOverride</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    -->
 </web-app>

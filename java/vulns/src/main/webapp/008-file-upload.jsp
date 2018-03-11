@@ -7,10 +7,10 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>008 - 任意文件上传漏洞</title>
+	<title>008 - 任意文件上传漏洞 - commons.io 方式</title>
 </head>
 <body>
-	<h1>008 - 任意文件上传漏洞（commons io） </h1>
+	<h1>008 - 任意文件上传漏洞 - commons.io 方式</h1>
 	<p>使用java最常用的文件上传处理库，struts、spring都用这个</p>
 <%
 String method = request.getMethod();
