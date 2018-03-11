@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<title>010 - 任意文件包含</title>
+	<title>010 - 任意文件包含 - include 方式</title>
 
 </head>
 

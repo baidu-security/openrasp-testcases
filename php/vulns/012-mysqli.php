@@ -12,12 +12,17 @@
 		$data = array();
 	    $conn = new mysqli($server, $user, $pass, $db);
 	   	if ($conn->connect_error) {
-	      echo "Connection failed: " . $conn->connect_error;
+	      echo "MySQL: connection failed: " . $conn->connect_error;
 	      return;
 	   	}
 
 	   	$sql    = "SELECT id, name FROM vuln WHERE id = " . $id;
 	   	$result = $conn->query($sql);
+
+	   	if (! $result) {
+	   	  echo 'MySQL: query error: ' . $conn->error;
+	   	  return;
+	   	}
 
 	   	if ($result->num_rows > 0) {
 	      while($row = $result->fetch_assoc()) {
@@ -35,7 +40,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>SQL 注入测试</title>
+    <title>012 - SQL 注入测试- MySQLi 方式</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -78,7 +83,7 @@ INSERT INTO test.vuln values (1, "rocks");
 				<?php $result = query($id);	?>
 				<table class="table">
 					<tbody>
-						<?php foreach ($result as $row) {?>
+						<?php if (isset ($result)) foreach ($result as $row) {?>
 						<tr>
 							<td><?= $row["id"] ?></td>
 							<td><?= $row["name"] ?></td>
