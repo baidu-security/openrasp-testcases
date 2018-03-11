@@ -23,6 +23,7 @@ function build_java()
             cd "java/$x" 
             mvn clean package 
             mv target/$x.war ../../output/
+            mvn clean
         )
     done
 }
