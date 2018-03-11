@@ -15,13 +15,15 @@ function log2()
 
 function build_java() 
 {
-    cd java
-
     for x in S2-016 fastjson vulns
     do
         log2 $x
-        cd "$x" && mvn package
-        mv target/$x.war ../../output/ && rm -rf target && cd ../
+
+        (
+            cd "java/$x" 
+            mvn clean package 
+            mv target/$x.war ../../output/
+        )
     done
 }
 
@@ -30,7 +32,7 @@ rm -rf output
 mkdir -p output
 
 log 'Build war(s) ...'
-(build_java)
+build_java
 
 log 'See output/'
 ls output
