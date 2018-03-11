@@ -20,7 +20,7 @@
 	<div class="container" id="main">
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-				<h1 class="text-center">OpenRASP 官方测试用例集合</h1>
+				<h2 class="text-center">OpenRASP 官方测试用例集合</h2>
 				<table class="table table-striped">
 					<thead>
 						<tr>
