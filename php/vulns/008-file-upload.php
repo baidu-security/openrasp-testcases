@@ -1,7 +1,7 @@
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>008 - 任意文件上传</title>
+	<title>008 - 任意文件上传 - move_uploaded_file 方式</title>
 </head>
 <body>
 <h1>008 - 任意文件上传 - move_uploaded_file 方式</h1>

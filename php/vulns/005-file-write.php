@@ -1,7 +1,7 @@
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>005 任意文件写入</title>
+	<title>005 - 任意文件写入 - file_put_contents 方式</title>
 </head>
 <body>
 <h1>005 - 任意文件写入 - file_put_contents 方式</h1>

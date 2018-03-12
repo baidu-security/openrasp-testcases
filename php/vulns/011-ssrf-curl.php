@@ -1,10 +1,10 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>012 - SSRF</title>
+    <title>011 - SSRF - cURL 方式</title>
 </head>
 <body>
-	<h1>012 - SSRF - CURL 方式</h1>
+	<h1>011 - SSRF - cURL 方式</h1>
 
 	<p>不正常调用:</p>
 	<pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?url=http://requestb.in'?></pre>

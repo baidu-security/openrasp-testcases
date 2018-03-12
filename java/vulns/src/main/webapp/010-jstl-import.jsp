@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>010 jstl import 任意文件包含/SSRF</title>
+    <title>010 - JSTL import 任意文件包含/SSRF</title>
 </head>
 </html>
 <p>正常调用: </p>

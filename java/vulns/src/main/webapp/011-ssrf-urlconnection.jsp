@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>001 SSRF</title>
+    <title>011 - SSRF - URL.openConnection 方式</title>
 </head>
 <body>
 <p>jdk 中的 URL.openConnection 调用方式: </p>

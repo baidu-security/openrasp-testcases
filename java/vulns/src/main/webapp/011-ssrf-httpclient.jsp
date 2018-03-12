@@ -10,10 +10,10 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>001 SSRF</title>
+    <title>011 - SSRF - HttpClient 方式</title>
 </head>
 <body>
-<p>httpclient 调用方式: </p>
+<p>HttpClient 调用方式: </p>
 <pre><%=request.getRequestURL()%>?url=http://0x7f.0x0.0x0.0x1:8080</pre>
 <pre>说明: 参数 url 为请求的 url</pre>
 <%

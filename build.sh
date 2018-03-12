@@ -15,29 +15,31 @@ function log2()
 
 function build_java() 
 {
-    cd java
-
-    for x in *
+    for x in S2-016 fastjson vulns
     do
-        log2 "$x"
-        if [[ "$x" == "fastjson" ]] || [[ "$x" == "sqlcase" ]]; then 
-            cd "$x" && mvn package
-            mv target/$x.war ../../output/ && rm -rf target && cd ../
-        elif [[ "$x" == "vulns" ]]; then
-            (cd "$x" && jar -cf "../../output/$x.war" *)
-        else
-            name="$x.war"
-            (cd "$x" && jar -cf ../../output/"$name" *)
-        fi
+        log2 $x
+
+        (
+            cd "java/$x" 
+            mvn clean package 
+            mv target/$x.war ../../output/
+            mvn clean
+        )
     done
+}
+
+function build_php()
+{
+    (cd php; tar -czf ../output/php-vulns.tar.gz vulns)
 }
 
 log 'Preparing ..'
 rm -rf output
 mkdir -p output
 
-log 'Build war(s) ...'
-(build_java)
+log 'Build ...'
+build_java
+build_php
 
 log 'See output/'
 ls output

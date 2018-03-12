@@ -1,10 +1,10 @@
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>004 - 命令执行 （无回显）</title>
+	<title>004 - 命令执行 - exec 方式，无回显</title>
 </head>
 <body>
-	<h1>004 - 命令执行 (exec 方式，无回显)</h1>
+	<h1>004 - 命令执行 - exec 方式，无回显</h1>
 
 	<p>Linux 触发: </p>
 	<pre>curl <?php echo '"http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?cmd=cp+/etc/passwd+/tmp/"'?> </pre>
