@@ -48,14 +48,16 @@
 
         $scope.testcases = [
         	{"name": "001 - 列目录操作 - scandir 方式", "path": '001-dir.php'},
-			{"name": "002 - 任意文件读取 - file_get_contents", "path": '002-file-read.php'},
-			{"name": "004 - 命令执行 - exec 方式，无回显", "path": '004-command-1.php'},
-			{"name": "004 - 命令执行 - system 方式", "path": '004-command-2.php'},
-			{"name": "005 - 任意文件写入 - file_put_contents 方式", "path": '005-file-write.php'},
-			{"name": "008 - 任意文件上传 - move_uploaded_file 方式", "path": "008-file-upload.php"},
-			{"name": "010 - 任意文件包含 - include 方式", "path": "010-require.php"},
-			{"name": "012 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
-			{"name": "012 - SQL 注入测试- MySQLi 方式", "path": "012-mysqli.php"},
+		{"name": "002 - 任意文件读取 - file_get_contents", "path": '002-file-read.php'},
+		{"name": "004 - 命令执行 - exec 方式，无回显", "path": '004-command-1.php'},
+		{"name": "004 - 命令执行 - system 方式", "path": '004-command-2.php'},
+		{"name": "005 - 任意文件写入 - file_put_contents 方式", "path": '005-file-write.php'},
+		{"name": "008 - 任意文件上传 - move_uploaded_file 方式", "path": "008-file-upload.php"},
+		{"name": "010 - 任意文件包含 - include 方式", "path": "010-require.php"},
+		{"name": "012 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
+		{"name": "012 - SQL 注入测试- MySQLi 方式", "path": "012-mysqli.php"},
+		{"name": "013 - 命令执行后门 - arraywalk 方式", "path": "013-arraywalk.php"},
+		{"name": "014 - 中国菜刀 - eval 方式", "path": "014-eval.php"},
         ]
 
       }
