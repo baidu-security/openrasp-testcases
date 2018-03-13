@@ -3,7 +3,7 @@
    $user   = isset($_GET["user"])   ? $_GET['user']  : 'test';
    $pass   = isset($_GET["pass"])   ? $_GET['pass']  : 'test';
    $db     = isset($_GET["db"])     ? $_GET['db']    : 'test';
-   $id     = isset($_GET['id'])     ? $_GET['id']    : '0 and 1=2 union select user(), 1#';
+   $id     = isset($_GET['id'])     ? $_GET['id']    : '0';
 
    function query($id)
    {
