@@ -14,9 +14,9 @@ if (fname == null || bytes == null) {
 %>
 <p>注意: 由于可能产生误报，所以目前官方插件不会拦截这种使用 FileOutputStream 写文件的后门，我们会尽快解决</p>
 <p>正常调用</p>
-<pre>curl <%=request.getRequestURL()%> -d 'filename=123.txt&amp;filedata=some report data'</pre>
+<pre>curl '<%=request.getRequestURL()%>' -d 'filename=123.txt&amp;filedata=some report data'</pre>
 <p>不正常调用</p>
-<pre>curl <%=request.getRequestURL()%> -d 'filename=123.jsp&amp;filedata=some webshell data'</pre>
+<pre>curl '<%=request.getRequestURL()%>' -d 'filename=123.jsp&amp;filedata=some webshell data'</pre>
 <%
 } 
 else {

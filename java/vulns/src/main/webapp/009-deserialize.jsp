@@ -22,7 +22,7 @@
 <body>
     <h1>009 - 使用 InvokerTransformer 反序列化并执行命令</h1>
 <p>Windows 测试</p>
-<pre><%=request.getRequestURL()%>?cmd=calc.exe</pre>
+<pre><a href="<%=request.getRequestURL()%>?cmd=calc.exe"><%=request.getRequestURL()%>?cmd=calc.exe</a></pre>
 
 <p>Linux 测试</p>
 <pre>curl '<%=request.getRequestURL()%>?cmd=whoami'</pre>
