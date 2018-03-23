@@ -31,11 +31,7 @@ if (cmd != null)
         }
         reader.close();
     } catch (Exception e) {
-        if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-            response.sendError(400, "Request blocked by OpenRasp");
-        }else {	
-            out.print(e);
-        }
+        out.print(e);
     }
 } else {
     cmd = "whoami;ls;pwd";

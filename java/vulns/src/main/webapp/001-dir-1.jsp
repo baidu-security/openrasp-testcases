@@ -11,23 +11,19 @@
 <%
 String dirname = request.getParameter("dirname");
 if (dirname != null) {
-try {
-	File folder = new File(application.getRealPath("/") + "/" + dirname);
-	if (folder.isDirectory()) {
-		File[] listOfFiles = folder.listFiles();
-		for (File file : listOfFiles) {
-		    if (file.isFile()) {
-		        out.println(file.getName());
-		    }
+	try {
+		File folder = new File(application.getRealPath("/") + "/" + dirname);
+		if (folder.isDirectory()) {
+			File[] listOfFiles = folder.listFiles();
+			for (File file : listOfFiles) {
+			    if (file.isFile()) {
+			        out.println(file.getName());
+			    }
+			}
 		}
+	} catch (Exception e) {
+		out.print(e);
 	}
-} catch (Exception e) {
-if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-	response.sendError(400, "Request blocked by OpenRasp");
-}else {	
-	out.print(e);
-}
-}
 } 
 else {
 %>

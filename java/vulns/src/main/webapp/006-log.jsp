@@ -21,11 +21,7 @@
  		log.warn("IdCard=42050319820815801X DepositCard=6222020903001483077 Transaction=1999.22\n");
 	}
 } catch (Exception e) {
-    if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-        response.sendError(400, "Request blocked by OpenRasp");
-    }else {	
-        out.print(e);
-    }
+    out.print(e);
 }
  %>
 </body>

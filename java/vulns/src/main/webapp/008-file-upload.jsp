@@ -15,28 +15,24 @@
 <%
 String method = request.getMethod();
 if ("POST".equals(method)) {
-try {
-	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-	if (isMultipart) {
-		DiskFileItemFactory factory = new DiskFileItemFactory();
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		List<FileItem> items = upload.parseRequest(request);
-		for (FileItem item: items) { 
-			String content = new String(item.get());
-		%>
-			<div>
-				<p>file name: <%= item.getName() %></p>
-				<div><%= content %></div>
-			</div>
-		<%}
+	try {
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		if (isMultipart) {
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+			ServletFileUpload upload = new ServletFileUpload(factory);
+			List<FileItem> items = upload.parseRequest(request);
+			for (FileItem item: items) { 
+				String content = new String(item.get());
+			%>
+				<div>
+					<p>file name: <%= item.getName() %></p>
+					<div><%= content %></div>
+				</div>
+			<%}
+		}
+	} catch (Exception e) {
+	    out.print(e);
 	}
-} catch (Exception e) {
-    if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-        response.sendError(400, "Request blocked by OpenRasp");
-    }else {	
-        out.print(e);
-    }
-}
 } else {
 %>
 	<p>请求方式:</p>

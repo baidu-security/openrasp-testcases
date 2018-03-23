@@ -10,9 +10,9 @@
 <%
 String bytes = request.getParameter("filedata");
 String fname = request.getParameter("filename");
-if (bytes == null) {
+if (fname == null || bytes == null) {
 %>
-<p>注意: 目前官方插件不会检测这种使用 FileOutputStream 写文件的后门，我们会尽快解决</p>
+<p>注意: 由于可能产生误报，所以目前官方插件不会拦截这种使用 FileOutputStream 写文件的后门，我们会尽快解决</p>
 <p>正常调用</p>
 <pre>curl <%=request.getRequestURL()%> -d 'filename=123.txt&amp;filedata=some report data'</pre>
 <p>不正常调用</p>
@@ -28,11 +28,7 @@ else {
 		writer.close();
 		out.println("==>" + path);
 	} catch (Exception e) {
-        if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-            response.sendError(400, "Request blocked by OpenRasp");
-        }else {	
-            out.print(e);
-        }
+        out.print(e);
 	}
 }
 %>

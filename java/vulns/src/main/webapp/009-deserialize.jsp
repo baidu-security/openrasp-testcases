@@ -25,7 +25,7 @@
 <pre><%=request.getRequestURL()%>?cmd=calc.exe</pre>
 
 <p>Linux 测试</p>
-<pre><%=request.getRequestURL()%>?cmd=firefox</pre>
+<pre>curl '<%=request.getRequestURL()%>?cmd=whoami'</pre>
 <%
     if (request.getParameter("cmd") != null) {
 	    try {
@@ -56,11 +56,7 @@
             in.readObject();
             in.close();
 		} catch (Exception e) {
-            if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-                response.sendError(400, "Request blocked by OpenRasp");
-            }else {	
-                out.print(e);
-            }
+            out.print(e);
 		}
     }
 %>

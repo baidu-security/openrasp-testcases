@@ -9,7 +9,7 @@
 </head>
 <body>
 <p>commons-httpclient 调用方式: </p>
-<pre><%=request.getRequestURL()%>?url=http://0x7f.0x0.0x0.0x1:8080</pre>
+<pre>curl '<%=request.getRequestURL()%>?url=http://0x7f001'</pre>
 <pre>说明: 参数 url 为请求的 url</pre>
 <%
     String urlString = request.getParameter("url");
@@ -23,7 +23,7 @@
             byte[] responseBody = getMethod.getResponseBody();
             out.println("response:\r\n" + new String(responseBody, charSet));
         } catch (Exception e) {
-            out.println(e.getMessage());
+            out.print(e);
         }
     }
 %>

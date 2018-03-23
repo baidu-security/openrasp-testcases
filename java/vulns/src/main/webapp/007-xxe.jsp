@@ -14,13 +14,9 @@
 
            NodeList RegistrationNo = doc.getElementsByTagName("foo");
            tmp = RegistrationNo.item(0).getFirstChild().getNodeValue();
-		} catch (Exception e) {
-            if (e.getClass().getName().equals("com.fuxi.javaagent.exception.SecurityException")) {
-                response.sendError(400, "Request blocked by OpenRasp");
-            }else {	
-                out.print(e);
-            }
-		}
+  		} catch (Exception e) {
+              out.print(e);
+  		}
     }
 %>
 <html>
