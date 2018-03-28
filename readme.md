@@ -42,11 +42,16 @@ OpenRASP 漏洞测试环境
 * 常见漏洞
    * 001 - 文件目录列出
    * 002 - 任意文件下载
-   * 004 - 命令执行漏洞
+   * 004 - 命令执行漏洞，有回显/无回显
    * 005 - 任意文件写入 - file_put_contents 方式
    * 008 - 基于 move_upload_file 上传文件
    * 010 - include 方式任意文件包含
    * 011 - SSRF 漏洞 - cURL 方式
+   * 012 - SQL注入 - mysqli 方式
+   * 013 - WebShell - 回调类型后门
+   * 014 - WebShell - 中国菜刀
+   * 015 - WebShell - 小马上传后门
+   * 016 - WebShell - 文件包含方式
 
 
 
