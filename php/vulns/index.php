@@ -53,12 +53,13 @@
 			{"name": "004 - 命令执行 - system 方式", "path": '004-command-2.php'},
 			{"name": "005 - 任意文件写入 - file_put_contents 方式", "path": '005-file-write.php'},
 			{"name": "008 - 任意文件上传 - move_uploaded_file 方式", "path": "008-file-upload.php"},
-			{"name": "010 - 任意文件包含 - include 方式", "path": "010-require.php"},
+			{"name": "010 - 任意文件包含 - include 方式", "path": "010-file-include.php"},
 			{"name": "012 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
 			{"name": "012 - SQL 注入测试- MySQLi 方式", "path": "012-mysqli.php"},
 			{"name": "013 - WebShell - 回调类型后门", "path": "013-webshell-array_walk.php"},
 			{"name": "014 - WebShell - 中国菜刀", "path": "014-webshell-eval.php"},
 			{"name": "015 - WebShell - 文件上传小马", "path": "015-webshell-dropper.php"},
+			{"name": "016 - WebShell - 文件包含方式", "path": "016-webshell-include.php"},
         ]
 
       }
