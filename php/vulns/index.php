@@ -56,8 +56,9 @@
 			{"name": "010 - 任意文件包含 - include 方式", "path": "010-require.php"},
 			{"name": "012 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
 			{"name": "012 - SQL 注入测试- MySQLi 方式", "path": "012-mysqli.php"},
-			{"name": "013 - 回调类型后门 - array_walk 方式", "path": "013-arraywalk.php"},
-			{"name": "014 - 中国菜刀 - eval 方式", "path": "014-eval.php"},
+			{"name": "013 - WebShell - 回调类型后门", "path": "013-webshell-array_walk.php"},
+			{"name": "014 - WebShell - 中国菜刀", "path": "014-webshell-eval.php"},
+			{"name": "015 - WebShell - 文件上传小马", "path": "015-webshell-dropper.php"},
         ]
 
       }
