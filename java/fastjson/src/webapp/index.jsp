@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lxk
-  Date: 6/28/17
-  Time: 7:52 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Fastjson 反序列化漏洞侧四</title>
   </head>
   <body>
-  <p>request example:       http://ip:port/fastjson/fastjson </p>
+    <p>由于我们使用 com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl 作为 payload，在某些 JDK 下面，反序列化可能不会成功。</p>
+    <p>点击这个链接进行测试，会直接尝试命令执行 <a href="/fastjson/fastjson">/fastjson/fastjson</a> </p>
   </body>
 </html>
