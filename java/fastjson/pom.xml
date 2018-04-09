@@ -7,6 +7,11 @@
     <version>1.0-SNAPSHOT</version>
     <name>fastjson Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>commons-codec</groupId>
@@ -47,7 +52,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <webXml>src\webapp\WEB-INF\web.xml</webXml>
                     <source>1.7</source>  
                     <target>1.7</target>  
                     <encoding>UTF-8</encoding> 
