@@ -6,7 +6,7 @@
 <body>
 <h1>008 - 任意文件上传 - move_uploaded_file 方式</h1>
 <p>不正常的调用</p>
-<pre>echo '&lt;?php phpinfo(); ?>' > /tmp/1.php &amp;&amp; curl '<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] ?>' -F "file=@/tmp/1.php" &amp;&amp; rm -f /tmp/1.php</pre>
+<pre>echo '&lt;?php phpinfo(); ?>' > 1.php &amp;&amp; curl '<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] ?>' -F "file=@1.php" &amp;&amp; rm -f 1.php</pre>
 <br>
 
 <?php 
