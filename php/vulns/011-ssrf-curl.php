@@ -11,7 +11,7 @@
 	<h1>011 - SSRF - cURL 方式</h1>
 
 	<p>不正常调用:</p>
-	<pre>curl '<a href="<?= $any ?>" target="_blank"><?= $any ?></a>'</pre>
+	<pre>curl '<a href="<?php echo $any ?>" target="_blank"><?php echo $any ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<br>

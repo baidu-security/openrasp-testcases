@@ -13,7 +13,7 @@
 	<h1>016 - WebShell - 文件包含方式</h1>
 
 	<p>不正常调用</p>
-	<pre>curl '<a href="<?= $any ?>" target="_blank"><?= $any ?></a>'</pre>
+	<pre>curl '<a href="<?php echo $any ?>" target="_blank"><?php echo $any ?></a>'</pre>
 
 	<br>
 	<p>包含内容</p>

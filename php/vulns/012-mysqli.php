@@ -63,14 +63,14 @@ INSERT INTO test.vuln values (1, "rocks");
 		<div class="row">
 			<div class="col-xs-8 col-xs-offset-2">
 				<p>第二步: 尝试发起SQL注入攻击</p>
-				<form action="<?= $_SERVER['PHP_SELF'] ?>" method="get">
+				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
 					<div class="form-group">
 					   <label>服务器地址</label>
-					   <input class="form-control" name="server" value="<?= $server ?>">
+					   <input class="form-control" name="server" value="<?php echo $server ?>">
 					</div>
 					<div class="form-group">
 					   <label>查询条件</label>
-					   <input class="form-control" name="id" value="<?= $id ?>" autofocus>
+					   <input class="form-control" name="id" value="<?php echo $id ?>" autofocus>
 					</div>				 
 
 					<button type="submit" class="btn btn-primary">提交查询</button>	
@@ -86,8 +86,8 @@ INSERT INTO test.vuln values (1, "rocks");
 					<tbody>
 						<?php if (isset ($result)) foreach ($result as $row) {?>
 						<tr>
-							<td><?= $row["id"] ?></td>
-							<td><?= $row["name"] ?></td>
+							<td><?php echo $row["id"] ?></td>
+							<td><?php echo $row["name"] ?></td>
 						</tr>
 						<?php } ?>
 					</tbody>

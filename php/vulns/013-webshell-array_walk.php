@@ -11,7 +11,7 @@
 	<h1>013 - WebShell - 回调类型后门 - array_walk</h1>
 
 <p>不正常调用: </p>
-<p>curl '<a href="<?= $linux ?>" target="_blank"><?= $linux ?></a>'</p>
+<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 <br>
 <br>
 <?php
