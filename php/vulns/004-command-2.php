@@ -1,18 +1,23 @@
+<?php
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?cmd=';
+	$linux   = $baseurl . 'cat+/etc/resolv.conf';
+	$windows = $baseurl . 'cmd /c whoami';
+?>
+
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>004 - 命令执行</title>
+	<title>004 - 命令执行 - system 方式，有回显</title>
 </head>
 <body>
 	<h1>004 - 命令执行 - system 方式</h1>
 
 	<p>Linux 触发: </p>
-	<pre>curl <?php echo '"http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?cmd=cat+/etc/resolv.conf"'?> </pre>
-	<p>然后检查 /tmp 是否存在 passwd 这个文件</p>
+	<p>curl '<a href="<?= $linux ?>" target="_blank"><?= $linux ?></a>'</p>
 	<br>
 
 	<p>Windows 触发: </p>
-	<a href="<?= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?cmd=calc' ?>" target="_blank">点击这里执行 calc</a>
+	<p>curl '<a href="<?= $windows ?>" target="_blank"><?= $windows ?></a>'</p>
 
 	<br><br>
 	<p>命令执行结果</p>

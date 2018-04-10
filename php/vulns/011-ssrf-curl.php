@@ -1,3 +1,7 @@
+<?php
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?url=';
+	$any     = $baseurl . 'http://requestb.in';
+?>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -7,7 +11,7 @@
 	<h1>011 - SSRF - cURL 方式</h1>
 
 	<p>不正常调用:</p>
-	<pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?url=http://requestb.in'?></pre>
+	<pre>curl '<a href="<?= $any ?>" target="_blank"><?= $any ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<br>
