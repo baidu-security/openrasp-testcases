@@ -12,6 +12,7 @@
 
 <p>不正常调用: </p>
 <p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
+<p>Please make sure enable PCNTL extension while callback=pcntl_exec (php -i | grep pcntl)</p>
 <br>
 <br>
 <?php
