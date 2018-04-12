@@ -32,10 +32,10 @@
   <h1>007 - 通过XXE读取系统文件</h1>
 
 	<p>不正常调用 - Linux (读取 /etc/passwd)</p>
-    <a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
+  <p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
 
     <p>不正常调用 - Windows (读取 c:/windows/win.ini)</p>
-    <a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>
+  <p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>'</p>
 
     <p>节点内容: <%= tmp %></p>
     <p>(有漏洞会看到文件内容)</p>

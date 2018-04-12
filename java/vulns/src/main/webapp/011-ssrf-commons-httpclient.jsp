@@ -26,7 +26,7 @@
     }
 %>
 <p>commons-httpclient 调用方式: </p>
-<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
+<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
 <pre>说明: 参数 url 为请求的 url</pre>
 </body>
 </html>
