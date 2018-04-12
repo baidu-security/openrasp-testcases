@@ -13,11 +13,8 @@
     <title>011 - SSRF - HttpClient 方式</title>
 </head>
 <body>
-<p>HttpClient 调用方式: </p>
-<pre>curl '<%=request.getRequestURL()%>?url=http://0x7f001'</pre>
-<pre>说明: 参数 url 为请求的 url</pre>
 <%
-
+    String linux_querystring = "?url=http://0x7f001";
     String urlString = request.getParameter("url");
     if (urlString != null) {
         try {
@@ -40,5 +37,8 @@
     }
 
 %>
+<p>HttpClient 调用方式: </p>
+<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
+<pre>说明: 参数 url 为请求的 url</pre>
 </body>
 </html>

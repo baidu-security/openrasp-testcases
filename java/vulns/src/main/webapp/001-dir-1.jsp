@@ -9,6 +9,8 @@
 <body>
 	<h1>001 - 使用 File.listFiles 遍历目录（有路径拼接）</h1>
 <%
+String normal_querystring = "?dirname=reports";
+String linux_querystring = "?dirname=../../../../../../../../../../../../../../../var/log/";
 String dirname = request.getParameter("dirname");
 if (dirname != null) {
 	try {
@@ -28,9 +30,9 @@ if (dirname != null) {
 else {
 %>
 <p>正常调用: </p>
-<pre>curl <%=request.getRequestURL()%>?dirname=reports</pre>
+	<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>
 <p>不正常调用 - Linux: </p>
-<pre>curl <%=request.getRequestURL()%>?dirname=../../../../../../../../../../../../../../../var/log/</pre>
+	<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
 <%
 }
 %>

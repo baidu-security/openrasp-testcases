@@ -21,12 +21,9 @@
 </head>
 <body>
     <h1>009 - 使用 InvokerTransformer 反序列化并执行命令</h1>
-<p>Windows 测试</p>
-<pre><a href="<%=request.getRequestURL()%>?cmd=calc.exe"><%=request.getRequestURL()%>?cmd=calc.exe</a></pre>
-
-<p>Linux 测试</p>
-<pre>curl '<%=request.getRequestURL()%>?cmd=whoami'</pre>
 <%
+        String linux_querystring = "?cmd=whoami";
+        String windows_querystring = "?cmd=calc.exe";
     if (request.getParameter("cmd") != null) {
 	    try {
             Transformer[] transformers = new Transformer[]{
@@ -60,5 +57,10 @@
 		}
     }
 %>
+    <p>Linux 测试</p>
+    <a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
+
+    <p>Windows 测试</p>
+    <a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>
 </body>
 </html>

@@ -9,6 +9,8 @@
 <body>
 	<h1>002 - 任意文件下载/读取漏洞（路径拼接）</h1>
 <%
+String normal_querystring = "?file=report.pdf";
+String linux_querystring = "?file=../../../../../../../../../../../../../../../etc/passwd";
 String reportName = request.getParameter("file");;
 if (reportName != null) {
 	try {
@@ -29,9 +31,9 @@ if (reportName != null) {
 } else {
 %>
 <p>正常调用: </p>
-<pre>curl <%=request.getRequestURL()%>?file=report.pdf</pre>
+<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>
 <p>不正常调用: </p>
-<pre>curl <%=request.getRequestURL()%>?file=../../../../../../../../../../../../../../../etc/passwd</pre>
+<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
 <%
 	}
 %>

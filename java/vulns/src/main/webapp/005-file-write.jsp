@@ -8,15 +8,13 @@
 </head>
 <body>
 <%
+String normal_querystring = "?filename%3d123.txt%26filedata%3dsome+report+data";
+String linux_querystring = "?filename%3d123.jsp%26filedata%3dsome+webshell+data";
 String bytes = request.getParameter("filedata");
 String fname = request.getParameter("filename");
 if (fname == null || bytes == null) {
 %>
 <p>注意: 由于可能产生误报，所以目前官方插件不会拦截这种使用 FileOutputStream 写文件的后门，我们会尽快解决</p>
-<p>正常调用</p>
-<pre>curl '<%=request.getRequestURL()%>' -d 'filename=123.txt&amp;filedata=some report data'</pre>
-<p>不正常调用</p>
-<pre>curl '<%=request.getRequestURL()%>' -d 'filename=123.jsp&amp;filedata=some webshell data'</pre>
 <%
 } 
 else {
@@ -32,5 +30,9 @@ else {
 	}
 }
 %>
+<p>正常调用</p>
+<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>
+<p>不正常调用</p>
+<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
 </body>
 </html>

