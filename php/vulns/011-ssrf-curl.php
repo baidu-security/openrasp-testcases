@@ -17,23 +17,15 @@
 	<br>
 	<p>响应内容</p>
 <?php 
-	$url = @$_GET['url'];
-	if(!empty($url)){
+	$url = $_GET['url'];
+	if(isset($url))
+	{
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
 		curl_setopt($ch, CURLOPT_NOBODY, FALSE); 
 		curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
-		$data = curl_exec($ch);
-		if(!empty($data)){
-			if (curl_getinfo($ch, CURLINFO_HTTP_CODE) == '200') {
-				$headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-				$header = substr($data, 0, $headerSize);
-				$body = substr($data, $headerSize);
-				echo $body;
-			}
-		}
-		
+		echo curl_exec($ch);		
 	}
 ?>
 </body>
