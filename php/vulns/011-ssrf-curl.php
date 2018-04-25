@@ -22,7 +22,7 @@
 	<br>
 	<p>响应内容</p>
 <?php 
-	$url = $_GET['url'];
+	$url = @$_GET['url'];
 	if(isset($url))
 	{
 		$ch = curl_init($url);
