@@ -1,6 +1,7 @@
 <?php
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?url=';
-	$any     = $baseurl . 'http://requestb.in';
+	$any1    = $baseurl . 'http://192.168.154.200.xip.io';
+	$any2    = $baseurl . 'http://10.10.10.10';
 ?>
 <html>
 <head>
@@ -10,8 +11,12 @@
 <body>
 	<h1>011 - SSRF - cURL 方式</h1>
 
-	<p>不正常调用:</p>
-	<pre>curl '<a href="<?php echo $any ?>" target="_blank"><?php echo $any ?></a>'</pre>
+	<p>不正常调用 - dnslog:</p>
+	<pre>curl '<a href="<?php echo $any ?>" target="_blank"><?php echo $any1 ?></a>'</pre>
+	<pre>说明: 参数 url 为请求的 url</pre>
+
+	<p>不正常调用 - IP形式:</p>
+	<pre>curl '<a href="<?php echo $any ?>" target="_blank"><?php echo $any2 ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<br>
