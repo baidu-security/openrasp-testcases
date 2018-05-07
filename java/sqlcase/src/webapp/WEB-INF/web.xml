@@ -43,4 +43,12 @@
         <servlet-name>pg</servlet-name>
         <url-pattern>/pg</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>db2</servlet-name>
+        <servlet-class>com.baidu.rasp.DB2Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>db2</servlet-name>
+        <url-pattern>/db2</url-pattern>
+    </servlet-mapping>
 </web-app>

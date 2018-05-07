@@ -11,8 +11,9 @@
     <title>$Title$</title>
   </head>
   <body>
-  <p>sql测试demo: http://ip:port/sqlcase/(mysql|mssql|oracle|pg|sqlite)?customField=XXX </p>
+  <p>sql测试demo: http://ip:port/sqlcase/(mysql|mssql|oracle|pg|sqlite|db2)?customField=XXX&prepared=true </p>
   <p>执行的sql语句为： select * from testtable where customField = 'XXX' </p>
+  <p>prepared参数为true使用PreparedStatement执行sql，false使用Statement执行sql </p>
   <p>数据库相关配置可以通过修改sqlcase/sqlcase.properties，具体参数如下(以mysql为例)：</p>
   <p>mysqlurl=jdbc:mysql://127.0.0.1:3306</p>
   <p>mysqldb=test</p>
