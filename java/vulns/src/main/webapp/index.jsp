@@ -61,7 +61,8 @@
 			{"name": "010 - JSTL import 任意文件包含/SSRF", "path": '010-jstl-import.jsp'},
 			{"name": "011 - SSRF - commons.httpclient 方式", "path": '011-ssrf-commons-httpclient.jsp'},
 			{"name": "011 - SSRF - HttpClient 方式", "path": '011-ssrf-httpclient.jsp'},
-			{"name": "011 - SSRF - URL.openConnection 方式", "path": '011-ssrf-urlconnection.jsp'}
+			{"name": "011 - SSRF - URL.openConnection 方式", "path": '011-ssrf-urlconnection.jsp'},
+			{"name": "012 - SQLi - MySQL JDBC executeQuery 方式", "path": '012-jdbc-mysql.jsp'}
         ]
 
 
