@@ -36,6 +36,7 @@ OpenRASP 漏洞测试环境
    * 009 - Transformer 反序列化
    * 010 - jstl import 任意文件包含
    * 011 - SSRF 漏洞
+   * 012 - JDBC MySQL 注入测试，表单形式
 
 #### PHP 
 
