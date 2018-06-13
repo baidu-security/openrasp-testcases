@@ -38,6 +38,11 @@ if ("POST".equals(method)) {
 	<p>请求方式:</p>
 	<pre>curl '<%= request.getRequestURL()%>' -F 'file=@/path/to/a.jsp'</pre>
 	<p>目前，官方插件只检查脚本文件上传的情况，比如 aaa.php, bbb.jsp，其他后缀不会拦截</p>
+
+	<form method="post" enctype="multipart/form-data" action="<%=request.getRequestURL() %>">
+		<input type="file" name="file">
+		<input type="submit">
+	</form>
 <%}
 %>
 </body>
