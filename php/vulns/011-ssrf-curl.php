@@ -2,6 +2,7 @@
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?url=';
 	$any1    = $baseurl . 'http://192.168.154.200.xip.io';
 	$any2    = $baseurl . 'http://10.10.10.10';
+	$any3    = $baseurl . 'file:///etc/passwd';
 ?>
 <html>
 <head>
@@ -17,6 +18,10 @@
 
 	<p>不正常调用 - IP形式:</p>
 	<pre>curl '<a href="<?php echo $any2 ?>" target="_blank"><?php echo $any2 ?></a>'</pre>
+	<pre>说明: 参数 url 为请求的 url</pre>
+
+	<p>不正常调用 - 读取文件:</p>
+	<pre>curl '<a href="<?php echo $any3 ?>" target="_blank"><?php echo $any3 ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<br>
