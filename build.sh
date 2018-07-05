@@ -15,7 +15,7 @@ function log2()
 
 function build_java() 
 {
-    for x in S2-016 fastjson vulns
+    for x in S2-016 fastjson vulns wxpay-xxe
     do
         log2 $x
 
