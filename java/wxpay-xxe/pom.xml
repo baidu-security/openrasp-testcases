@@ -5,9 +5,9 @@
     <artifactId>wxpay</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>wxpay</name>
+    <name>wxpay-xxe</name>
     <url>http://maven.apache.org</url>
     <build>
-        <finalName>wxpay</finalName>
+        <finalName>wxpay-xxe</finalName>
     </build>
 </project>
