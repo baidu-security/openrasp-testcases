@@ -1,7 +1,8 @@
 <?php
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?file=';
-	$linux   = $baseurl . 'header.php';
-	$windows = $baseurl . '../../../../../../../../../../../../../var/log/httpd/error_log';
+	$normal  = $baseurl . 'header.php';
+
+	$linux1  = $baseurl . '../../../../../../../../../../../../../var/log/httpd/error_log';
 ?>
 
 <html>
@@ -15,11 +16,11 @@
 	<h1>010 - 任意文件包含 - include 拼接方式</h1>
 
 	<p>正常调用: </p>
-	<pre>curl '<a href="<?php echo $linux; ?>" target="_blank"><?php echo $linux; ?></a>'</pre>
+	<pre>curl '<a href="<?php echo $normal; ?>" target="_blank"><?php echo $normal; ?></a>'</pre>
 	<br>
 	
-	<p>不正常调用</p>
-	<pre>curl '<a href="<?php echo $windows; ?>" target="_blank"><?php echo $windows; ?></a>'</pre>
+	<p>不正常调用 (</p>
+	<pre>curl '<a href="<?php echo $linux1; ?>" target="_blank"><?php echo $linux1; ?></a>'</pre>
 
 	<br>
 	<p>包含内容</p>
