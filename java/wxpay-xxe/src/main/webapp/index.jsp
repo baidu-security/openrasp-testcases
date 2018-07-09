@@ -34,7 +34,7 @@ if ("POST".equals(request.getMethod()))
 &lt;a&gt;&rrr;&lt;/a&gt;			
 EOF
 
-curl <%= request.getRequestURL() %> --data @/tmp/1.txt
+curl <%= request.getRequestURL() %> -H 'Content-Type: ' --data-binary @/tmp/1.txt
 </pre>
 	</body>
 </html>
