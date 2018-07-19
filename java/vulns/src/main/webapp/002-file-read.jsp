@@ -1,5 +1,9 @@
 <%@page import="java.io.*" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@page contentType="text/html; charset=UTF-8" %>
+<%
+String normal_querystring = "?file=report.pdf";
+String linux_querystring = "?file=../../../../../../../../../../../../../../../etc/passwd";
+%>
 
 <html>
 <head>	
@@ -8,10 +12,15 @@
 </head>
 <body>
 	<h1>002 - 任意文件下载/读取漏洞（路径拼接）</h1>
-<%
-String normal_querystring = "?file=report.pdf";
-String linux_querystring = "?file=../../../../../../../../../../../../../../../etc/passwd";
-String reportName = request.getParameter("file");;
+	<p>正常调用: </p>
+	<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>'</p>
+	<p>不正常调用: </p>
+	<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
+	
+	<br>
+	<p>读取内容</p>
+	<pre><%
+String reportName = request.getParameter("file");
 if (reportName != null) {
 	try {
 	    String fileName = application.getRealPath("/") + "/reports/" + reportName;
@@ -28,14 +37,7 @@ if (reportName != null) {
 	} catch (Exception e) {
         out.print(e);
 	}
-} else {
-%>
-<p>正常调用: </p>
-	<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>'</p>
-<p>不正常调用: </p>
-	<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
-<%
-	}
-%>
+}
+%></pre>
 </body>
 </html>
