@@ -2,7 +2,7 @@
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?file=';
 	$normal  = $baseurl . 'header.php';
 
-	$linux1  = $baseurl . '../../../../../../../../../../../../../var/log/httpd/error_log';
+	$linux1  = $baseurl . '../../../../../../../../../../../../../var/log/wtmp';
 ?>
 
 <html>
