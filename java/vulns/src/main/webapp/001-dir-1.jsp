@@ -11,6 +11,8 @@
 <%
 String normal_querystring = "?dirname=reports";
 String linux_querystring = "?dirname=../../../../../../../../../../../../../../../var/log/";
+String windows_querystring = "?dirname=../../../";
+
 String dirname = request.getParameter("dirname");
 if (dirname != null) {
 	try {
@@ -30,9 +32,15 @@ if (dirname != null) {
 else {
 %>
 <p>正常调用: </p>
-	<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL() + normal_querystring%></a>'</p>
+
 <p>不正常调用 - Linux: </p>
-	<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL() + linux_querystring%></a>'</p>
+
+<p>不正常调用 - Windows: </p>
+<p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL() + windows_querystring %></a>'</p>
+
+
 <%
 }
 %>
