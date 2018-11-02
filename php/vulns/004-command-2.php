@@ -1,7 +1,7 @@
 <?php
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?cmd=';
 	$linux   = $baseurl . 'cat+/etc/resolv.conf';
-	$windows = $baseurl . 'cmd /c whoami';
+	$windows = $baseurl . 'cmd+/c+whoami';
 ?>
 
 <html>

