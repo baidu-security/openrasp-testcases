@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-    String linux_querystring = "?url=http://0x7f001";
+    String linux_querystring = "?url=http://0x7f000001";
     String urlString = request.getParameter("url");
     if (urlString != null) {
         try {
