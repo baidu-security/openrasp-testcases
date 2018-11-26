@@ -5,7 +5,7 @@
 <html>
 <head>  
     <meta charset="UTF-8"/>
-    <title>004-2 命令执行，带回显</title>
+    <title>004-2 命令执行后门（有回显）</title>
 </head>
 <body>
     <h1>004 - 命令执行后门（有回显）</h1>
