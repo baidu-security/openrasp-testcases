@@ -3,6 +3,7 @@
 <%
 String normal_querystring = "?file=report.pdf";
 String linux_querystring = "?file=../../../../../../../../../../../../../../../etc/passwd";
+String windows_querystring = "?file=../../../conf/tomcat-users.xml";
 %>
 
 <html>
@@ -14,8 +15,12 @@ String linux_querystring = "?file=../../../../../../../../../../../../../../../e
 	<h1>002 - 任意文件下载/读取漏洞（路径拼接）</h1>
 	<p>正常调用: </p>
 	<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>'</p>
+	
 	<p>不正常调用: </p>
 	<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
+	
+	<p>不正常调用: </p>
+	<p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>'</p>
 	
 	<br>
 	<p>读取内容</p>

@@ -1,7 +1,7 @@
 <?php
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?cmd=';
 	$linux   = $baseurl . 'cp+/etc/passwd+/tmp/';
-	$windows = $baseurl . 'calc';
+	$windows = $baseurl . 'cmd+/c+calc';
 ?>
 
 <html>

@@ -52,7 +52,7 @@
   <div class="container-fluid" style="margin-top: 50px;">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <h4>SQL注入 - mysqli 方式</h4>
+        <h4>SQL注入 - JDBC executeQuery() 方式</h4>
         <p>第一步: 请以mysql root账号执行下面的语句创建表</p>
         <pre>DROP DATABASE IF EXISTS test;
 CREATE DATABASE test;         
@@ -72,7 +72,7 @@ INSERT INTO test.vuln values (1, "rocks");
           <div class="form-group">
              <label>查询条件</label>
              <input class="form-control" name="id" value="<%= id %> " autofocus>
-          </div>         
+          </div>
 
           <button type="submit" class="btn btn-primary">提交查询</button> 
         </form>

