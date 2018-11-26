@@ -23,7 +23,7 @@ String linux_querystring = "?file=../../../../../../../../../../../../../../../e
 String reportName = request.getParameter("file");
 if (reportName != null) {
 	try {
-	    String fileName = application.getRealPath("/") + "/reports/" + reportName;
+	    String fileName = application.getResource("/").getPath() + "/reports/" + reportName;
 
 	    FileInputStream fileIn = new FileInputStream(fileName);
 	    OutputStream outStream = response.getOutputStream();

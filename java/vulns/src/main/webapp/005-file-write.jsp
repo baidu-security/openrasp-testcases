@@ -19,7 +19,7 @@ if (fname == null || bytes == null) {
 } 
 else {
 	try {
-		String path = request.getRealPath("/") + "/" + fname;
+		String path = application.getResource("/").getPath() + "/" + fname;
 	   	FileOutputStream os = new FileOutputStream(path);
 		PrintWriter writer = new PrintWriter(os);
 		writer.print(bytes);

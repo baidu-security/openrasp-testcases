@@ -62,7 +62,8 @@
 			{"name": "011 - SSRF - commons.httpclient 方式", "path": '011-ssrf-commons-httpclient.jsp'},
 			{"name": "011 - SSRF - HttpClient 方式", "path": '011-ssrf-httpclient.jsp'},
 			{"name": "011 - SSRF - URL.openConnection 方式", "path": '011-ssrf-urlconnection.jsp'},
-			{"name": "012 - SQLi - MySQL JDBC executeQuery 方式", "path": '012-jdbc-mysql.jsp'}
+			{"name": "012 - SQLi - MySQL JDBC executeQuery 方式", "path": '012-jdbc-mysql.jsp'},
+            {"name": "013 - OKHTTP 方式", "path": '013-okhttp.jsp'}
         ]
 
 
