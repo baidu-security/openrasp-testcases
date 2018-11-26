@@ -1,7 +1,6 @@
 <%@ page import="okhttp3.OkHttpClient" %>
 <%@ page import="okhttp3.Request" %>
 <%@ page import="okhttp3.Response" %>
-<%@ page import="okhttp3.FormBody" %>
 <%--
   Created by IntelliJ IDEA.
   User: anyang
@@ -16,7 +15,7 @@
 </head>
 <body>
 
-<h1>015 - 使用 命令执行</h1>
+<h1>011-ssrf-okhttp3</h1>
 <%!
     public String httpGet(String url) {
         String result = null;
@@ -32,7 +31,7 @@
     }
 %>
 <%
-    String linux_querystring = "?url=http://0x7f001";
+    String linux_querystring = "?url=http://0x7f000001";
     String urlString = request.getParameter("url");
     if (urlString != null) {
         String result = httpGet(urlString);
