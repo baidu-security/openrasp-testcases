@@ -16,7 +16,7 @@ String windows_querystring = "?dirname=../../../";
 String dirname = request.getParameter("dirname");
 if (dirname != null) {
 	try {
-		File folder = new File(application.getRealPath("/") + "/" + dirname);
+		File folder = new File(application.getResource("/").getPath() + "/" + dirname);
 		if (folder.isDirectory()) {
 			File[] listOfFiles = folder.listFiles();
 			for (File file : listOfFiles) {

