@@ -10,7 +10,7 @@
 <pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].' -d "name=user.txt&data=123"'?></pre>
 <br>
 
-<p>不正常调用：</p>
+<p>(注:write script 默认 block action 为 log)不正常调用：</p>
 <pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].' -d "name=1.php&data=&lt;?php phpinfo(); ?>"'?></pre>
 
 <?php 
