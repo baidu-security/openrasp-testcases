@@ -36,10 +36,34 @@
 %>
 
 <%
-  String id = request.getParameter("id");
-  if (id == null) {
-	   id = "1";
-  }
+    String id = null;
+    String content_type = request.getContentType();
+    if(content_type != null && content_type.indexOf("application/json") != -1){
+        int size = request.getContentLength();
+        String postdata = null;
+        if (size > 0) {
+            byte[] buf = new byte[size];
+            try {
+                request.getInputStream().read(buf);
+                postdata = new String(buf);
+                if (postdata != null) {
+                    net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(postdata);
+                    if (json != null) {
+                        id = json.getString("id");
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    else{
+        id = request.getParameter("id");
+    }
+    if (id == null) {
+        id = "1";
+    }
+    String escid = id.replaceAll("'", "&#39;");
 %>
 
 <html>
@@ -49,6 +73,44 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+<script>
+function GetUrlRelativePath(){
+    var url = document.location.toString();
+    var arrUrl = url.split("//");
+    var start = arrUrl[1].indexOf("/");
+    var relUrl = arrUrl[1].substring(start);
+    if(relUrl.indexOf("?") != -1){
+        relUrl = relUrl.split("?")[0];
+    }
+    return relUrl;
+}
+
+function getXMLHttpRequest(){
+    var xmlhttp;
+    if (window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+    }
+    else{
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xmlhttp;
+}
+
+function send_json(){
+    var data = document.getElementById("jsoninput").value;
+    var xmlhttp=getXMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            document.body.innerHTML = "";
+            document.write(xmlhttp.responseText);
+        }
+    }
+    url = GetUrlRelativePath()
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type","application/json;charset=UTF-8");
+    xmlhttp.send(data);
+}
+</script>
   <div class="container-fluid" style="margin-top: 50px;">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
@@ -71,12 +133,22 @@ INSERT INTO test.vuln values (1, "rocks");
         <form action="<%= javax.servlet.http.HttpUtils.getRequestURL(request) %>" method="get">
           <div class="form-group">
              <label>查询条件</label>
-             <input class="form-control" name="id" value="<%= id %> " autofocus>
+             <input class="form-control" name="id" value="<%=id%> " autofocus>
           </div>
 
           <button type="submit" class="btn btn-primary">提交查询</button> 
         </form>
       </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="form-group">
+                <label>json查询条件</label>
+                <input id="jsoninput" class="form-control" name="id" value='{"id":"<%=escid%>"}' >
+            </div>
+            <button onclick="send_json()" class="btn btn-primary">json方式提交查询</button>
+        </div>
     </div>
 
     <div class="row">
