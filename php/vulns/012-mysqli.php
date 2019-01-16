@@ -80,7 +80,7 @@ function send_json(){
     var xmlhttp=getXMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
-            document.body.innerHTML = "";
+            document.body.innerHTML = ""
             document.write(xmlhttp.responseText);
         }
     }
@@ -129,7 +129,7 @@ INSERT INTO test.vuln values (1, "rocks");
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="form-group">
                     <label>json查询条件</label>
-                    <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id) ?>"}' >
+                    <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
                 </div>
                 <button onclick="send_json()" class="btn btn-primary">json方式提交查询</button>
             </div>
