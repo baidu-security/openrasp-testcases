@@ -35,7 +35,7 @@
 		curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
 		curl_setopt($ch, CURLOPT_NOBODY, FALSE); 
 		curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
-		echo curl_exec($ch);		
+		echo(htmlentities(curl_exec($ch)));
 	}
 ?>
 </body>

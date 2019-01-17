@@ -143,8 +143,8 @@ INSERT INTO test.vuln values (1, "rocks");
                 <tbody>
                     <?php if (isset ($result)) foreach ($result as $row) {?>
                     <tr>
-                        <td><?php echo $row["id"] ?></td>
-                        <td><?php echo $row["name"] ?></td>
+                        <td><?php echo htmlentities($row["id"]) ?></td>
+                        <td><?php echo htmlentities($row["name"]) ?></td>
                     </tr>
                     <?php } ?>
                 </tbody>

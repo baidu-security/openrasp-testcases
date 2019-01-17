@@ -74,7 +74,7 @@ function send_json(){
         $content = scandir($_GET['dir']);
         foreach ($content as $item)
         {
-            echo "$item<br/>\n";
+            echo htmlentities("$item") . "<br/>\n";
         }
     }
     else if(strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false){
@@ -84,7 +84,7 @@ function send_json(){
             $content = scandir($input['dir']);
             foreach ($content as $item)
             {
-                echo "$item<br/>\n";
+                echo htmlentities("$item") . "<br/>\n";
             }
         }
     }

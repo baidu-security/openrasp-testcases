@@ -35,6 +35,8 @@
     String urlString = request.getParameter("url");
     if (urlString != null) {
         String result = httpGet(urlString);
+        result = result.replace("<", "&lt;");
+        result = result.replace(">", "&gt;");
         out.println(result);
     }
 %>

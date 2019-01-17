@@ -20,7 +20,7 @@
 		$status = file_put_contents($dest, $_POST['data']);
 		if ($status)
 		{
-			echo "文件上传成功: $dest\n<br/>";
+			echo "文件上传成功: " . htmlentities($dest) . "\n<br/>";
 		}
 		else
 		{

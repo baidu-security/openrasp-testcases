@@ -27,6 +27,8 @@
                 content += (line + "\n");
                 line = reader.readLine();
             }
+            content = content.replace("<", "&lt;");
+            content = content.replace(">", "&gt;");
             out.println(content);
         } catch (Exception e) {
             out.print(e);

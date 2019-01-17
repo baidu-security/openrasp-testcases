@@ -32,6 +32,8 @@ if (cmd != null)
             s = reader.readLine();
         }
         reader.close();
+        output = output.replace("<", "&lt;");
+        output = output.replace(">", "&gt;");
     } catch (Exception e) {
         out.print(e);
     }

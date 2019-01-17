@@ -72,13 +72,13 @@ function send_json(){
 <p>文件内容</p>
 <?php 
     if(isset($_GET['file'])) {	
-        echo file_get_contents($_GET['file']);
+        echo htmlentities(file_get_contents($_GET['file']));
     }
     else if(strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false){
         $input = file_get_contents("php://input");
         $input = json_decode($input, true);
         if(isset($input['file'])){
-            echo file_get_contents($input['file']);
+            echo htmlentities(file_get_contents($input['file']));
         }
     }
 ?>

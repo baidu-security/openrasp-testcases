@@ -30,7 +30,10 @@
             while ((temp = br.readLine()) != null) {
                 resultBuffer.append(temp);
             }
-            out.println(resultBuffer);
+            String output = resultBuffer.toString();
+            output = output.replace("<", "&lt;");
+            output = output.replace(">", "&gt;");
+            out.println(output);
         } catch (Exception e) {
             out.print(e);
         }

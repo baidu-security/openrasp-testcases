@@ -19,7 +19,10 @@
 
             String charSet = getMethod.getResponseCharSet();
             byte[] responseBody = getMethod.getResponseBody();
-            out.println("response:\r\n" + new String(responseBody, charSet));
+            String output = new String(responseBody, charSet);
+            output = output.replace("<", "&lt;");
+            output = output.replace(">", "&gt;");
+            out.println("response:\r\n" + output);
         } catch (Exception e) {
             out.print(e);
         }
