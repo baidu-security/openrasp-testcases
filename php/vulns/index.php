@@ -61,6 +61,7 @@
 			{"name": "014 - WebShell - 中国菜刀", "path": "014-webshell-eval.php"},
 			{"name": "015 - WebShell - 文件上传小马", "path": "015-webshell-dropper.php"},
 			{"name": "016 - WebShell - 文件包含方式", "path": "016-webshell-include.php"},
+			{"name": "017 - XSS - 反射型XSS", "path": "016-webshell-include.php"},
         ]
 
       }

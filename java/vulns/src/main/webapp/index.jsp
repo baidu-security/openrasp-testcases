@@ -64,9 +64,9 @@
                 {"name": "011 - SSRF - URL.openConnection 方式", "path": '011-ssrf-urlconnection.jsp'},
                 {"name": "011 - SSRF - OKHTTP 方式", "path": '011-ssrf-okhttp.jsp'},
                 {"name": "011 - SSRF - OKHTTP3 方式", "path": '011-ssrf-okhttp3.jsp'},
-
                 {"name": "012 - SQLi - MySQL JDBC executeQuery 方式", "path": '012-jdbc-mysql.jsp'},
-                {"name": "013 - SQLi - JDBC multipart 请求格式", "path": '013-multipart-mysql.jsp'}
+                {"name": "013 - SQLi - JDBC multipart 请求格式", "path": '013-multipart-mysql.jsp'},
+                {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'}
             ]
         }
     ]);
