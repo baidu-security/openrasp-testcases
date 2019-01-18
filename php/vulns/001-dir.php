@@ -77,7 +77,7 @@ function send_json(){
             echo htmlentities("$item") . "<br/>\n";
         }
     }
-    else if(strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false){
+    else if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false){
         $input = file_get_contents("php://input");
         $input = json_decode($input, true);
         if(isset($input['dir'])){

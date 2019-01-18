@@ -5,7 +5,7 @@
     $db     = isset($_GET["db"])     ? $_GET['db']    : 'test';
     $id     = isset($_GET['id'])     ? $_GET['id']    : '0';
 
-    if(strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false){
+    if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false){
         $input = file_get_contents("php://input");
         $input = json_decode($input, true);
         if(isset($input['id'])){
@@ -143,8 +143,8 @@ INSERT INTO test.vuln values (1, "rocks");
                 <tbody>
                     <?php if (isset ($result)) foreach ($result as $row) {?>
                     <tr>
-                        <td><?php echo htmlentities($row["id"]) ?></td>
-                        <td><?php echo htmlentities($row["name"]) ?></td>
+                        <td><?php echo $row["id"] ?></td>
+                        <td><?php echo $row["name"] ?></td>
                     </tr>
                     <?php } ?>
                 </tbody>
