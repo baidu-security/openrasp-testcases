@@ -18,7 +18,7 @@
 <h1>011-ssrf-okhttp3</h1>
 <%!
     public String httpGet(String url) {
-        String result = null;
+        String result = "";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         try {
