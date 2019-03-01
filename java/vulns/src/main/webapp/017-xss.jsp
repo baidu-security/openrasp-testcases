@@ -1,6 +1,5 @@
 <%@page import="java.io.*" %>
 <%@page import="java.util.*" %>
-<%@page import="com.http.*" %>
 <%@page import="net.sf.json.*" %>
     
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -16,14 +15,14 @@
 <%
 
 
-String normal_querystring = "?dirname=reports";
-String xss_querystring = "?dirname=../../../../../../../../../../../../../../../var/log/";
+String normal_querystring = "?input=reports";
+String xss_querystring = "?input=%3cscript%3ealert(1)%3c%2fscript%3e";
 
-String input = request.getParameter("dirname");
+String input = request.getParameter("input");
 
 if (input != null) {
     try {
-            out.println(input);
+        out.println(input);
     } catch (Exception e) {
         out.print(e);
     }
