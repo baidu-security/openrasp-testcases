@@ -1,7 +1,7 @@
 <%@page import="java.io.*" %>
 <%@page contentType="text/html; charset=UTF-8" %>
 <%
-String normal_querystring = "?file=report.pdf";
+String normal_querystring = "?file=reports/example.pdf";
 String linux_querystring = "?file=../../../../../../../../../../../../../../../etc/passwd";
 String windows_querystring = "?file=../../../conf/tomcat-users.xml";
 %>
