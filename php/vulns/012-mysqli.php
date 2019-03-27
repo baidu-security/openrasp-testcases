@@ -108,30 +108,31 @@ INSERT INTO test.vuln values (1, "rocks");
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-            <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
-                <div class="form-group">
-                    <label>服务器地址</label>
-                    <input class="form-control" name="server" value="<?php echo $server ?>">
-                </div>
-                <div class="form-group">
-                    <label>查询条件</label>
-                    <input class="form-control" name="id" value="<?php echo $id ?>" autofocus>
-                </div>
+                <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
+                    <div class="form-group">
+                        <label>服务器地址</label>
+                        <input class="form-control" name="server" value="<?php echo $server ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>查询条件</label>
+                        <input class="form-control" name="id" value="<?php echo $id ?>" autofocus>
+                    </div>
 
-                <button type="submit" class="btn btn-primary">提交查询</button>
-                
-            </form>
+                    <button type="submit" class="btn btn-primary">提交查询</button>                    
+                </form>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-                <div class="form-group">
-                    <label>json查询条件</label>
-                    <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
-                </div>
-                <button onclick="send_json()" class="btn btn-primary">json方式提交查询</button>
+                <form onsubmit="send_json()">
+                    <div class="form-group">
+                        <label>JSON 方式查询</label>
+                        <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
+                    </div>
+                    <button type="submit" class="btn btn-primary">JSON 方式提交查询</button>
+                </form>                
             </div>
         </div>
 
