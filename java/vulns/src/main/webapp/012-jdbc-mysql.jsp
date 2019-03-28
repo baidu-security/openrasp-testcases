@@ -143,11 +143,13 @@ INSERT INTO test.vuln values (1, "rocks");
 
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
+          <form onsubmit="send_json()">
             <div class="form-group">
                 <label>json查询条件</label>
                 <input id="jsoninput" class="form-control" name="id" value='{"id":"<%=escid%>"}' >
             </div>
-            <button onclick="send_json()" class="btn btn-primary">json方式提交查询</button>
+            <button type="submit" class="btn btn-primary">JSON 方式提交查询</button>
+          </form>                
         </div>
     </div>
 

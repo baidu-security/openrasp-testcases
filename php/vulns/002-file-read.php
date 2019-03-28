@@ -1,8 +1,9 @@
 <?php
-	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ;
-	$windows = $baseurl . '?file=C:\Windows\System32\drivers\etc\hosts';
-	$linux1  = $baseurl . '?file=/etc/hosts';
-	$linux2  = $baseurl . '?file=file:///etc/hosts';
+	$baseurl  = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ;
+	$windows  = $baseurl . '?file=C:\Windows\System32\drivers\etc\hosts';
+	$windows2 = $baseurl . '?file=file://C:\Windows\System32\drivers\etc\hosts';
+	$linux1   = $baseurl . '?file=/etc/hosts';
+	$linux2   = $baseurl . '?file=file:///etc/hosts';
 	$linux_json_curl = 'curl -d \'{"file":"/etc/hosts"}\' -H "Content-Type: application/json" ' . $baseurl;
 ?>
 
@@ -67,6 +68,10 @@ function send_json(){
 <br>
 <p>windows 不正常调用</p>
 <p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
+
+<br>
+<p>windows 不正常调用 - file:// 协议</p>
+<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows2 ?></a>'</p>
 
 <br>
 <p>文件内容</p>
