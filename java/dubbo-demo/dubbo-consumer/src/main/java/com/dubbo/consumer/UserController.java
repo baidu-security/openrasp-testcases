@@ -1,11 +1,11 @@
 package com.dubbo.consumer;
 
 import com.dubbo.demo_interface.api.IUserService;
-import com.dubbo.demo_interface.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -14,17 +14,30 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class UserController {
 
-    @Resource
+    @Autowired
     private IUserService userService;
 
+    @RequestMapping("/mysql")
+    public String find(@RequestParam(value = "id", required = false) String id, HttpServletRequest request) throws Exception {
+        String result = "参数错误";
+        if (id != null) {
+            result = userService.select(id);
+        } else {
+            result = userService.select();
+        }
+        request.setAttribute("result", result);
+        return "main";
+    }
 
-
-    @RequestMapping("/find")
-    public String find(int id,HttpServletRequest request){
-        System.out.println(id+"2222222222222");
-        User user = userService.selectById(id);
-        System.out.println(user+"--"+user.getId()+user.getUsername());
-        request.setAttribute("user", user);
+    @RequestMapping("/array")
+    public String find(@RequestParam(value = "params[]", required = false) String[] params, HttpServletRequest request) throws Exception {
+        String result = "参数错误";
+        if (params != null) {
+            result = userService.select(params);
+        } else {
+            result = userService.select();
+        }
+        request.setAttribute("result", result);
         return "main";
     }
 

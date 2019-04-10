@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
+    <context:component-scan base-package="com.dubbo.consumer"/>
+    <!--<bean class="com.dubbo.consumer.UserController"></bean>-->
+    <!-- 定义跳转的文件的前后缀 ，视图模式配置-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
+        <property name="prefix" value="/WEB-INF/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <import resource="classpath:consumer.xml"/>
+</beans>

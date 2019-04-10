@@ -1,12 +1,13 @@
 package com.dubbo.demo_interface.api;
 
-import com.dubbo.demo_interface.pojo.User;
 
 /**
  * Created by anyang on 2018/6/25.
  */
 public interface IUserService {
 
-    public User selectById(int id);
+    String select() throws Exception;
+    String select(String id) throws Exception;
+    String select(String[] ids) throws Exception;
 
 }

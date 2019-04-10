@@ -14,10 +14,6 @@
 </head>
 <body>
 《result page》<hr>
-
-<c:if test="${user != null }" >
-    id:${user.id }<br>
-    username:${user.username }<br>
-</c:if>
+${result}
 </body>
 </html>

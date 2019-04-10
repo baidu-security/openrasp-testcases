@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Hello World! index</h2>
-<a href="find.do?id=0">查询</a><br>
+<h2>Hello World!</h2>
+<a href="mysql.do">查询</a><br>
 </body>
 </html>

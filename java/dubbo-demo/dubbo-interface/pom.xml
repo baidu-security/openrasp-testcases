@@ -33,24 +33,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <compiler.source>1.7</compiler.source>
         <compiler.target>1.7</compiler.target>
-        <junit.version>4.12</junit.version>
         <!-- spring版本号 -->
         <spring.version>4.0.2.RELEASE</spring.version>
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.6</mybatis.version>
-        <!-- log4j日志文件管理包版本 -->
-        <slf4j.version>1.7.7</slf4j.version>
-        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -61,19 +50,10 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-oxm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -91,59 +71,5 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.6.12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.6.12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.18.1-GA</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.netty</groupId>
-            <artifactId>netty</artifactId>
-            <version>3.2.5.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>3.4.6</version>
-        </dependency>
-        <!-- mybatis核心包 -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>${mybatis.version}</version>
-        </dependency>
-        <!-- 日志文件管理包 -->
-        <!-- log start -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <!-- log end -->
     </dependencies>
 </project>

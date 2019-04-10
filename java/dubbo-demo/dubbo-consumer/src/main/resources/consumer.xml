@@ -8,10 +8,10 @@
          http://code.alibabatech.com/schema/dubbo
          http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="user-consumer"  />
+    <dubbo:application name="user-consumer"/>
 
-    <dubbo:registry address="zookeeper://localhost:2181" protocol="zookeeper"/>
+    <dubbo:registry  protocol="zookeeper" register="false"/>
 
-    <dubbo:reference interface="com.dubbo.demo_interface.api.IUserService" id="userService" check="false" timeout="10000"/>
+    <dubbo:reference interface="com.dubbo.demo_interface.api.IUserService" id="userService" check="false" timeout="10000" url="dubbo://127.0.0.1:20880"/>
 
 </beans>
