@@ -28,8 +28,13 @@ String windows_querystring = "?file=../../../conf/tomcat-users.xml";
 String reportName = request.getParameter("file");
 if (reportName != null) {
 	try {
-		String fileName = application.getRealPath("/") + "/reports/" + reportName;
-
+		String fileName;
+		String serverInfo = application.getServerInfo();
+		if (serverInfo != null && serverInfo.toLowerCase().contains("weblogic")) {
+			fileName = application.getResource("/").getPath() + "/reports/" + reportName;
+		} else {
+			fileName = application.getRealPath("/") + "/reports/" + reportName;
+		}
 	    FileInputStream fileIn = new FileInputStream(fileName);
 	    OutputStream outStream = response.getOutputStream();
 

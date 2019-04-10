@@ -1,10 +1,10 @@
 <%@page import="java.io.*" %>
 <%@page import="java.util.*" %>
 <%@page import="net.sf.json.*" %>
-    
+
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
-<head>	
+<head>
     <meta charset="UTF-8"/>
     <title>001 任意目录读取</title>
 </head>
@@ -86,20 +86,26 @@ String windows_querystring = "?dirname=../../../";
 String linux_json_curl = "curl -d \"{%22dirname%22:%22../../../../../../../../../../../../../../../var/log/%22}\" -H \"Content-Type: application/json\" '" + request.getRequestURL() + "'";
 
 if (dirname != null) {
-	try {
-		File folder = new File(application.getRealPath("/") + "/" + dirname);
-		if (folder.isDirectory()) {
-			File[] listOfFiles = folder.listFiles();
-			for (File file : listOfFiles) {
-			    if (file.isFile()) {
-			        out.println(file.getName());
-			    }
-			}
-		}
-	} catch (Exception e) {
-		out.print(e);
-	}
-} 
+    try {
+        File folder;
+        String serverInfo = application.getServerInfo();
+        if (serverInfo != null && serverInfo.toLowerCase().contains("weblogic")) {
+            folder = new File(application.getResource("/").getPath() + "/" + dirname);
+        } else {
+            folder = new File(application.getRealPath("/") + "/" + dirname);
+        }
+        if (folder.isDirectory()) {
+            File[] listOfFiles = folder.listFiles();
+            for (File file : listOfFiles) {
+                if (file.isFile()) {
+                    out.println(file.getName());
+                }
+            }
+        }
+    } catch (Exception e) {
+        out.print(e);
+    }
+}
 else {
 %>
 <p>正常调用: </p>

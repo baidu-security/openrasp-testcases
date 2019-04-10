@@ -19,7 +19,13 @@ if (fname == null || bytes == null) {
 } 
 else {
 	try {
-		String path = request.getRealPath("/") + "/" + fname;
+		String path;
+		String serverInfo = application.getServerInfo();
+		if (serverInfo != null && serverInfo.toLowerCase().contains("weblogic")) {
+			path = application.getResource("/").getPath() + "/" + fname;
+		} else {
+			path = application.getRealPath("/") + "/" + fname;
+		}
 	   	FileOutputStream os = new FileOutputStream(path);
 		PrintWriter writer = new PrintWriter(os);
 		writer.print(bytes);
