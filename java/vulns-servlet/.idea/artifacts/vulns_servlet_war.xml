@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="vulns-servlet:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="vulns-servlet.war">
-      <element id="artifact" artifact-name="vulns-servlet:war exploded" />
-    </root>
-  </artifact>
-</component>
