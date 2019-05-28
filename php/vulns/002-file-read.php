@@ -61,9 +61,9 @@ function send_json(){
 <p>Linux 不正常调用 - file:// 协议</p>
 <p>curl '<a href="<?php echo $linux2 ?>" target="_blank"><?php echo $linux2 ?></a>'</p>
 
-<br>
+<!-- <br>
 <p>Linux 不正常调用（json方式）: </p>
-<p><a href=# onclick=send_json() ><?=$linux_json_curl?></a></p>
+<p><a href=# onclick=send_json() ><?=$linux_json_curl?></a></p> -->
 
 <br>
 <p>windows 不正常调用</p>
