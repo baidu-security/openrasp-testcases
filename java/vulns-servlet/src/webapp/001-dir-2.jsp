@@ -9,9 +9,9 @@
 <%
     String url = new String(request.getRequestURL());
     String baseUrl = url.substring(0, url.lastIndexOf("/"));
-    String normal_querystring = "/directory?dirname=reports";
-    String linux_querystring = "/directory?dirname=/var/log/";
-    String windows_querystring = "/directory?dirname=c:/";
+    String normal_querystring = "/directory2?dirname=reports";
+    String linux_querystring = "/directory2?dirname=/var/log/";
+    String windows_querystring = "/directory2?dirname=c:/";
 %>
 <p>正常调用: </p>
 <p>curl '<a href="<%=baseUrl+normal_querystring%>" target="_blank"><%=baseUrl + normal_querystring%>

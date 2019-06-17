@@ -1,6 +1,5 @@
 package com.baidu.rasp;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,11 +8,11 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author anyang
- * @Description: 目录遍历
- * @date 2018/6/27 22:00
+ * @description: 目录遍历2
+ * @author: anyang
+ * @create: 2019/06/17 13:52
  */
-public class Directory extends HttpServlet {
+public class Directory2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -24,14 +23,7 @@ public class Directory extends HttpServlet {
         try {
             String dirname = req.getParameter("dirname");
             if (dirname != null) {
-                File folder;
-                ServletContext application = this.getServletContext();
-                String serverInfo = application.getServerInfo();
-                if (serverInfo != null && serverInfo.toLowerCase().contains("weblogic")) {
-                    folder = new File(application.getResource("/").getPath() + "/" + dirname);
-                } else {
-                    folder = new File(application.getRealPath("/") + "/" + dirname);
-                }
+                File folder = new File(dirname);
                 if (folder.isDirectory()) {
                     File[] listOfFiles = folder.listFiles();
                     if (listOfFiles != null) {
