@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.sql.*;
 
 /**
- * @program vulns-servlet
  * @description: sql基线检测
  * @author: anyang
  * @create: 2019/06/17 14:19
