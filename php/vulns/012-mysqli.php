@@ -111,7 +111,7 @@ INSERT INTO test.vuln values (1, "rocks");
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-                <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
+                <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过8的语句</p>
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
                     <div class="form-group">
                         <label>服务器地址</label>

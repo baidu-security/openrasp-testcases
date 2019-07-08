@@ -3,7 +3,7 @@
     ini_set("display_errors", 1);
     
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?url=';
-	$any1    = $baseurl . 'http://192.168.154.200.xip.io';
+	$any1    = $baseurl . 'http://127.0.0.1.xip.io';
 	$any2    = $baseurl . 'http://10.10.10.10';
 	$any3    = $baseurl . 'file:///etc/passwd';
 ?>
