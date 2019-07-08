@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
 	$baseurl  = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ;
 	$windows  = $baseurl . '?file=C:\Windows\System32\drivers\etc\hosts';
 	$windows2 = $baseurl . '?file=file://C:\Windows\System32\drivers\etc\hosts';
@@ -53,6 +56,10 @@ function send_json(){
 </script>
 
 	<h1>002 - 任意文件读取 - file_get_contents</h1>
+
+    <div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
+        若测试用例无法执行，请检查 open_basedir 配置，以及文件是否有读取权限。
+    </div>
 
 <p>Linux 不正常调用</p>
 <p>curl '<a href="<?php echo $linux1 ?>" target="_blank"><?php echo $linux1 ?></a>'</p>

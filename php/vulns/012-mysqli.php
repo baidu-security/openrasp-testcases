@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    
     $server = isset($_GET["server"]) ? $_GET['server']: 'localhost';
     $user   = isset($_GET["user"])   ? $_GET['user']  : 'test';
     $pass   = isset($_GET["pass"])   ? $_GET['pass']  : 'test';

@@ -1,3 +1,8 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+?>
+
 <html>
 <head>	
 	<meta charset="UTF-8"/>
@@ -5,6 +10,10 @@
 </head>
 <body>
 <h1>005 - 任意文件写入 - file_put_contents 方式</h1>
+
+	<div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
+		若测试用例无法执行，请检查 open_basedir 配置，以及目录是否有写入权限。
+	</div>
 
 <p>正常调用：</p>
 <pre>curl <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].' -d "name=user.txt&data=123"'?></pre>

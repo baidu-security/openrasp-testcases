@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?url=';
 	$any1    = $baseurl . 'http://192.168.154.200.xip.io';
 	$any2    = $baseurl . 'http://10.10.10.10';

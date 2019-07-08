@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
     $baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
     $linux   = $baseurl . '?dir=/proc';
 	$windows = $baseurl . '?dir=C:';
@@ -53,6 +56,10 @@ function send_json(){
 
 
     <h1>001 - 列目录操作 - scandir 方式</h1>
+
+    <div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
+        若测试用例无法执行，请检查 open_basedir 配置，以及目录是否有读取权限。
+    </div>
 
 <p>Linux 不正常调用: </p>
 <p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>

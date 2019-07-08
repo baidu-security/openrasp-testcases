@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?cmd=';
 	$linux   = $baseurl . 'cp+/etc/passwd+/tmp/';
 	$windows = $baseurl . 'cmd+/c+calc';
@@ -11,6 +14,9 @@
 </head>
 <body>
 	<h1>004 - 命令执行 - exec 方式，无回显</h1>
+	<div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
+		若测试用例无法执行，请检查 disable_function 配置，看下 exec 函数是否被禁用。
+	</div>
 
 	<p>Linux 触发: </p>
 	<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>

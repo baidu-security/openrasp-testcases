@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ;
 	$url1  = $baseurl . '?input=' . urlencode('<script>alert(12345)</script>');
 	$url2  = $baseurl . '?input2=' . urlencode('233<img src=1 onerror=alert("xss12345")>');
