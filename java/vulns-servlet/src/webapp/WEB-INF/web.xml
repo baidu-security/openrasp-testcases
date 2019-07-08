@@ -36,12 +36,20 @@
         <url-pattern>/deserialization</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>directory</servlet-name>
-        <servlet-class>com.baidu.rasp.Directory</servlet-class>
+        <servlet-name>directory1</servlet-name>
+        <servlet-class>com.baidu.rasp.Directory1</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>directory</servlet-name>
-        <url-pattern>/directory</url-pattern>
+        <servlet-name>directory1</servlet-name>
+        <url-pattern>/directory1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>directory2</servlet-name>
+        <servlet-class>com.baidu.rasp.Directory2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>directory2</servlet-name>
+        <url-pattern>/directory2</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>fileUpload</servlet-name>
@@ -202,5 +210,13 @@
     <servlet-mapping>
         <servlet-name>multipart</servlet-name>
         <url-pattern>/multipart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>sqlPolicy</servlet-name>
+        <servlet-class>com.baidu.rasp.SqlPolicy</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sqlPolicy</servlet-name>
+        <url-pattern>/sqlPolicy</url-pattern>
     </servlet-mapping>
 </web-app>

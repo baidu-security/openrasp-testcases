@@ -72,8 +72,9 @@
                 {"name": "013 - SQLi - JDBC multipart 请求格式", "path": '013-multipart-mysql.jsp'},
                 {"name": "014 - SQLi - Sql Exception", "path": '014-sql-exception.jsp'},
                 {"name": "015 - SQLi - Sql Access", "path": '015-sql-access.jsp'},
-                {"name": "016 - SQLi - OGNL", "path": '016-ognl.jsp'},
-                {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'}
+                {"name": "016 - OGNL", "path": '016-ognl.jsp'},
+                {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'},
+                {"name": "018 - SQLi - Sql policy", "path": '018-sql-policy.jsp'}
             ]
         }
     ]);
