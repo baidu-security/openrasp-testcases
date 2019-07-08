@@ -17,7 +17,10 @@
 
 <body>
 	<h1>010 - 任意文件包含 - include 拼接方式</h1>
-
+    <div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
+        若测试用例无法执行，请检查 open_basedir 配置，以及文件是否有读取权限。
+    </div>
+    
 	<p>正常调用:</p>
 	<pre>curl '<a href="<?php echo $normal; ?>" target="_blank"><?php echo $normal; ?></a>'</pre>
 	<br>

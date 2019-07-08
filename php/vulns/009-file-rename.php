@@ -17,6 +17,10 @@
 <body>
 	<h1>009 - 文件重命名 - rename 方式</h1>
 
+    <div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
+        若测试用例无法执行，请检查 open_basedir 配置，以及文件是否有读写权限。
+    </div>
+
 	<p>不正常调用 - hello.txt 改名为 hello.php</p>
 	<pre>curl '<a href="<?php echo $any1 ?>" target="_blank"><?php echo $any1 ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
