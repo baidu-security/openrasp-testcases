@@ -62,7 +62,8 @@
 			{"name": "015 - WebShell - 文件上传小马", "path": "015-webshell-dropper.php"},
 			{"name": "016 - WebShell - 文件包含方式", "path": "016-webshell-include.php"},
 			{"name": "017 - XSS - 反射型XSS", "path": "017-xss.php"},
-			{"name": "018 - EVAL - 代码执行测试", "path": "018-eval.php"},
+			{"name": "018 - EVAL 代码执行测试", "path": "018-eval.php"},
+			{"name": "018 - ASSERT 代码执行测试", "path": "018-assert.php"},
         ]
 
       }
