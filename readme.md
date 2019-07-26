@@ -19,6 +19,7 @@ OpenRASP 漏洞测试环境
    * S2-029
    * S2-032
 * Fastjson 反序列化漏洞
+* Jackson databind 反序列化漏洞
 * SQL 注入漏洞
    * MySQL
    * Oracle
