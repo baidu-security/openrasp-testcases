@@ -6,15 +6,13 @@
 <html>
 <head>	
     <meta charset="UTF-8"/>
-    <title>001 任意目录读取</title>
+    <title>017 - 反射型XSS</title>
 </head>
 <body>
 
+    <h1>017 - 反射型XSS</h1>
 
-    <h1>017 - 反射型XSS </h1>
 <%
-
-
 String normal_querystring = "?input=reports";
 String xss_querystring = "?input=%3cscript%3ealert(1)%3c%2fscript%3e";
 
