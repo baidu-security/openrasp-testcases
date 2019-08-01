@@ -1,0 +1,18 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+    <!--
+    <servlet>
+        <servlet-name>DefaultServletOverride</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DefaultServletOverride</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    -->
+</web-app>
