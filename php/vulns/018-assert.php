@@ -16,7 +16,8 @@
 	<h1>018 - assert 代码执行测试</h1>
 
 	<div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
-		目前我们仅提供一个基于正则的算法模板，如有绕过请自行修改 eval_regex 算法的正则
+		目前我们仅提供一个基于正则的算法模板，如有绕过请自行修改 eval_regex 算法的正则 <br/>
+		本测试用例仅适用于 PHP 5
 	</div>
 
 <p>正常调用: </p>
