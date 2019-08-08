@@ -5,7 +5,7 @@
 	file_put_contents('uploads/hello.txt', '<?php echo "It Works!"; ?>');
 	file_put_contents('uploads/hello.jpg', '<?php echo "It Works!"; ?>');
 
-	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 	$any1    = sprintf('%s?from=%s&to=%s', $baseurl, 'uploads/hello.txt', 'uploads/hello.php');
 	$any2    = sprintf('%s?from=%s&to=%s', $baseurl, 'uploads/hello.jpg', 'uploads/hello.png');
 ?>

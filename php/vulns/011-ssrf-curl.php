@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     
-	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?url=';
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?url=';
 	$any1    = $baseurl . 'http://127.0.0.1.xip.io';
 	$any2    = $baseurl . 'http://10.10.10.10';
 	$any3    = $baseurl . 'file:///etc/passwd';

@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 
-	$baseurl  = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ;
+	$baseurl  = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ;
 	$windows  = $baseurl . '?file=C:\Windows\System32\drivers\etc\hosts';
 	$windows2 = $baseurl . '?file=file://C:\Windows\System32\drivers\etc\hosts';
 	$linux1   = $baseurl . '?file=/etc/hosts';

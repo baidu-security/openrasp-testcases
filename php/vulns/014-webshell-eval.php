@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     
-	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?val=';
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?val=';
 	$linux   = $baseurl . 'system($_GET[0]);&0=ls+-lh';
 	$windows = $baseurl . 'system($_GET[0]);&0=whoami';
 ?>

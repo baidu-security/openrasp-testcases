@@ -2,8 +2,8 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     
-	$linux1 = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?file=/etc/hosts';
-	$linux2 = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?file=file:///etc/hosts';
+	$linux1 = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?file=/etc/hosts';
+	$linux2 = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?file=file:///etc/hosts';
 ?>
 
 <html>

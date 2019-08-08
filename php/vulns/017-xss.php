@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     
-	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ;
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ;
 	$url1  = $baseurl . '?input=' . urlencode('<script>alert(12345)</script>');
 	$url2  = $baseurl . '?input2=' . urlencode('233<img src=1 onerror=alert("xss12345")>');
 ?>

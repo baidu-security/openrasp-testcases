@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 
-    $baseurl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+    $baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $linux   = $baseurl . '?dir=/proc';
 	$windows = $baseurl . '?dir=C:';
 	$linux_json_curl = 'curl -d \'{"dir":"/proc"}\' -H "Content-Type: application/json" \'' . $baseurl . "'";
