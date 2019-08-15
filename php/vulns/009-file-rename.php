@@ -22,11 +22,11 @@
     </div>
 
 	<p>不正常调用 - hello.txt 改名为 hello.php</p>
-	<pre>curl '<a href="<?php echo $any1 ?>" target="_blank"><?php echo $any1 ?></a>'</pre>
+	<pre>curl -g '<a href="<?php echo $any1 ?>" target="_blank"><?php echo $any1 ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<p>正常调用 - hello.jpg 改名为 hello.png</p>
-	<pre>curl '<a href="<?php echo $any2 ?>" target="_blank"><?php echo $any2 ?></a>'</pre>
+	<pre>curl -g '<a href="<?php echo $any2 ?>" target="_blank"><?php echo $any2 ?></a>'</pre>
 	<pre>说明: 参数 url 为请求的 url</pre>
 
 	<br>

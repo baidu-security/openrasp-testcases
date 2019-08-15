@@ -20,11 +20,11 @@
 	</div>
 
 	<p>Linux 触发: </p>
-	<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
+	<p>curl -g '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 	<br>
 
 	<p>Windows 触发: </p>
-	<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
+	<p>curl -g '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 	<br><br>
 	<p>命令执行结果</p>

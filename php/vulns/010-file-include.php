@@ -22,11 +22,11 @@
     </div>
     
 	<p>正常调用:</p>
-	<pre>curl '<a href="<?php echo $normal; ?>" target="_blank"><?php echo $normal; ?></a>'</pre>
+	<pre>curl -g '<a href="<?php echo $normal; ?>" target="_blank"><?php echo $normal; ?></a>'</pre>
 	<br>
 	
 	<p>不正常调用:</p>
-	<pre>curl '<a href="<?php echo $linux1; ?>" target="_blank"><?php echo $linux1; ?></a>'</pre>
+	<pre>curl -g '<a href="<?php echo $linux1; ?>" target="_blank"><?php echo $linux1; ?></a>'</pre>
 
 	<br>
 	<p>包含内容</p>

@@ -62,11 +62,11 @@ function send_json(){
     </div>
 
 <p>Linux 不正常调用</p>
-<p>curl '<a href="<?php echo $linux1 ?>" target="_blank"><?php echo $linux1 ?></a>'</p>
+<p>curl -g '<a href="<?php echo $linux1 ?>" target="_blank"><?php echo $linux1 ?></a>'</p>
 
 <br>
 <p>Linux 不正常调用 - file:// 协议</p>
-<p>curl '<a href="<?php echo $linux2 ?>" target="_blank"><?php echo $linux2 ?></a>'</p>
+<p>curl -g '<a href="<?php echo $linux2 ?>" target="_blank"><?php echo $linux2 ?></a>'</p>
 
 <!-- <br>
 <p>Linux 不正常调用（json方式）: </p>
@@ -74,11 +74,11 @@ function send_json(){
 
 <br>
 <p>windows 不正常调用</p>
-<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
+<p>curl -g '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 <br>
 <p>windows 不正常调用 - file:// 协议</p>
-<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows2 ?></a>'</p>
+<p>curl -g '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows2 ?></a>'</p>
 
 <br>
 <p>文件内容</p>

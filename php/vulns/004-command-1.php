@@ -19,12 +19,12 @@
 	</div>
 
 	<p>Linux 触发: </p>
-	<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
+	<p>curl -g '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 	<p>然后检查 /tmp 是否存在 passwd 这个文件</p>
 	<br>
 
 	<p>Windows 触发 - 运行计算器: </p>
-	<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
+	<p>curl -g '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 <?php 
 	if (isset ($_GET['cmd']))

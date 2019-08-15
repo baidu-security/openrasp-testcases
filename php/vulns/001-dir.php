@@ -62,7 +62,7 @@ function send_json(){
     </div>
 
 <p>Linux 不正常调用: </p>
-<p>curl '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
+<p>curl -g '<a href="<?php echo $linux ?>" target="_blank"><?php echo $linux ?></a>'</p>
 
 <br>
 <p>Linux 不正常调用（json方式）: </p>
@@ -70,7 +70,7 @@ function send_json(){
 
 <br>
 <p>windows 不正常调用: </p>
-<p>curl '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
+<p>curl -g '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
 
 <br>
 <p>目录内容</p>

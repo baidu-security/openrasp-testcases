@@ -20,10 +20,10 @@
 	</div>
 
 <p>正常调用: </p>
-<p>curl '<a href="<?php echo $good ?>" target="_blank"><?php echo $good ?></a>'</p>
+<p>curl -g '<a href="<?php echo $good ?>" target="_blank"><?php echo $good ?></a>'</p>
 <br>
 <p>不正常调用: </p>
-<p>curl '<a href="<?php echo $bad ?>" target="_blank"><?php echo $bad ?></a>'</p>
+<p>curl -g '<a href="<?php echo $bad ?>" target="_blank"><?php echo $bad ?></a>'</p>
 
 <br>
 <p>执行结果</p>

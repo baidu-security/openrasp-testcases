@@ -17,11 +17,11 @@
     <h1>017 - 反射型XSS</h1>
 
 <p>ECHO方式: </p>
-<p>curl '<a href="<?php echo $url1 ?>" target="_blank"><?php echo $url1 ?></a>'</p>
+<p>curl -g '<a href="<?php echo $url1 ?>" target="_blank"><?php echo $url1 ?></a>'</p>
 
 <br>
 <p>用户输入反射至页面: </p>
-<p>curl '<a href="<?php echo $url2 ?>" target="_blank"><?php echo ($url2) ?></a>'</p>
+<p>curl -g '<a href="<?php echo $url2 ?>" target="_blank"><?php echo ($url2) ?></a>'</p>
 
 
 <br>
