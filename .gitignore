@@ -24,3 +24,14 @@ hs_err_pid*
 
 .phpintel
 
+# java
+java/**/.classpath
+java/**/.project
+java/**/.settings/
+java/**/target/
+
+# node
+node/node_modules
+
+# build files
+/output

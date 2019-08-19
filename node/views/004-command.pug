@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title #{name}
+body
+  script.
+    function GetUrlRelativePath(){
+      var url = document.location.toString();
+      var arrUrl = url.split("//");
+      var start = arrUrl[1].indexOf("/");
+      var relUrl = arrUrl[1].substring(start);
+      if(relUrl.indexOf("?") != -1){
+        relUrl = relUrl.split("?")[0];
+      }
+      return relUrl;
+    }
+
+    function getXMLHttpRequest(){
+      var xmlhttp;
+      if (window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+      }
+      else{
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      return xmlhttp;
+    }
+
+    function send_json(){
+      data = '{"dir":"/proc"}';
+      var xmlhttp=getXMLHttpRequest();
+      xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+          document.body.innerHTML = "";
+          document.write(xmlhttp.responseText);
+        }
+      }
+      url = GetUrlRelativePath()
+      xmlhttp.open("POST", url, true);
+      xmlhttp.setRequestHeader("Content-type","application/json;charset=UTF-8");
+      xmlhttp.send(data);
+    }
+
+  h1 #{name}
+
+  div(style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ")
+    | 若测试用例无法执行，请检查 open_basedir 配置，以及目录是否有读取权限。
+
+  p Linux 不正常调用:
+  p curl -g '<a href="#{linuxUrl}" target="_blank">#{linuxUrl}</a>'
+
+  p Linux 不正常调用 - file:// 协议:
+  p curl -g '<a href="#{linuxUrlFile}" target="_blank">#{linuxUrlFile}</a>'
+
+  br
+  p windows 不正常调用:
+  p curl -g '<a href="#{windowsUrl}" target="_blank">#{windowsUrl}</a>'
+
+  p windows 不正常调用 - file:// 协议:
+  p curl -g '<a href="#{windowsUrlFile}" target="_blank">#{windowsUrlFile}</a>'
+
+  br
+  - if (fileContent !== undefined)
+    p 目录内容
+    p #{fileContent}

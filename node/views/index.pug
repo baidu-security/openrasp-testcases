@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title OpenRASP nodejs官方测试用例集合
+    link(rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen")
+    script(src="assets/js/angular.min.js" charset="utf-8")
+    style(media='screen').
+      thead tr td {background-color: #f1f1f1}
+  body
+    div(ng-app="myapp" ng-controller="main")
+      div(class="container" id="main")
+        div(class="row")
+          div(class="col-xs-12 col-sm-8 col-sm-offset-2")
+            h3(class="text-center") OpenRASP nodejs官方测试用例集合</h3>
+            br
+            table(class="table table-striped")
+              thead
+                tr
+                  td 测试用例
+                  td 用例路径
+              tbody
+                tr(ng-repeat="a in testcases")
+                  td {{a.name}}
+                  td 
+                    a(target="_blank" ng-href="{{a.path}}") {{a.path}}
+
+    script.
+      var app = angular.module('myapp', []);
+      app.controller(
+        'main', 
+        [
+          '$scope', 
+          '$http',
+          function($scope, $http) {
+            $scope.testcases = !{cases}
+          }
+        ]
+      );
+
+
+
