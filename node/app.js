@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-cases.forEach(function(item) {
+Object.values(cases).forEach(function(item) {
   path = '/' + item['path']
   router = require('./routes' + path)
   app.use(path, router);

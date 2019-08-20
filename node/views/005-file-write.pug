@@ -47,20 +47,17 @@ body
   div(style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ")
     | 若测试用例无法执行，请检查 open_basedir 配置，以及目录是否有读取权限。
 
-  p Linux 不正常调用:
-  p curl -g '<a href="#{linuxUrl}" target="_blank">#{linuxUrl}</a>'
-
-  p Linux 不正常调用 - file:// 协议:
-  p curl -g '<a href="#{linuxUrlFile}" target="_blank">#{linuxUrlFile}</a>'
+  p 正常调用:
+  p curl -g '<a href="#{legalUrl}" target="_blank">#{legalUrl}</a>'
 
   br
-  p windows 不正常调用:
-  p curl -g '<a href="#{windowsUrl}" target="_blank">#{windowsUrl}</a>'
-
-  p windows 不正常调用 - file:// 协议:
-  p curl -g '<a href="#{windowsUrlFile}" target="_blank">#{windowsUrlFile}</a>'
+  p 不正常调用:
+  p curl -g '<a href="#{illegalUrl}" target="_blank">#{illegalUrl}</a>'
 
   br
-  - if (fileContent !== undefined)
-    p 文件内容
-    p #{fileContent}
+  - if (result !== undefined)
+    p 写入结果
+    p <a href="#{result}" target="_blank"> #{result} </a>
+  - if (error !== undefined)
+    p 写入失败
+    p #{error}

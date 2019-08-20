@@ -44,23 +44,15 @@ body
 
   h1 #{name}
 
-  div(style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ")
-    | 若测试用例无法执行，请检查 open_basedir 配置，以及目录是否有读取权限。
-
-  p Linux 不正常调用:
+  p Linux 触发:
   p curl -g '<a href="#{linuxUrl}" target="_blank">#{linuxUrl}</a>'
 
-  p Linux 不正常调用 - file:// 协议:
-  p curl -g '<a href="#{linuxUrlFile}" target="_blank">#{linuxUrlFile}</a>'
-
   br
-  p windows 不正常调用:
+  p windows 触发:
   p curl -g '<a href="#{windowsUrl}" target="_blank">#{windowsUrl}</a>'
 
-  p windows 不正常调用 - file:// 协议:
-  p curl -g '<a href="#{windowsUrlFile}" target="_blank">#{windowsUrlFile}</a>'
 
   br
-  - if (fileContent !== undefined)
-    p 目录内容
-    p #{fileContent}
+  - if (result !== undefined)
+    p 执行结果
+    p #{result}

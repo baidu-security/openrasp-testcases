@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require("fs")
-var cases = require('../helpers/case_index')
+var caseInfo = require('../helpers/case_index')['001']
 
 function readdir(dirName) {
   return fs.readdirSync(dirName)
@@ -13,7 +13,7 @@ function routeHandler(req, res, next) {
   var baseUrl = 'http://' + req.get('host') + req.baseUrl
   
   var params = {
-    'name': cases[0]['name'],
+    'name': caseInfo['name'],
     'linuxUrl': baseUrl + '/%2fproc',
 	  'windowsUrl': baseUrl + '/C:',
     'linuxJsonUrl': 'curl -d \'{"dir":"/proc"}\' -H "Content-Type: application/json" \'' + baseUrl + "'",
@@ -31,7 +31,7 @@ function routeHandler(req, res, next) {
     params.dirContent = 'Read dir failed! ' + e.message
   }
 
-  res.render('001-dir', params);
+  res.render(caseInfo['path'], params);
 }
 
 router.get('/:dir?', routeHandler);
