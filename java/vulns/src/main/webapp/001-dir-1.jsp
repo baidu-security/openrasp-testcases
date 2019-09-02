@@ -94,12 +94,10 @@ if (dirname != null) {
         } else {
             folder = new File(application.getRealPath("/") + "/" + dirname);
         }
-        if (folder.isDirectory()) {
-            File[] listOfFiles = folder.listFiles();
-            for (File file : listOfFiles) {
-                if (file.isFile()) {
-                    out.println(file.getName());
-                }
+        File[] listOfFiles = folder.listFiles();
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                out.println(file.getName());
             }
         }
     } catch (Exception e) {

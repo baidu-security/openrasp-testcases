@@ -16,11 +16,9 @@ String dirname = request.getParameter("dirname");
 if (dirname != null) {
 	try {
 		File folder = new File(dirname);
-		if (folder.isDirectory()) {
-			File[] listOfFiles = folder.listFiles();
-			for (File file : listOfFiles) {
-			    out.println(file.getName());
-			}
+		File[] listOfFiles = folder.listFiles();
+		for (File file : listOfFiles) {
+			out.println(file.getName());
 		}
 	} catch (Exception e) {
 	   out.print(e);
