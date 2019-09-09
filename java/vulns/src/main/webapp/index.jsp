@@ -71,6 +71,7 @@
                 {"name": "012 - SQLi - MySQL JDBC executeQuery 方式", "path": '012-jdbc-mysql.jsp'},
                 {"name": "013 - SQLi - JDBC multipart 请求格式", "path": '013-multipart-mysql.jsp'},
                 {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'},
+		{"name": "017 - XSS - 017 - 反射型XSS - chunked body", "path": '017-xss-chunked.jsp'},
 		{"name": "018 - 类库加载", "path": '018-loadlibrary.jsp'}
             ]
         }
