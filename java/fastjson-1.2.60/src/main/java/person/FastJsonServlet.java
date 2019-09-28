@@ -18,7 +18,7 @@ public class FastJsonServlet extends HttpServlet
         if (sourceURL != null)
         {
         	out.println("Execute POC");
-        	Poc.run(sourceURL, 0);
+        	Poc.run(sourceURL);
         }
         else
         {
