@@ -33,24 +33,35 @@
         }
         return sb.toString();
     }
+
+    public void jspInit() {
+        try {
+            Connection conn = null;
+            Class.forName("org.hsqldb.jdbcDriver");
+            Statement stmt = null;
+            conn = DriverManager.getConnection("jdbc:hsqldb:mem:user");
+            stmt = conn.createStatement();
+            stmt.execute("CREATE TABLE user (\n" +
+                    "         id INTEGER NOT NULL PRIMARY KEY,\n" +
+                    "         name VARCHAR(20),\n" +
+                    " )");
+            stmt.execute("INSERT INTO user (id,name) VALUES (1,'user1')");
+            stmt.execute("INSERT INTO user (id,name) VALUES (2,'user2')");
+            stmt.execute("INSERT INTO user (id,name) VALUES (3,'user3')");
+            stmt.execute("INSERT INTO user (id,name) VALUES (4,'user4')");
+        } catch (Exception e) {
+
+        }
+    }
 %>
 
 <%
     String id = null;
     String content_type = request.getContentType();
     Connection conn = null;
+    Statement stmt = null;
+    conn = DriverManager.getConnection("jdbc:hsqldb:mem:user");
     if (content_type != null && content_type.indexOf("application/json") != -1) {
-        Class.forName("org.hsqldb.jdbcDriver");
-        conn = null;
-        Statement stmt = null;
-        conn = DriverManager.getConnection("jdbc:hsqldb:mem:user");
-        stmt = conn.createStatement();
-        stmt.execute("CREATE TABLE user (\n" +
-                "         id INTEGER NOT NULL PRIMARY KEY,\n" +
-                "         name VARCHAR(20),\n" +
-                " )");
-        stmt.execute("INSERT INTO user (id,name) VALUES (1,'user1')");
-        stmt.execute("INSERT INTO user (id,name) VALUES (2,'user2')");
         int size = request.getContentLength();
         String postdata = null;
         if (size > 0) {
@@ -126,15 +137,6 @@
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
             <h4>SQL注入 - JDBC executeQuery() 方式</h4>
-            <p>第一步: 请以mysql root账号执行下面的语句创建表</p>
-            <pre>DROP DATABASE IF EXISTS test;
-CREATE DATABASE test;         
-grant all privileges on test.* to 'test'@'%' identified by 'test';
-grant all privileges on test.* to 'test'@'localhost' identified by 'test';
-CREATE TABLE test.vuln (id INT, name text);
-INSERT INTO test.vuln values (0, "openrasp");
-INSERT INTO test.vuln values (1, "rocks");
-</pre>
         </div>
     </div>
 
@@ -144,7 +146,7 @@ INSERT INTO test.vuln values (1, "rocks");
             <form action="<%= javax.servlet.http.HttpUtils.getRequestURL(request) %>" method="get">
                 <div class="form-group">
                     <label>查询条件</label>
-                    <input class="form-control" name="id" value="<%=id%> " autofocus>
+                    <input class="form-control" name="id" value="<%=id%>" autofocus>
                 </div>
 
                 <button type="submit" class="btn btn-primary">提交查询</button>
@@ -179,4 +181,6 @@ INSERT INTO test.vuln values (1, "rocks");
 
 
 </body>
+
+
 
