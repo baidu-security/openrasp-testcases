@@ -31,7 +31,7 @@
     }
 %>
 <%
-    String linux_querystring = "?url=http://0x7f000001";
+    String linux_querystring = "?url=http://127.0.0.1.xip.io";
     String urlString = request.getParameter("url");
     if (urlString != null) {
         String result = httpGet(urlString);
