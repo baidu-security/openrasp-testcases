@@ -18,14 +18,18 @@ public class FastJsonServlet extends HttpServlet
         if (sourceURL != null)
         {
         	out.println("Execute POC");
-        	Poc.run(sourceURL);
+        	try {
+                Poc.run(sourceURL);
+            } catch (Exception e) {
+                e.printStackTrace(out);
+            }
+
+            out.println("Poc DONE");
         }
         else
         {
         	out.println("Missing required paraemter: url");
         }
-
-        out.println("Poc DONE");
     }
 
 }
