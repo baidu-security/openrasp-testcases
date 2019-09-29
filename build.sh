@@ -15,7 +15,7 @@ function log2()
 
 function build_java() 
 {
-    for x in S2-016 fastjson vulns wxpay-xxe CVE-2019-12384 CVE-2019-10173
+    for x in S2-016 fastjson fastjson-1.2.60 vulns wxpay-xxe CVE-2019-12384 CVE-2019-10173
     do
         log2 $x
 
