@@ -142,7 +142,7 @@
 
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
-            <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
+            <p>第一步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
             <form action="<%= javax.servlet.http.HttpUtils.getRequestURL(request) %>" method="get">
                 <div class="form-group">
                     <label>查询条件</label>
@@ -168,7 +168,7 @@
 
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
-            <p>第三步: 检查注入结果</p>
+            <p>第二步: 检查注入结果</p>
             <%= runQuery(id, conn) %>
             <table class="table">
                 <tbody>
