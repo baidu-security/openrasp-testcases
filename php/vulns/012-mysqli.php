@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     
-    $server = isset($_GET["server"]) ? $_GET['server']: 'localhost';
+    $server = isset($_GET["server"]) ? $_GET['server']: '127.0.0.1';
     $user   = isset($_GET["user"])   ? $_GET['user']  : 'test';
     $pass   = isset($_GET["pass"])   ? $_GET['pass']  : 'test';
     $db     = isset($_GET["db"])     ? $_GET['db']    : 'test';
@@ -129,12 +129,12 @@ INSERT INTO test.vuln values (1, "rocks");
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-                <form onsubmit="send_json()">
+                <form>
                     <div class="form-group">
                         <label>JSON 方式查询</label>
                         <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
                     </div>
-                    <button type="submit" class="btn btn-primary">JSON 方式提交查询</button>
+                    <button type="button" onclick="send_json()" class="btn btn-primary">JSON 方式提交查询</button>
                 </form>                
             </div>
         </div>
