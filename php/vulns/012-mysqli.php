@@ -156,6 +156,4 @@ INSERT INTO test.vuln values (1, "rocks");
             </div>
         </div>
     </div>
-
-
 </body>
