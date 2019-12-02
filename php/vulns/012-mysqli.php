@@ -15,6 +15,9 @@
             $id = $input['id'];
         }
     }
+    else if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])){
+        $id = $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
 
     function query($id)
     {
@@ -22,20 +25,20 @@
 
         $data = array();
         $conn = new mysqli($server, $user, $pass, $db);
-            if ($conn->connect_error) {
+        if ($conn->connect_error) {
             echo "MySQL: connection failed: " . $conn->connect_error;
             return;
-            }
+        }
 
-            $sql    = "SELECT id, name FROM vuln WHERE id = " . $id;
-            $result = $conn->query($sql);
+        $sql    = "SELECT id, name FROM vuln WHERE id = " . $id;
+        $result = $conn->query($sql);
 
-            if (! $result) {
+        if (!$result) {
             echo 'MySQL: query error: ' . $conn->error;
             return;
-            }
+        }
 
-            if ($result->num_rows > 0) {
+        if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $data[] = array("id" => $row["id"], "name" => $row["name"]);
             }
@@ -79,7 +82,7 @@ function getXMLHttpRequest(){
 }
 
 function send_json(){
-    var data = document.getElementById("jsoninput").value;
+    var data = document.getElementById("json_input").value;
     var xmlhttp=getXMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -92,6 +95,22 @@ function send_json(){
     xmlhttp.setRequestHeader("Content-type","application/json;charset=UTF-8");
     xmlhttp.send(data);
 }
+
+function send_xff(){
+    var data = document.getElementById("xff_input").value;
+    var xmlhttp=getXMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            document.body.innerHTML = ""
+            document.write(xmlhttp.responseText);
+        }
+    }
+    url = GetUrlRelativePath()
+    xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader("X-Forwarded-For", data);
+    xmlhttp.send();
+}
+
 </script>
     <div class="container-fluid" style="margin-top: 50px;">
         <div class="row">
@@ -132,10 +151,22 @@ INSERT INTO test.vuln values (1, "rocks");
                 <form>
                     <div class="form-group">
                         <label>JSON 方式查询</label>
-                        <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
+                        <input id="json_input" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
                     </div>
                     <button type="button" onclick="send_json()" class="btn btn-primary">JSON 方式提交查询</button>
                 </form>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form>
+                    <div class="form-group">
+                        <label>header 方式查询</label>
+                        <input id="xff_input" class="form-control" name="id" value='<?php echo htmlspecialchars($id, ENT_QUOTES) ?>' >
+                    </div>
+                    <button type="button" onclick="send_xff()" class="btn btn-primary">Header 方式提交查询</button>
+                </form>
             </div>
         </div>
 
