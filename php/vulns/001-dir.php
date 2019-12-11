@@ -3,9 +3,9 @@
     ini_set("display_errors", 1);
 
     $baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $linux   = $baseurl . '?dir=/proc';
-	$windows = $baseurl . '?dir=C:';
-	$linux_json_curl = 'curl -d \'{"dir":"/proc"}\' -H "Content-Type: application/json" \'' . $baseurl . "'";
+    $linux   = $baseurl . '?dir=../../../../../../../../../../../etc';
+	$windows = $baseurl . '?dir=../../../../../../../../../../../windows';
+	$linux_json_curl = 'curl -d \'{"dir":"../../../../../../../../../../../etc"}\' -H "Content-Type: application/json" \'' . $baseurl . "'";
 ?>
 
 <html>
@@ -38,7 +38,7 @@ function getXMLHttpRequest(){
 }
 
 function send_json(){
-    data = '{"dir":"/proc"}';
+    data = '{"dir":"../../../../../../../../../../../../../etc/"}';
     var xmlhttp=getXMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -66,7 +66,8 @@ function send_json(){
 
 <br>
 <p>Linux 不正常调用（json方式）: </p>
-<p><a href=# onclick=send_json() ><?=$linux_json_curl?></a></p>
+<?php echo $linux_json_curl?>
+<p><a href=# onclick=send_json() >click here to access ../../../../../../../../../../../../../etc/</a></p>
 
 <br>
 <p>windows 不正常调用: </p>
@@ -88,7 +89,7 @@ function send_json(){
         $input = file_get_contents("php://input");
         $input = json_decode($input, true);
         if(isset($input['dir'])){
-            $content = scandir($input['dir']);
+            $content = scandir("./" . $input['dir']);
             foreach ($content as $item)
             {
                 echo htmlentities("$item") . "<br/>\n";
