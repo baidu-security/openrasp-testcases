@@ -65,6 +65,7 @@
 			{"name": "018 - EVAL 代码执行测试", "path": "018-eval.php"},
 			{"name": "018 - ASSERT 代码执行测试", "path": "018-assert.php"},
 			{"name": "019 - 任意文件删除", "path": '019-file-delete.php'},
+			{"name": "020 - mongodb注入", "path": '020-mongodb.php'},
 
         ]
 
