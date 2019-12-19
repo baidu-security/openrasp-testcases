@@ -54,7 +54,7 @@
                 {"name": "004 - 命令执行后门 - 无回显", "path": '004-command-1.jsp'},
                 {"name": "004 - 命令执行后门 - 带回显", "path": '004-command-2.jsp'},
                 {"name": "005 - 任意文件写入", "path": '005-file-write.jsp'},
-                {"name": "006 - Log4j 打印敏感信息到日志文件", "path": '006-log.jsp'},
+                {"name": "006 - 检查响应里是否有身份证、银行卡等敏感信息泄露", "path": '006-leak-1.jsp'},
                 {"name": "007 - 通过XXE读取系统文件", "path": '007-xxe.jsp'},
                 {"name": "007 - 通过XXE读取系统文件-dom4j", "path": '007-xxe-dom4j.jsp'},
                 {"name": "007 - 通过XXE读取系统文件-jdom", "path": '007-xxe-jdom.jsp'},
