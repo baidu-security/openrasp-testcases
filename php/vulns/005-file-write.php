@@ -20,7 +20,7 @@
 <br>
 
 <p>(注:write script 默认 block action 为 log)不正常调用：</p>
-<pre>curl -g <?php echo 'http://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH).' -d "name=1.php&data=&lt;?php phpinfo(); ?>"'?></pre>
+<pre>curl -g <?php echo 'http://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH).' -d "name=../uploads/1.php&data=&lt;?php phpinfo(); ?>"'?></pre>
 
 <?php 
 	if (isset ($_POST['name']) && isset ($_POST['data']))

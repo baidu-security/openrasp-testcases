@@ -15,9 +15,9 @@ public class UserService implements IUserService {
     @Override
     public String select() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/anyang", "root", "anyang");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "123456");
         Statement stmt = conn.createStatement();
-        ResultSet rset = stmt.executeQuery("SELECT * FROM user");
+        ResultSet rset = stmt.executeQuery("SELECT * FROM vuln");
         StringBuilder sb = new StringBuilder();
         if (!rset.next()) {
             sb.append("<P> No matching rows.<P>\n");
@@ -33,9 +33,9 @@ public class UserService implements IUserService {
     @Override
     public String select(String id) throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/anyang", "root", "anyang");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "123456");
         Statement stmt = conn.createStatement();
-        ResultSet rset = stmt.executeQuery("SELECT * FROM user where id=" + id);
+        ResultSet rset = stmt.executeQuery("SELECT * FROM vuln where id=" + id);
         StringBuilder sb = new StringBuilder();
         if (!rset.next()) {
             sb.append("<P> No matching rows.<P>\n");
@@ -49,9 +49,9 @@ public class UserService implements IUserService {
     @Override
     public String select(String[] ids) throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/anyang", "root", "anyang");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "123456");
         Statement stmt = conn.createStatement();
-        ResultSet rset = stmt.executeQuery("SELECT * FROM user where id=" + ids[0]);
+        ResultSet rset = stmt.executeQuery("SELECT * FROM vuln where id=" + ids[0]);
         StringBuilder sb = new StringBuilder();
         if (!rset.next()) {
             sb.append("<P> No matching rows.<P>\n");
