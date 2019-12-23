@@ -4,7 +4,9 @@
     
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ;
 	$url1  = $baseurl . '?input=' . urlencode('<script>alert(12345)</script>');
-	$url2  = $baseurl . '?input2=' . urlencode('233<img src=1 onerror=alert("xss12345")>');
+    $url2  = $baseurl . '?input2=' . urlencode('233<img src=1 onerror=alert("xss12345")>');
+	$url3  = $baseurl . '?input3=' . urlencode('<script>alert(12345)</script>');
+    
 ?>
 
 <html>
@@ -18,6 +20,10 @@
 
 <p>ECHO方式: </p>
 <p>curl -g '<a href="<?php echo $url1 ?>" target="_blank"><?php echo $url1 ?></a>'</p>
+
+<br>
+<p>print方式: </p>
+<p>curl -g '<a href="<?php echo $url3 ?>" target="_blank"><?php echo $url3 ?></a>'</p>
 
 <br>
 <p>用户输入反射至页面: </p>
@@ -35,6 +41,10 @@
         header('X-XSS-Protection: 0');
         $content = "<p>" . trim($_GET['input2']) . "</p>"; 
         echo $content;
+    }
+    else if(isset($_GET['input3'])) {
+        header('X-XSS-Protection: 0');
+        print($_GET['input3']);
     }
 ?>
 </body>

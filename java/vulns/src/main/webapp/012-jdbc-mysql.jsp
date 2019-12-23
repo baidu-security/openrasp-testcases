@@ -114,20 +114,22 @@
         xmlhttp.send(data);
     }
 
-    function send_xff(){
-    var data = document.getElementById("xff_input").value;
-    var xmlhttp=getXMLHttpRequest();
-    xmlhttp.onreadystatechange=function(){
-        if (xmlhttp.readyState==4 && xmlhttp.status==200){
-            document.body.innerHTML = ""
-            document.write(xmlhttp.responseText);
+    function send_header(){
+        var key = document.getElementById("header_key").value;
+        var data = document.getElementById("header_input").value;
+        var xmlhttp=getXMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.body.innerHTML = ""
+                document.write(xmlhttp.responseText);
+            }
         }
+        url = GetUrlRelativePath()
+        xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader(key, data);
+        xmlhttp.send();
     }
-    url = GetUrlRelativePath()
-    xmlhttp.open("GET", url, true);
-    xmlhttp.setRequestHeader("X-Forwarded-For", data);
-    xmlhttp.send();
-}
+
 </script>
     <div class="container-fluid" style="margin-top: 50px;">
         <div class="row">
@@ -175,10 +177,14 @@ INSERT INTO test.vuln values (1, "rocks");
             <div class="col-xs-8 col-xs-offset-2">
                 <form>
                     <div class="form-group">
-                        <label>header 方式查询</label>
-                            <input id="xff_input" class="form-control" name="id" value='<%=id%>' >
+                        <label>header 方式查询</label><br>
+                        <label>header 字段名</label>
+                        <input id="header_key" class="form-control" name="key" value='X-Forwarded-For' >
+                        <br>
+                        <label>查询条件</label>
+                        <input id="header_input" class="form-control" name="id" value='<%=id%>' >
                     </div>
-                    <button type="button" onclick="send_xff()" class="btn btn-primary">Header 方式提交查询</button>
+                    <button type="button" onclick="send_header()" class="btn btn-primary">Header 方式提交查询</button>
                 </form>
             </div>
         </div>

