@@ -25,7 +25,7 @@ public class Log extends HttpServlet {
             Logger log = Logger.getLogger("com.mobilefish.demo.test");
             if (log != null) {
                 log.info("身份证 620503198801272195\n");
-                log.warn("IdCard=42050319820815801X DepositCard=6222020903001483077 Transaction=1999.22\n");
+                log.warn("IdCard=42050319820815801X DepositCard=6225750103374126 Transaction=1999.22\n");
             }
         } catch (Exception e) {
             resp.getWriter().print(e);
