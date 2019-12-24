@@ -74,7 +74,8 @@
                 {"name": "015 - SQLi - Sql Access", "path": '015-sql-access.jsp'},
                 {"name": "016 - OGNL", "path": '016-ognl.jsp'},
                 {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'},
-                {"name": "018 - SQLi - Sql policy", "path": '018-sql-policy.jsp'}
+                {"name": "018 - SQLi - Sql policy", "path": '018-sql-policy.jsp'},
+                {"name": "020 - mongodb注入", "path": '020-mongodb.jsp'},
             ]
         }
     ]);
