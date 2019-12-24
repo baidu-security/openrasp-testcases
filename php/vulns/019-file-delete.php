@@ -13,18 +13,18 @@
 	<title>019 - 任意文件删除 - unlink 方式</title>
 </head>
 <body>
-<h1>005 - 任意文件删除 - unlink 方式</h1>
+<h1>019 - 任意文件删除 - unlink 方式</h1>
 
 	<div style="display: inline-block; color: #721c24; background: #f8d7da; padding: 10px; ">
 		若测试用例无法执行，请检查 open_basedir 配置，以及目录是否有写入权限。
 	</div>
 
 <p>正常调用：</p>
-<pre>curl -g <?php echo $normalurl;?></pre>
+<p>curl -g '<a href="<?php echo $normalurl ?>" target="_blank"><?php echo $normalurl ?></a>'</p>
 <br>
 
 <p>不正常调用：</p>
-<pre>curl -g <?php echo $badurl?></pre>
+<p>curl -g '<a href="<?php echo $badurl ?>" target="_blank"><?php echo $badurl ?></a>'</p>
 
 <?php 
 	if (isset ($_GET['name']))
