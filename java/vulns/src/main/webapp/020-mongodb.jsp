@@ -19,7 +19,12 @@
 
         Document doc = Document.parse(stringQuery);
         Document result = (Document)col.find(doc).first();
-        return result.toJson();
+        if (result != null) {
+            return result.toJson();
+        }
+        else {
+            return "";
+        }
     }
     String formatResult(DBCursor rset) {
         StringBuffer sb = new StringBuffer();
