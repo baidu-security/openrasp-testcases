@@ -3,8 +3,8 @@
     ini_set("display_errors", 1);
 
 	$baseurl   = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ;
-	$normalurl = $baseurl . '?file=testfile.txt';
-	$badurl    = $baseurl . '?file=../uploads/testfile.txt';
+	$normalurl = $baseurl . '?name=testfile.txt';
+	$badurl    = $baseurl . '?name=uploads/../uploads/testfile.txt';
 ?>
 
 <html>
