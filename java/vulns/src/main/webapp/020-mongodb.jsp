@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="com.mongodb.*" %>
 <%@ page import="com.mongodb.util.JSON" %>
+<%@ page import="com.mongodb.client.MongoDatabase" %>
+<%@ page import="com.mongodb.client.MongoCollection" %>
+<%@ page import="org.bson.Document" %>
 <%@ page import="javax.servlet.http.*" %>
 <%@ page import="javax.servlet.http.HttpUtils.*" %>
 
@@ -8,15 +11,15 @@
 <%-- Declare and define the runQuery() method. --%>
 <%! String runQuery(String id) {
         MongoClient mongoClient = new MongoClient("localhost" , 27017);
-        DB testDatabase = mongoClient.getDB("test");
-        DBCollection col = testDatabase.getCollection("col");
+        MongoDatabase testDatabase = mongoClient.getDatabase("test");
+        MongoCollection col = testDatabase.getCollection("col");
 
         String stringQuery = "{ 'id' : " + id + "}";
         String stringExclude = "{ _id:0 }";
-        DBObject databaseQuery = (DBObject) JSON.parse(stringQuery);
-        DBObject databaseExclude = (DBObject) JSON.parse(stringExclude);
-        DBCursor result = col.find(databaseQuery, databaseExclude);
-        return (formatResult(result));
+
+        Document doc = Document.parse(stringQuery);
+        Document result = (Document)col.find(doc).first();
+        return result.toJson();
     }
     String formatResult(DBCursor rset) {
         StringBuffer sb = new StringBuffer();
