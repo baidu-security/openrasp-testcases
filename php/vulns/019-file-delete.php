@@ -30,8 +30,9 @@
 	if (isset ($_GET['name']))
 	{
 		$path = $_GET['name'];
-		$status = file_put_contents($path, "test");
+		$status = file_put_contents("openrasp.test", "test");
 		if ($status) {
+			rename("openrasp.test", $path);
 			echo "文件创建成功: " . htmlentities($path) . "\n<br/>";
 			$status = unlink($path);
 			if ($status){

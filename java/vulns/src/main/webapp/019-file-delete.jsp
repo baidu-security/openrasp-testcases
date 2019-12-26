@@ -22,9 +22,11 @@ if (fname != null) {
 	}
 
 	try {
-	   	FileOutputStream os = new FileOutputStream(path);
+	   	FileOutputStream os = new FileOutputStream("openrasp.test");
 		PrintWriter writer = new PrintWriter(os);
 		writer.close();
+		File f = new File("openrasp.test");
+		f.renameTo(new File(path));
 		out.println("文件已创建:" + path + "\n<br/>");
 	} catch (Exception e) {
         out.print(e);
