@@ -56,7 +56,7 @@
 			{"name": "009 - 文件重命名 - rename 方式", "path": "009-file-rename.php"},
 			{"name": "010 - 任意文件包含 - include 方式", "path": "010-file-include.php"},
 			{"name": "011 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
-			{"name": "011 - SSRF - file_get_contents 方式", "path": "011-ssrf-file_get_contents.php"},
+			{"name": "011 - SSRF - php文件读取方式", "path": "011-ssrf-file.php"},
 			{"name": "012 - SQL 注入测试- MySQLi 方式", "path": "012-mysqli.php"},
 			{"name": "013 - WebShell - 回调类型后门", "path": "013-webshell-array_walk.php"},
 			{"name": "014 - WebShell - 中国菜刀", "path": "014-webshell-eval.php"},
