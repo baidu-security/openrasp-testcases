@@ -36,14 +36,16 @@ if (reportName != null) {
 			fileName = application.getRealPath("/") + "/reports/" + reportName;
 		}
 	    FileInputStream fileIn = new FileInputStream(fileName);
-	    OutputStream outStream = response.getOutputStream();
+	    String outputStr = "";
 
 	    byte[] outputByte = new byte[4096];
 	    while(fileIn.read(outputByte, 0, 4096) != -1) {
-	    	outStream.write(outputByte, 0, 4096);
+			String s = new String(outputByte, "UTF-8");
+	    	outputStr += s;
 	    }
 
 	    fileIn.close();
+		out.print(outputStr);
 	} catch (Exception e) {
         out.print(e);
 	}

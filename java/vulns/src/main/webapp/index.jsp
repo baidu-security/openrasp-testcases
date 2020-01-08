@@ -49,7 +49,6 @@
 
             $scope.testcases = [
                 {"name": "001 - 使用 File.listFiles 遍历目录（有路径拼接）", "path": '001-dir-1.jsp'},
-                {"name": "001 - 使用 File.listFiles 遍历目录（无路径拼接）", "path": '001-dir-2.jsp'},
                 {"name": "002 - 任意文件下载/读取漏洞（路径拼接）", "path": '002-file-read.jsp'},
                 {"name": "004 - 命令执行后门 - 无回显", "path": '004-command-1.jsp'},
                 {"name": "004 - 命令执行后门 - 带回显", "path": '004-command-2.jsp'},
