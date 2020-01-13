@@ -18,7 +18,7 @@ String cmd    = request.getParameter ("cmd");
 if (cmd != null)
 {
     if (cmd.equals("error")) {
-        cmd = "echo 'test' xxxx'"
+        cmd = "echo 'test' xxxx'";
     }
     try {
         ProcessBuilder builder;
