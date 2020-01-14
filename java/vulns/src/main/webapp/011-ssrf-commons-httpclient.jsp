@@ -33,9 +33,5 @@
 <p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
 <pre>说明: 参数 url 为请求的 url</pre>
 
-<p>重定向:</p>
-<p>curl '<a href="<%=request.getRequestURL()+redirect_string%>" target="_blank"><%=request.getRequestURL()+redirect_string%></a>'</p>
-<pre>说明: 此链接源自外网, 若没有跳转，请自行获取能够使用301/302跳转到内网的外网url进行测试</pre>
-
 </body>
 </html>
