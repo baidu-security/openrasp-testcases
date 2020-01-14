@@ -13,6 +13,7 @@
 <body>
 <%
     String linux_querystring = "?url=http://127.0.0.1.xip.io";
+    String redirect_string = "?url=http://uee.me/cFas3";
     String urlString = request.getParameter("url");
     if (urlString != null) {
         try {
