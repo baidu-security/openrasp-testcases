@@ -59,6 +59,9 @@
                             else if($function == "fopen") {
                                 copy($url, "r");
                             }
+                            else if($function == "include") {
+                                include $url;
+                            }
                             else {
                                 $function($url);
                             }
