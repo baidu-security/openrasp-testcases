@@ -71,9 +71,8 @@
                 {"name": "013 - SQLi - JDBC multipart 请求格式", "path": '013-multipart-mysql.jsp'},
                 {"name": "016 - OGNL", "path": '016-ognl.jsp'},
                 {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'},
-                {"name": "018 - SQLi - Sql policy", "path": '018-sql-policy.jsp'},
+                {"name": "018 - loadlibrary", "path": '018-loadlibrary'},
                 {"name": "019 - 任意文件删除", "path": '019-file-delete.jsp'},
-                {"name": "020 - mongodb注入", "path": '020-mongodb.jsp'}
             ]
         }
     ]);
