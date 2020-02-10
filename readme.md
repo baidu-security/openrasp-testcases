@@ -2,8 +2,6 @@
 
 OpenRASP 漏洞测试环境
 
-其中，SQL注入漏洞测试案例，需要你先在 `/sqlcase/WEB-INF/sqlcase.properties` 中配置SQL相关参数后，方可使用；若需更改jdbc driver版本，还要修改 pom.xml；详细[参考](https://github.com/baidu-security/openrasp-testcases/tree/master/java/sqlcase)。
-
 # 目录
 
 #### Java 应用服务器
