@@ -52,10 +52,12 @@
 			{"name": "004 - 命令执行 - exec 方式，无回显", "path": '004-command-1.php'},
 			{"name": "004 - 命令执行 - system 方式", "path": '004-command-2.php'},
 			{"name": "005 - 任意文件写入 - file_put_contents 方式", "path": '005-file-write.php'},
+			{"name": "006 - 敏感信息泄露", "path":"leak.php"},
 			{"name": "008 - 任意文件上传 - move_uploaded_file 方式", "path": "008-file-upload.php"},
 			{"name": "009 - 文件重命名 - rename 方式", "path": "009-file-rename.php"},
 			{"name": "010 - 任意文件包含 - include 方式", "path": "010-file-include.php"},
-			{"name": "012 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
+			{"name": "011 - SSRF - cURL 方式", "path": "011-ssrf-curl.php"},
+			{"name": "011 - SSRF - php文件读取方式", "path": "011-ssrf-file.php"},
 			{"name": "012 - SQL 注入测试- MySQLi 方式", "path": "012-mysqli.php"},
 			{"name": "013 - WebShell - 回调类型后门", "path": "013-webshell-array_walk.php"},
 			{"name": "014 - WebShell - 中国菜刀", "path": "014-webshell-eval.php"},
@@ -64,6 +66,7 @@
 			{"name": "017 - XSS - 反射型XSS", "path": "017-xss.php"},
 			{"name": "018 - EVAL 代码执行测试", "path": "018-eval.php"},
 			{"name": "018 - ASSERT 代码执行测试", "path": "018-assert.php"},
+			{"name": "019 - 任意文件删除 unlink 方式", "path": '019-file-delete.php'}
         ]
 
       }

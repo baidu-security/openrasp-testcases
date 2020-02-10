@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openrasp>
+    <jack>
+        <id>1</id>
+    </jack>
+    <tom>
+        <id>2</id>
+    </tom>
+    <jackson>
+        <id>3</id>
+    </jackson>
+</openrasp>

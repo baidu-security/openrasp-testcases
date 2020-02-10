@@ -1,66 +1,68 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="javax.servlet.http.*" %>
-<%@ page import="javax.servlet.http.HttpUtils.*" %>
-<%@ page import="java.sql.*" %>
+<%@ page import="org.hibernate.Session" %>
+<%@ page import="org.hibernate.SessionFactory" %>
+<%@ page import="org.hibernate.Transaction" %>
+<%@ page import="org.hibernate.cfg.Configuration" %>
+<%@ page import="org.hibernate.query.Query" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.List" %>
 
 <%-- Declare and define the runQuery() method. --%>
-<%! String runQuery(String id, Connection conn) throws SQLException {
-    Statement stmt = null;
-    ResultSet rset = null;
-    try {
-        Class.forName("org.hsqldb.jdbcDriver");
-        conn = DriverManager.getConnection("jdbc:hsqldb:mem:user");
-        stmt = conn.createStatement();
-        rset = stmt.executeQuery("SELECT * FROM user WHERE id = " + id);
-        return (formatResult(rset));
-    } catch (Exception e) {
-        return ("<P> Error: <PRE> " + e + " </PRE> </P>\n");
-    } finally {
-        if (rset != null) rset.close();
-        if (stmt != null) stmt.close();
-        if (conn != null) conn.close();
-    }
-}
+<%!
+    String runQuery(String configPath, String id, String rootDir) throws Exception {
+        String result = "";
+        try {
+            Configuration configuration = new Configuration().configure(new File(configPath));
+            //获得会话工厂，创建会话
+            SessionFactory buildSessionFactory = configuration.buildSessionFactory();
+            //获得session
+            Session session = buildSessionFactory.openSession();
 
-    String formatResult(ResultSet rset) throws SQLException {
+            //开启事务
+            Transaction tx = session.beginTransaction();
+
+            Query query = session.createSQLQuery("select * from vuln where id = " + id);
+            Object[] uniqueResult = (Object[]) query.uniqueResult();
+            if (uniqueResult != null) {
+                for (Object object : uniqueResult) {
+                    result = result + object + " ";
+                }
+            }
+            //关闭资源
+            session.close();
+            buildSessionFactory.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage();
+        }
+        return result;
+    }
+
+    String formatResult(List<HashMap> rset) throws SQLException {
         StringBuffer sb = new StringBuffer();
-        if (!rset.next()) {
+        if (rset == null || rset.isEmpty()) {
             sb.append("<P> No matching rows.<P>\n");
         } else {
-            do {
-                sb.append(rset.getString(2) + "\n");
-            } while (rset.next());
+            for (HashMap item : rset) {
+                sb.append(item.toString() + "\n");
+            }
         }
         return sb.toString();
-    }
-
-    public void jspInit() {
-        try {
-            Connection conn = null;
-            Class.forName("org.hsqldb.jdbcDriver");
-            Statement stmt = null;
-            conn = DriverManager.getConnection("jdbc:hsqldb:mem:user");
-            stmt = conn.createStatement();
-            stmt.execute("CREATE TABLE user (\n" +
-                    "         id INTEGER NOT NULL PRIMARY KEY,\n" +
-                    "         name VARCHAR(20),\n" +
-                    " )");
-            stmt.execute("INSERT INTO user (id,name) VALUES (1,'user1')");
-            stmt.execute("INSERT INTO user (id,name) VALUES (2,'user2')");
-            stmt.execute("INSERT INTO user (id,name) VALUES (3,'user3')");
-            stmt.execute("INSERT INTO user (id,name) VALUES (4,'user4')");
-        } catch (Exception e) {
-
-        }
     }
 %>
 
 <%
+    String rootDir;
+    String serverInfo = application.getServerInfo();
+    if (serverInfo != null && serverInfo.toLowerCase().contains("weblogic")) {
+        rootDir = application.getResource("/").getPath();
+    } else {
+        rootDir = application.getRealPath("/");
+    }
     String id = null;
     String content_type = request.getContentType();
-    Connection conn = null;
-    Statement stmt = null;
-    conn = DriverManager.getConnection("jdbc:hsqldb:mem:user");
     if (content_type != null && content_type.indexOf("application/json") != -1) {
         int size = request.getContentLength();
         String postdata = null;
@@ -92,7 +94,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>012 - SQL 注入测试 - JDBC executeQuery() 方式</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <script>
@@ -137,13 +139,23 @@
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
             <h4>SQL注入 - JDBC executeQuery() 方式</h4>
+            <p>mybatis 相关配置在该 jsp 所在目录下的 mybatis_conf 目录下面</p>
+            <p>第一步: 请以mysql root账号执行下面的语句创建表</p>
+            <pre>DROP DATABASE IF EXISTS test;
+CREATE DATABASE test;         
+grant all privileges on test.* to 'test'@'%' identified by 'test';
+grant all privileges on test.* to 'test'@'localhost' identified by 'test';
+CREATE TABLE test.vuln (id INT, name text);
+INSERT INTO test.vuln values (0, "openrasp");
+INSERT INTO test.vuln values (1, "rocks");
+</pre>
         </div>
     </div>
 
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
-            <p>第一步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
-            <form action="<%= javax.servlet.http.HttpUtils.getRequestURL(request) %>" method="get">
+            <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
+            <form action="<%=javax.servlet.http.HttpUtils.getRequestURL(request)%>" method="get">
                 <div class="form-group">
                     <label>查询条件</label>
                     <input class="form-control" name="id" value="<%=id%>" autofocus>
@@ -168,8 +180,8 @@
 
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
-            <p>第二步: 检查注入结果</p>
-            <%= runQuery(id, conn) %>
+            <p>第三步: 检查注入结果</p>
+            <%= runQuery(rootDir + "/hibernate_conf/hibernate.cfg.xml", id, rootDir) %>
             <table class="table">
                 <tbody>
 
@@ -181,6 +193,4 @@
 
 
 </body>
-
-
 

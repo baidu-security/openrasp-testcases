@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>013 - SQL 注入测试 - JDBC multipart 请求方式</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
   <div class="container-fluid" style="margin-top: 50px;">

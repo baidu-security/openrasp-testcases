@@ -2,7 +2,7 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     
-    $server = isset($_GET["server"]) ? $_GET['server']: 'localhost';
+    $server = isset($_GET["server"]) ? $_GET['server']: '127.0.0.1';
     $user   = isset($_GET["user"])   ? $_GET['user']  : 'test';
     $pass   = isset($_GET["pass"])   ? $_GET['pass']  : 'test';
     $db     = isset($_GET["db"])     ? $_GET['db']    : 'test';
@@ -15,6 +15,9 @@
             $id = $input['id'];
         }
     }
+    else if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])){
+        $id = $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
 
     function query($id)
     {
@@ -22,20 +25,20 @@
 
         $data = array();
         $conn = new mysqli($server, $user, $pass, $db);
-            if ($conn->connect_error) {
+        if ($conn->connect_error) {
             echo "MySQL: connection failed: " . $conn->connect_error;
             return;
-            }
+        }
 
-            $sql    = "SELECT id, name FROM vuln WHERE id = " . $id;
-            $result = $conn->query($sql);
+        $sql    = "SELECT id, name FROM vuln WHERE id = " . $id;
+        $result = $conn->query($sql);
 
-            if (! $result) {
+        if (!$result) {
             echo 'MySQL: query error: ' . $conn->error;
             return;
-            }
+        }
 
-            if ($result->num_rows > 0) {
+        if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $data[] = array("id" => $row["id"], "name" => $row["name"]);
             }
@@ -52,7 +55,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>012 - SQL 注入测试- MySQLi 方式</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
 <script>
@@ -79,7 +82,7 @@ function getXMLHttpRequest(){
 }
 
 function send_json(){
-    var data = document.getElementById("jsoninput").value;
+    var data = document.getElementById("json_input").value;
     var xmlhttp=getXMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -92,6 +95,23 @@ function send_json(){
     xmlhttp.setRequestHeader("Content-type","application/json;charset=UTF-8");
     xmlhttp.send(data);
 }
+
+function send_header(){
+    var key = document.getElementById("header_key").value;
+    var data = document.getElementById("header_input").value;
+    var xmlhttp=getXMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            document.body.innerHTML = ""
+            document.write(xmlhttp.responseText);
+        }
+    }
+    url = GetUrlRelativePath()
+    xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader(key, data);
+    xmlhttp.send();
+}
+
 </script>
     <div class="container-fluid" style="margin-top: 50px;">
         <div class="row">
@@ -129,13 +149,29 @@ INSERT INTO test.vuln values (1, "rocks");
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-                <form onsubmit="send_json()">
+                <form>
                     <div class="form-group">
                         <label>JSON 方式查询</label>
-                        <input id="jsoninput" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
+                        <input id="json_input" class="form-control" name="id" value='{"id":"<?php echo htmlspecialchars($id, ENT_QUOTES) ?>"}' >
                     </div>
-                    <button type="submit" class="btn btn-primary">JSON 方式提交查询</button>
+                    <button type="button" onclick="send_json()" class="btn btn-primary">JSON 方式提交查询</button>
                 </form>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form>
+                    <div class="form-group">
+                        <label>header 方式查询</label></br>
+                        <label>header 字段名</label>
+                        <input id="header_key" class="form-control" name="key" value='X-Forwarded-For' >
+                        </br>
+                        <label>查询条件</label>
+                        <input id="header_input" class="form-control" name="id" value='<?php echo htmlspecialchars($id, ENT_QUOTES) ?>' >
+                    </div>
+                    <button type="button" onclick="send_header()" class="btn btn-primary">Header 方式提交查询</button>
+                </form>
             </div>
         </div>
 
@@ -156,6 +192,4 @@ INSERT INTO test.vuln values (1, "rocks");
             </div>
         </div>
     </div>
-
-
 </body>

@@ -5,6 +5,7 @@
 	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?cmd=';
 	$linux   = $baseurl . 'cat+/etc/resolv.conf';
 	$windows = $baseurl . 'cmd+/c+whoami';
+	$error   = $baseurl . 'error'
 ?>
 
 <html>
@@ -25,14 +26,23 @@
 
 	<p>Windows 触发: </p>
 	<p>curl -g '<a href="<?php echo $windows ?>" target="_blank"><?php echo $windows ?></a>'</p>
+	<br>
 
-	<br><br>
+	<p>语法错误检测(执行命令: echo 'test' xxxx' ): </p>
+	<p>curl -g '<a href="<?php echo $error ?>" target="_blank"><?php echo $error ?></a>'</p>
+	<br>
+
+	<br>
 	<p>命令执行结果</p>
 
 <?php 
 	if (isset ($_GET['cmd']))
 	{
-		echo htmlentities(system ($_GET['cmd']));
+		if ($_GET['cmd'] == "error"){
+			echo htmlentities(system("echo 'test' xxxx'"));
+		} else {
+			echo htmlentities(system($_GET['cmd']));
+		}
 	}
 ?>
 </body>

@@ -9,7 +9,7 @@
 <body>
 <%
 String normal_querystring = "?filename=123.txt&amp;filedata=some-report-data";
-String linux_querystring = "?filename=123.jsp&amp;filedata=some-webshell-data";
+String linux_querystring = "?filename=reports/../123.jsp&amp;filedata=some-webshell-data";
 String bytes = request.getParameter("filedata");
 String fname = request.getParameter("filename");
 if (fname == null || bytes == null) {
