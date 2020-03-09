@@ -40,7 +40,7 @@
     if(isset($url))
     {
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
         curl_setopt($ch, CURLOPT_NOBODY, FALSE); 
         curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
