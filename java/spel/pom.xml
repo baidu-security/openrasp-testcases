@@ -5,10 +5,10 @@
     <artifactId>spel</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
-    <name>spel-test</name>
+    <name>spel</name>
     <url>http://maven.apache.org</url>
     <build>
-        <finalName>spel-test</finalName>
+        <finalName>spel</finalName>
     </build>
 
     <dependencies>
