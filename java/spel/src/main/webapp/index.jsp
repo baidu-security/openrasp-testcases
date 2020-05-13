@@ -38,7 +38,7 @@ else
         <div class="col">
           <form method="post">
             <div class="input-group">
-              <input type="text" name="spel" class="form-control" id="spel" value="<%= htmlEscape(spel) %>">
+              <input type="text" name="spel" class="form-control" id="spel" value="<%= HtmlUtils.htmlEscape(spel) %>">
               <div class="input-group-btn">
                 <button type="submit" class="btn btn-primary">提交</button>                
               </div>       
