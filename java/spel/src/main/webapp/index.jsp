@@ -1,7 +1,8 @@
 <%@ page import="java.io.*" %>
 <%@ page import="org.springframework.expression.Expression" %>
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.springframework.expression.spel.standard.SpelExpressionParser" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%
 String spel   = request.getParameter("spel");
 String result = "";
@@ -19,6 +20,10 @@ if (spel != null)
     result = e.toString();
   }
 }
+else
+{
+  spel = "";
+}
 %>
 
 <html>
@@ -33,7 +38,7 @@ if (spel != null)
         <div class="col">
           <form method="post">
             <div class="input-group">
-              <input type="text" name="spel" class="form-control" id="spel">
+              <input type="text" name="spel" class="form-control" id="spel" value="<%= htmlEscape(spel) %>">
               <div class="input-group-btn">
                 <button type="submit" class="btn btn-primary">提交</button>                
               </div>       
