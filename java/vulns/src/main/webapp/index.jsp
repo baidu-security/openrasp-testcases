@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenRASP 官方测试用例集合</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
-  <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular.min.js" charset="utf-8"></script>
   <style media="screen">
     thead tr td {
       background-color: #f1f1f1
