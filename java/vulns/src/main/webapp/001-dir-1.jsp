@@ -33,7 +33,7 @@ function getXMLHttpRequest(){
 }
 
 function send_json(){
-    data = "{%22dirname%22:%22../../../../../../../../../../../../../../../var/log/%22}"
+    data = "{\"dirname\":\"../../../../../../../../../../../../../../../var/log/\"}"
     var xmlhttp=getXMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -62,7 +62,6 @@ if(content_type != null && content_type.indexOf("application/json") != -1){
         try {
             request.getInputStream().read(buf);
             postdata = new String(buf);
-            postdata = java.net.URLDecoder.decode(postdata);
             if (postdata != null) {
                 net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(postdata);
                 if (json != null) {
@@ -83,7 +82,7 @@ else{
 String normal_querystring = "?dirname=reports";
 String linux_querystring = "?dirname=../../../../../../../../../../../../../../../var/log/";
 String windows_querystring = "?dirname=../../../";
-String linux_json_curl = "curl -d \"{%22dirname%22:%22../../../../../../../../../../../../../../../var/log/%22}\" -H \"Content-Type: application/json\" '" + request.getRequestURL() + "'";
+String linux_json_curl = "curl -d \"{\\\"dirname\\\":\\\"../../../../../../../../../../../../../../../var/log/\\\"}\" -H \"Content-Type: application/json\" '" + request.getRequestURL() + "'";
 
 if (dirname != null) {
     try {
