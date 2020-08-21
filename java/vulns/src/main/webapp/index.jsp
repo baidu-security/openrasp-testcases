@@ -76,6 +76,7 @@
                 {"name": "018 - loadlibrary", "path": '018-loadlibrary.jsp'},
                 {"name": "019 - 任意文件删除", "path": '019-file-delete.jsp'},
                 {"name": "020 - RandomAccessFile 文件读写", "path": '020-random-file.jsp'},
+                {"name": "021 - NIO 文件操作", "path": '021-nio-file.jsp'},
             ]
         }
     ]);

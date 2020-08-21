@@ -25,10 +25,10 @@ String fname = request.getParameter("filename");
 <p>正常读取调用</p>
 <p>curl '<a href="<%=request.getRequestURL()+read_normal_querystring%>" target="_blank"><%=request.getRequestURL()+read_normal_querystring%></a>'</p>
 
-<p>不正常读取调用</p>
+<p>不正常读取调用 - Linux</p>
 <p>curl '<a href="<%=request.getRequestURL()+read_linux_querystring%>" target="_blank"><%=request.getRequestURL()+read_linux_querystring%></a>'</p>
 
-<p>不正常读取调用</p>
+<p>不正常读取调用 - Windows</p>
 <p>curl '<a href="<%=request.getRequestURL()+read_windows_querystring%>" target="_blank"><%=request.getRequestURL()+read_windows_querystring%></a>'</p>
 
 <%
