@@ -17,7 +17,7 @@
     ResultSet rset = null;
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC", "test", "test");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb?useSSL=false&serverTimezone=UTC", "testuser", "testpassword");
         stmt = conn.createStatement();
         rset = stmt.executeQuery ("SELECT * FROM vuln WHERE id = " + id);
         return (formatResult(rset));
@@ -143,13 +143,13 @@
         <div class="col-xs-8 col-xs-offset-2">
             <h4>SQL注入 - JDBC executeQuery() 方式</h4>
             <p>第一步: 请以mysql root账号执行下面的语句创建表</p>
-            <pre>DROP DATABASE IF EXISTS test;
-CREATE DATABASE test;
-grant all privileges on test.* to 'test'@'%' identified by 'test';
-grant all privileges on test.* to 'test'@'localhost' identified by 'test';
-CREATE TABLE test.vuln (id INT, name text);
-INSERT INTO test.vuln values (0, "openrasp");
-INSERT INTO test.vuln values (1, "rocks");
+            <pre>DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
+CREATE user 'testuser'@'%' identified with mysql_native_password by 'testpassword';
+grant all privileges on testdb.* to 'testuser'@'%' with grant option;
+CREATE TABLE testdb.vuln (id INT, name text);
+INSERT INTO testdb.vuln values (0, "openrasp");
+INSERT INTO testdb.vuln values (1, "rocks");
 </pre>
         </div>
     </div>
