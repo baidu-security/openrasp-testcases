@@ -69,7 +69,9 @@ if(content_type != null && content_type.indexOf("application/json") != -1){
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            out.print("<pre>");
+            e.printStackTrace(response.getWriter());
+            out.print("</pre>");
         }
     }
 }
