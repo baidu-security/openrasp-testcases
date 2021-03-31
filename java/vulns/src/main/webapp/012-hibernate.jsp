@@ -78,7 +78,9 @@
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
         }
     } else {

@@ -124,7 +124,9 @@
                 f.renameTo(new File(path));
                 out.println("文件已创建:" + path + "\n<br/>");
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
 
             try {
@@ -137,7 +139,9 @@
                     out.println("文件删除失败！" + e.getMessage());
                 }
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
         }
     } else if ("link".equals(mode)) {
@@ -162,7 +166,9 @@
                 f.renameTo(new File(path));
                 out.println("文件已创建:" + path + "\n<br/>");
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
 
             try {
@@ -180,7 +186,9 @@
                     out.println("文件硬链接创建失败！" + e.getMessage());
                 }
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
 
         }
@@ -199,7 +207,9 @@
             out.println("==>" + path);
             out.flush();
         } catch (Exception e) {
-            out.print(e);
+            out.print("<pre>");
+            e.printStackTrace(response.getWriter());
+            out.print("</pre>");
         }
     } else if ("read".equals(mode)) {
         String reportName = request.getParameter("file");
@@ -219,7 +229,9 @@
                 out.print(outputStr);
                 out.flush();
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
         }
     } else if ("list".equals(mode)) {
@@ -247,7 +259,9 @@
                     }
                 });
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
         }
     } else if ("rename".equals(mode)) {
@@ -272,7 +286,9 @@
                 f.renameTo(new File(path));
                 out.println("文件已创建:" + path + "\n<br/>");
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
 
             try {
@@ -290,7 +306,9 @@
                     out.println("文件重命名失败！" + e.getMessage());
                 }
             } catch (Exception e) {
-                out.print(e);
+                out.print("<pre>");
+                e.printStackTrace(response.getWriter());
+                out.print("</pre>");
             }
 
         }

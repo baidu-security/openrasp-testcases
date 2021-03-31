@@ -17,7 +17,9 @@
            NodeList RegistrationNo = doc.getElementsByTagName("foo");
            tmp = RegistrationNo.item(0).getFirstChild().getNodeValue();
   		} catch (Exception e) {
-              out.print(e);
+          out.print("<pre>");
+          e.printStackTrace(response.getWriter());
+          out.print("</pre>");
   		}
     }
 %>

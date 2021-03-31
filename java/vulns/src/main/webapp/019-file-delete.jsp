@@ -32,15 +32,17 @@ if (fname != null) {
         out.print(e);
 	}
 
-	try{
+	try {
 		File file = new File(path);
 		if(file.delete()){
 			out.println( "文件 " + file.getName() + " 删除成功！" + "\n<br/>");
 		}else{
 			out.println("文件删除失败！");
 		}
-	}catch(Exception e){
-		out.print(e);
+	} catch(Exception e) {
+		out.print("<pre>");
+        e.printStackTrace(response.getWriter());
+        out.print("</pre>");
 	}
 }
 %>

@@ -17,7 +17,9 @@
             Element test=root.element("foo");
             tmp = test.getText();
         } catch (Exception e) {
-            out.print(e);
+            out.print("<pre>");
+            e.printStackTrace(response.getWriter());
+            out.print("</pre>");
         }
     }
 %>

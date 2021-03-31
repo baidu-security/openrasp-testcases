@@ -25,7 +25,9 @@
             Response response = client.newCall(request).execute();
             result = response.body().string();
         } catch (Exception e) {
-            e.printStackTrace();
+            out.print("<pre>");
+            e.printStackTrace(response.getWriter());
+            out.print("</pre>");
         }
         return result;
     }

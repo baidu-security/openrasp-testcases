@@ -48,7 +48,9 @@
             reader.setContentHandler(new MyHandler());
             reader.parse(new InputSource(new StringReader(request.getParameter("data"))));
         } catch (Exception e) {
-            out.print(e);
+            out.print("<pre>");
+            e.printStackTrace(response.getWriter());
+            out.print("</pre>");
         }
     }
 %>

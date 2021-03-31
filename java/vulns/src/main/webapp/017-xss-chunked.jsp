@@ -24,7 +24,9 @@ if (input != null) {
     try {
         out.println(input);
     } catch (Exception e) {
-        out.print(e);
+        out.print("<pre>");
+        e.printStackTrace(response.getWriter());
+        out.print("</pre>");
     }
 } 
 else {
