@@ -95,11 +95,19 @@ if (dirname != null) {
         } else {
             folder = new File(application.getRealPath("/") + "/" + dirname);
         }
-        File[] listOfFiles = folder.listFiles();
-        for (File file : listOfFiles) {
-            if (file.isFile()) {
-                out.println(file.getName());
-            }
+
+        if (folder == null)
+        {
+            out.println("No such directory");
+        }
+        else
+        {
+            File[] listOfFiles = folder.listFiles();
+            for (File file : listOfFiles) {
+                if (file.isFile()) {
+                    out.println(file.getName());
+                }
+            }            
         }
     } catch (Exception e) {
         out.print("<pre>");
