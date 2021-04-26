@@ -6,7 +6,7 @@
     $any1    = $baseurl . 'http://127.0.0.1.xip.io';
     $any2    = $baseurl . 'http://10.10.10.10';
     $any3    = $baseurl . 'file:///etc/passwd';
-    $any4    = $baseurl . 'http://uee.me/cFas3';
+    $any4    = $baseurl . 'http://n5d.net/mbrhm';
 
 ?>
 <html>
