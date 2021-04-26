@@ -1,6 +1,8 @@
 <%@ page import="okhttp3.OkHttpClient" %>
 <%@ page import="okhttp3.Request" %>
 <%@ page import="okhttp3.Response" %>
+<%@ page import="java.util.Arrays" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: anyang
@@ -25,9 +27,7 @@
             Response response = client.newCall(request).execute();
             result = response.body().string();
         } catch (Exception e) {
-            out.print("<pre>");
-            e.printStackTrace(response.getWriter());
-            out.print("</pre>");
+            result = "<pre>"+ Arrays.toString(e.getStackTrace()) +"<pre>";
         }
         return result;
     }
