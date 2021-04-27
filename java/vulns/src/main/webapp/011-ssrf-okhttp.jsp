@@ -3,8 +3,6 @@
 <%@ page import="com.squareup.okhttp.Response"%>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.apache.commons.lang.exception.ExceptionUtils" %>
-<%@ page import="net.bytebuddy.implementation.bytecode.Throw" %>
-
 <%--
   Created by IntelliJ IDEA.
   User: anyang
