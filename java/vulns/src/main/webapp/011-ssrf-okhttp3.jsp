@@ -1,7 +1,8 @@
 <%@ page import="okhttp3.OkHttpClient" %>
 <%@ page import="okhttp3.Request" %>
 <%@ page import="okhttp3.Response" %>
-<%@ page import="java.util.Arrays" %>
+<%@ page import="org.apache.commons.lang.exception.ExceptionUtils" %>
+<%@ page import="org.apache.commons.lang.StringUtils" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -27,7 +28,8 @@
             Response response = client.newCall(request).execute();
             result = response.body().string();
         } catch (Exception e) {
-            result = "<pre>"+ Arrays.toString(e.getStackTrace()) +"<pre>";
+            String[] rootCauseStackTrace = ExceptionUtils.getRootCauseStackTrace(e);
+            result = StringUtils.join(rootCauseStackTrace,System.lineSeparator());
         }
         return result;
     }
@@ -39,7 +41,7 @@
         String result = httpGet(urlString);
         result = result.replace("<", "&lt;");
         result = result.replace(">", "&gt;");
-        out.println(result);
+        out.println("<pre>" +result+ "</pre>");
     }
 %>
 <p>okhttp 调用方式: </p>
