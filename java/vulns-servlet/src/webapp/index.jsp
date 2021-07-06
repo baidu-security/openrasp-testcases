@@ -69,6 +69,8 @@
                 {"name": "011 - SSRF - OKHTTP 方式", "path": '011-ssrf-okhttp.jsp'},
                 {"name": "011 - SSRF - OKHTTP3 方式", "path": '011-ssrf-okhttp3.jsp'},
                 {"name": "012 - SQLi - MySQL JDBC executeQuery 方式", "path": '012-jdbc-mysql.jsp'},
+                {"name": "012 - SQLi - MySQL 8.X JDBC 驱动 + executeQuery 方式", "path": '012-jdbc-mysql8.jsp'},
+                {"name": "012 - SQLi - MySQL 8.X JDBC 驱动 + preparedStatement 方式", "path": '012-jdbc-mysql8-prepared.jsp'},
                 {"name": "013 - SQLi - JDBC multipart 请求格式", "path": '013-multipart-mysql.jsp'},
                 {"name": "014 - SQLi - Sql Exception", "path": '014-sql-exception.jsp'},
                 {"name": "015 - SQLi - Sql Access", "path": '015-sql-access.jsp'},
