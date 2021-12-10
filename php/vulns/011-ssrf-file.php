@@ -57,7 +57,12 @@
                                 copy($url, "upload/ssrf-result.txt");
                             }
                             else if($function == "fopen") {
-                                copy($url, "r");
+                                $handle = fopen($url, "r");
+                                $contents = fread($handle, 256);
+                                fclose($handle);
+                            }
+                            else if($function == "file") {
+                                print_r(file($url));
                             }
                             else if($function == "include") {
                                 include $url;

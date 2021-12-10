@@ -1,4 +1,7 @@
 <html>
+<?php
+header('Content-Type: text/html');
+?>
 <head>
     <meta charset="UTF-8"/>
     <title>006 - 检查响应里是否有身份证、银行卡等敏感信息泄露</title>
