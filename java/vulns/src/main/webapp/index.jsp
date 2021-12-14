@@ -78,6 +78,7 @@
                 {"name": "019 - 任意文件删除", "path": '019-file-delete.jsp'},
                 {"name": "020 - RandomAccessFile 文件读写", "path": '020-random-file.jsp'},
                 {"name": "021 - NIO 文件操作", "path": '021-nio-file.jsp'},
+                {"name": "022 - Log4j 漏洞测试", "path": '022-log4j.jsp'},
             ]
         }
     ]);
