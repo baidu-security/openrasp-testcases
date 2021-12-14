@@ -1,6 +1,8 @@
 <%@ page import="com.squareup.okhttp.OkHttpClient"%>
 <%@ page import="com.squareup.okhttp.Request"%>
 <%@ page import="com.squareup.okhttp.Response"%>
+<%@ page import="org.apache.commons.lang.StringUtils" %>
+<%@ page import="org.apache.commons.lang.exception.ExceptionUtils" %>
 <%--
   Created by IntelliJ IDEA.
   User: anyang
@@ -25,9 +27,8 @@
             Response response = client.newCall(request).execute();
             result = response.body().string();
         } catch (Exception e) {
-            out.print("<pre>");
-            e.printStackTrace(response.getWriter());
-            out.print("</pre>");
+            String[] rootCauseStackTrace = ExceptionUtils.getRootCauseStackTrace(e);
+            result = StringUtils.join(rootCauseStackTrace,System.lineSeparator());
         }
         return result;
     }
@@ -39,7 +40,7 @@
         String result = httpGet(urlString);
         result = result.replace("<", "&lt;");
         result = result.replace(">", "&gt;");
-        out.println(result);
+        out.println("<pre>" +result+ "</pre>");
     }
 %>
 <p>okhttp 调用方式: </p>
