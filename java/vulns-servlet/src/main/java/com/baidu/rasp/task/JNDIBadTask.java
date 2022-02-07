@@ -7,13 +7,23 @@ import java.util.concurrent.Callable;
 
 public class JNDIBadTask implements Callable {
 
-    @Override
-    public Object call() {
-        return CallBadService();
+    private String host;
+    private int port;
+    private String serviceName;
+
+    public JNDIBadTask(String host,int port,String serviceName){
+        this.host = host;
+        this.port = port;
+        this.serviceName = serviceName;
     }
 
-    public static String CallBadService() {
-        String uri = "rmi://127.0.0.1:1098/hello";
+    @Override
+    public Object call() {
+        return CallBadService(this.host,this.port,this.serviceName);
+    }
+
+    public static String CallBadService(String host,int port,String serviceName) {
+        String uri = "rmi://"+host +":"+port +"/"+serviceName;
         Context ctx = null;
         try {
             ctx = new InitialContext();

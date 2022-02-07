@@ -28,34 +28,42 @@ public class JDNI extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //System.setProperty("com.sun.jndi.rmi.object.trustURLCodebase","true");
+        // jdk1.8高版本请设置此属性,否则报如下错误
+        // javax.naming.ConfigurationException: The object factory is untrusted. Set the system property 'com.sun.jndi.rmi.object.trustURLCodebase' to 'true'.
+        System.setProperty("com.sun.jndi.rmi.object.trustURLCodebase","true");
         resp.setHeader("Content-type", "text/html;charset=UTF-8");//告知浏览器编码方式;
         resp.setCharacterEncoding("UTF-8");
         String option = req.getParameter("option");
+        String host = req.getParameter("host");
+        if ("".equals(host)){
+            host = "localhost";
+        }
+        int port = Integer.parseInt(req.getParameter("port"));
+        String serviceName = req.getParameter("serviceName");
         if ("start".equals(option)){
             IHello service = new HelloImpl();
-            Registry registry = LocateRegistry.createRegistry(1099);
-            registry.rebind("hello", service);
+            Registry registry = LocateRegistry.createRegistry(port);
+            registry.rebind(serviceName, service);
             resp.getWriter().println("启动成功");
         }else if ("call".equals(option)){
-            String result = JNDITask.CallService();
+            String result = JNDITask.CallService(host,port,serviceName);
             resp.getWriter().println(result);
         }else if ("startBad".equals(option)){
             try {
-                Registry registry = LocateRegistry.createRegistry(1098);
+                Registry registry = LocateRegistry.createRegistry(port);
                 Reference aa = new Reference("Calc", "Calc", "http://127.0.0.1:8081/");
                 ReferenceWrapper refObjWrapper = new ReferenceWrapper(aa);
-                registry.rebind("hello", refObjWrapper);
+                registry.rebind(serviceName, refObjWrapper);
                 resp.getWriter().println("启动成功");
             } catch (Exception e) {
                 e.printStackTrace();
                 resp.getWriter().println("启动失败："+e.getMessage());
             }
         }else if ("callBad".equals(option)){
-            String result = JNDIBadTask.CallBadService();
+            String result = JNDIBadTask.CallBadService(host,port,serviceName);
             resp.getWriter().println(result);
         }else if ("asyncCallJDNI".equals(option)){
-            Future<String> f = executor.submit(new JNDITask());
+            Future<String> f = executor.submit(new JNDITask(host,port,serviceName));
             try {
                 String result = f.get();
                 resp.getWriter().println("（异步）" + result);
@@ -64,7 +72,7 @@ public class JDNI extends HttpServlet {
                 resp.getWriter().println(e.getMessage());
             }
         }else if ("asyncCallBadJDNI".equals(option)){
-            Future<String> f = executor.submit(new JNDIBadTask());
+            Future<String> f = executor.submit(new JNDIBadTask(host,port,serviceName));
             try {
                 String result = f.get();
                 resp.getWriter().println("（异步）" + result);

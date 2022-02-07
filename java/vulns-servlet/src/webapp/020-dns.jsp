@@ -16,10 +16,12 @@
 <%
     String url = new String(request.getRequestURL());
     String baseUrl = url.substring(0, url.lastIndexOf("/"));
+    String normalDNS = "8.8.8.8";
+    String abnormalDNS = "www.dnslog.cn";
 %>
-<a href="<%=baseUrl+"/DNS?option=DNS"%>" target="_blank">DNS good case</a><br/>
-<a href="<%=baseUrl+"/DNS?option=DNSBad"%>" target="_blank">DNS bad case</a><br/>
-<a href="<%=baseUrl+"/DNS?option=asyncDNS"%>" target="_blank">异步DNS good case</a><br/>
-<a href="<%=baseUrl+"/DNS?option=asyncDNSBad"%>" target="_blank">异步 DNS bad case</a><br/><br/>
+<a href="<%=baseUrl+"/DNS?option=DNS&host=" + normalDNS%>" target="_blank">DNS good case</a><br/>
+<a href="<%=baseUrl+"/DNS?option=DNSBad&host=" + abnormalDNS%>" target="_blank">DNS bad case</a><br/>
+<a href="<%=baseUrl+"/DNS?option=asyncDNS&host=" + normalDNS%>" target="_blank">异步DNS good case</a><br/>
+<a href="<%=baseUrl+"/DNS?option=asyncDNSBad&host=" + abnormalDNS%>" target="_blank">异步 DNS bad case</a><br/><br/>
 </body>
 </html>

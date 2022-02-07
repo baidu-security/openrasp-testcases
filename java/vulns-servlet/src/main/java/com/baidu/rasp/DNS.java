@@ -26,14 +26,15 @@ public class DNS extends HttpServlet {
         resp.setHeader("Content-type", "text/html;charset=UTF-8");//告知浏览器编码方式;
         resp.setCharacterEncoding("UTF-8");
         String option = req.getParameter("option");
+        String host = req.getParameter("host");
         if ("DNS".equals(option)){
-            String result = DNSTask.getHostNames("8.8.8.8");
+            String result = DNSTask.getHostNames(host);
             resp.getWriter().println(result);
         }else if ("DNSBad".equals(option)){
-            String result = DNSTask.getHostNames("www.dnslog.cn");
+            String result = DNSTask.getHostNames(host);
             resp.getWriter().println(result);
         }else if ("asyncDNS".equals(option)){
-            Future<String> f = executor.submit(new DNSTask("8.8.8.8"));
+            Future<String> f = executor.submit(new DNSTask(host));
             try {
                 String result =  f.get();
                 resp.getWriter().println(result);
@@ -42,7 +43,7 @@ public class DNS extends HttpServlet {
                 resp.getWriter().println(e.getMessage());
             }
         }else if ("asyncDNSBad".equals(option)){
-            Future<String> f = executor.submit(new DNSTask("www.dnslog.cn"));
+            Future<String> f = executor.submit(new DNSTask(host));
             try {
                 String result =  f.get();
                 resp.getWriter().println(result);

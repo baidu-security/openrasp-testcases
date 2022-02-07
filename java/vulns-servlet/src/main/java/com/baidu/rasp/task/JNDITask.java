@@ -10,15 +10,25 @@ import java.util.concurrent.Callable;
 
 public class JNDITask implements Callable {
 
-    @Override
-    public Object call()  {
-        return CallService();
+    private String host;
+    private int port;
+    private String serviceName;
+
+    public JNDITask(String host, int port, String serviceName) {
+        this.host = host;
+        this.port = port;
+        this.serviceName = serviceName;
     }
 
-    public static String CallService() {
+    @Override
+    public Object call() {
+        return CallService(this.host, this.port, this.serviceName);
+    }
+
+    public static String CallService(String host, int port, String serviceName) {
         try {
-            Registry registry = LocateRegistry.getRegistry("localhost",1099);
-            IHello service = (IHello) registry.lookup("hello");
+            Registry registry = LocateRegistry.getRegistry(host, port);
+            IHello service = (IHello) registry.lookup(serviceName);
             return service.sayHello("test");
         } catch (RemoteException e) {
             e.printStackTrace();
