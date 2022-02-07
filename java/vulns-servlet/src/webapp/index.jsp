@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenRASP 官方测试用例集合</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
-  <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js" charset="utf-8"></script>
+  <script src="js/angular.min.js" charset="utf-8"></script>
   <style media="screen">
     thead tr td {
       background-color: #f1f1f1
@@ -76,7 +76,9 @@
                 {"name": "015 - SQLi - Sql Access", "path": '015-sql-access.jsp'},
                 {"name": "016 - OGNL", "path": '016-ognl.jsp'},
                 {"name": "017 - XSS - 017 - 反射型XSS", "path": '017-xss.jsp'},
-                {"name": "018 - SQLi - Sql policy", "path": '018-sql-policy.jsp'}
+                {"name": "018 - SQLi - Sql policy", "path": '018-sql-policy.jsp'},
+                {"name": "019 - JDNI", "path": '019-jdni.jsp'},
+                {"name": "020 - DNS", "path": '020-dns.jsp'}
             ]
         }
     ]);
