@@ -219,4 +219,20 @@
         <servlet-name>sqlPolicy</servlet-name>
         <url-pattern>/sqlPolicy</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>JDNI</servlet-name>
+        <servlet-class>com.baidu.rasp.JDNI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JDNI</servlet-name>
+        <url-pattern>/JDNI</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DNS</servlet-name>
+        <servlet-class>com.baidu.rasp.DNS</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DNS</servlet-name>
+        <url-pattern>/DNS</url-pattern>
+    </servlet-mapping>
 </web-app>
