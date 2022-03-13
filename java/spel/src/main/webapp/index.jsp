@@ -22,7 +22,7 @@ if (spel != null)
 }
 else
 {
-  spel = "";
+  spel = "T(java.lang.Runtime).getRuntime().exec('ls -lah')";
 }
 %>
 
