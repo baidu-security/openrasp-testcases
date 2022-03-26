@@ -30,10 +30,10 @@ if (input != null) {
 else {
 %>
 <p>正常输入: </p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL() + normal_querystring%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+normal_querystring%>" target="_blank"><%=request.getRequestURI() + normal_querystring%></a>'</p>
 
 <p>不正常输入: </p>
-<p>curl '<a href="<%=request.getRequestURL()+xss_querystring%>" target="_blank"><%=request.getRequestURL() + xss_querystring%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+xss_querystring%>" target="_blank"><%=request.getRequestURI() + xss_querystring%></a>'</p>
 
 
 <%

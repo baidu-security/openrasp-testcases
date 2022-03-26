@@ -39,70 +39,70 @@
 %>
 <p>注意 JDK6 以下版本 JDK 不支持以下 NIO case</p>
 <p>正常写入文件调用</p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>"
-            target="_blank"><%=request.getRequestURL() + normal_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+normal_querystring%>"
+            target="_blank"><%=request.getRequestURI() + normal_querystring%>
 </a>'</p>
 <p>不正常写入文件调用</p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_querystring%>
 </a>'</p>
 <p>正常读取调用</p>
-<p>curl '<a href="<%=request.getRequestURL()+read_normal_querystring%>"
-            target="_blank"><%=request.getRequestURL() + read_normal_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+read_normal_querystring%>"
+            target="_blank"><%=request.getRequestURI() + read_normal_querystring%>
 </a>'</p>
 
 <p>不正常读取调用 - Linux</p>
-<p>curl '<a href="<%=request.getRequestURL()+read_linux_querystring%>"
-            target="_blank"><%=request.getRequestURL() + read_linux_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+read_linux_querystring%>"
+            target="_blank"><%=request.getRequestURI() + read_linux_querystring%>
 </a>'</p>
 
 <p>不正常读取调用 - Windows</p>
-<p>curl '<a href="<%=request.getRequestURL()+read_windows_querystring%>"
-            target="_blank"><%=request.getRequestURL() + read_windows_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+read_windows_querystring%>"
+            target="_blank"><%=request.getRequestURI() + read_windows_querystring%>
 </a>'</p>
 
 <p>正常删除文件</p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_delete_querystring%>"
-            target="_blank"><%=request.getRequestURL() + normal_delete_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+normal_delete_querystring%>"
+            target="_blank"><%=request.getRequestURI() + normal_delete_querystring%>
 </a>'</p>
 <p>不正常删除文件</p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_delete_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_delete_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_delete_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_delete_querystring%>
 </a>'</p>
 
 <p>正常文件硬链接</p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_link_querystring%>"
-            target="_blank"><%=request.getRequestURL() + normal_link_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+normal_link_querystring%>"
+            target="_blank"><%=request.getRequestURI() + normal_link_querystring%>
 </a>'</p>
 
 <p>不正常文件硬链接</p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_link_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_link_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_link_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_link_querystring%>
 </a>'</p>
 
 <p>正常目录遍历</p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_list_querystring%>"
-            target="_blank"><%=request.getRequestURL() + normal_list_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+normal_list_querystring%>"
+            target="_blank"><%=request.getRequestURI() + normal_list_querystring%>
 </a>'</p>
 
 <p>不正常目录遍历 - Linux</p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_list_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_list_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_list_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_list_querystring%>
 </a>'</p>
 
 <p>不正常目录遍历 - Windows</p>
-<p>curl '<a href="<%=request.getRequestURL()+windows_list_querystring%>"
-            target="_blank"><%=request.getRequestURL() + windows_list_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+windows_list_querystring%>"
+            target="_blank"><%=request.getRequestURI() + windows_list_querystring%>
 </a>'</p>
 
 <p>正常文件重命名</p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_rename_querystring%>"
-            target="_blank"><%=request.getRequestURL() + normal_rename_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+normal_rename_querystring%>"
+            target="_blank"><%=request.getRequestURI() + normal_rename_querystring%>
 </a>'</p>
 
 <p>不正常文件重命名</p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_rename_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_rename_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_rename_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_rename_querystring%>
 </a>'</p>
 
 <%

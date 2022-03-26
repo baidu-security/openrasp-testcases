@@ -28,15 +28,15 @@
     }
 %>
 <p>Linux 触发: </p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_querystring%>
 </a>'</p>
 <p>然后检查 /tmp 是否存在 passwd 这个文件</p>
 <br>
 
 <p>Windows 触发: </p>
-<p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>"
-            target="_blank"><%=request.getRequestURL() + windows_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+windows_querystring%>"
+            target="_blank"><%=request.getRequestURI() + windows_querystring%>
 </a>'</p>
 <p>点击这里执行 calc.exe</p>
 </body>

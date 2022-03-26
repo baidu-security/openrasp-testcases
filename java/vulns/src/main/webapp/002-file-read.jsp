@@ -15,18 +15,18 @@
 <body>
 <h1>002 - 任意文件下载/读取漏洞（路径拼接）</h1>
 <p>正常调用: </p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>"
-            target="_blank"><%=request.getRequestURL() + normal_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+normal_querystring%>"
+            target="_blank"><%=request.getRequestURI() + normal_querystring%>
 </a>'</p>
 
 <p>不正常调用: </p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>"
-            target="_blank"><%=request.getRequestURL() + linux_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+linux_querystring%>"
+            target="_blank"><%=request.getRequestURI() + linux_querystring%>
 </a>'</p>
 
 <p>不正常调用: </p>
-<p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>"
-            target="_blank"><%=request.getRequestURL() + windows_querystring%>
+<p>curl '<a href="<%=request.getRequestURI()+windows_querystring%>"
+            target="_blank"><%=request.getRequestURI() + windows_querystring%>
 </a>'</p>
 
 <br>
