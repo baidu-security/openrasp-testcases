@@ -46,6 +46,8 @@
     app.controller('main', ['$scope', '$http',
       function ($scope, $http) {
         $scope.testcases = [
+          { "name": "spring xml context (app)", "path": '/bean/app?url=http://127.0.0.1/test.xml' },
+          { "name": "spring xml context (fs)", "path": '/bean/file?url=http://127.0.0.1/test.xml' },
           { "name": "jndi lookup", "path": '/jndi/lookup?url=rmi://127.0.0.1:1089' },
           { "name": "log4j", "path": '/log4j?log=%24%7Bjndi:ldap://127.0.0.1:1389/a%7D' },
           { "name": "snakeyaml", "path": '/snakeyaml/parse?yaml=%5B%5D' },
