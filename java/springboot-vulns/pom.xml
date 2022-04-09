@@ -3,14 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.neo</groupId>
-	<artifactId>springBootTest</artifactId>
+	<groupId>com.example.demo</groupId>
+	<artifactId>SpringBootVulns</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<!-- <packaging>jar</packaging> -->
 
-	<name>springBootTest</name>
-	<description>Demo project for Spring Boot</description>
+	<name>SpringBootVulns</name>
+	<description>A vulnerable SpringBoot application</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
