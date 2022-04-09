@@ -13,6 +13,6 @@ public class JndiController {
     public String lookup(@RequestParam(name="url", required=true) String url) throws Exception {
         Context ctx = new InitialContext();
         Object object = ctx.lookup(url);
-        return url;
+        return object.toString();
     }
 }

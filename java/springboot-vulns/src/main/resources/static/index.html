@@ -50,6 +50,8 @@
           { "name": "log4j", "path": '/log4j?log=%24%7Bjndi:ldap://127.0.0.1:1389/a%7D' },
           { "name": "ognl", "path": '/ognl/parse?ognl=%23user' },
           { "name": "spel", "path": '/spel/parse?spel=T(java.lang.Runtime)' },
+          { "name": "freemarker (unsafe)", "path": '/freemarker/unsafe?template=%3Ch1%3E%3C/h1%3E' },
+          { "name": "freemarker (safe)", "path": '/freemarker/safe?template=%3Ch1%3E%3C/h1%3E' },
           { "name": "fastjson", "path": '/fastjson/parse?json=%7B%7D' },
           { "name": "actuator", "path": '/actuator/' },
           { "name": "shiro", "path": '/admin/no-auth/%2e%2e/auth' },

