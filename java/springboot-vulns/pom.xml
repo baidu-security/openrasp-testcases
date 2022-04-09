@@ -6,7 +6,8 @@
 	<groupId>com.neo</groupId>
 	<artifactId>springBootTest</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
+	<!-- <packaging>jar</packaging> -->
 
 	<name>springBootTest</name>
 	<description>Demo project for Spring Boot</description>
