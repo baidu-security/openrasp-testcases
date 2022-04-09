@@ -15,7 +15,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
         String uri = request.getRequestURI();
         uri = uri.replaceAll("//", "/");
 
-        System.out.println("PermissionInterceptor::preHandle RequestURI: " + uri);
+        // System.out.println("PermissionInterceptor::preHandle RequestURI: " + uri);
         if (uri.contains("..") || uri.contains("./")) {
             return false;
         }
