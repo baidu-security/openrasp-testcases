@@ -17,7 +17,6 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.0.RELEASE</version>
 		<relativePath/>
-		<!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -33,7 +32,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.61</version>
+			<version>1.2.20</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

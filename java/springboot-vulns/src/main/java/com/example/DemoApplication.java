@@ -1,7 +1,5 @@
 package com.example;
 
-import com.alibaba.fastjson.parser.ParserConfig;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +15,6 @@ import de.codecentric.boot.admin.server.config.EnableAdminServer;
 // @EnableAdminServer
 public class DemoApplication {
 	public static void main(String[] args) {
-		ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
