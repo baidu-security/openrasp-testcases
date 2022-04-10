@@ -3,8 +3,8 @@ package com.example.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/admin")
-public class AdminController {
+@RequestMapping(value = "/shiro")
+public class ShiroController {
     @RequestMapping(value = "/no-auth", method = RequestMethod.GET)
     public String noAuth() {
         return "This interface does not required authentication\n";

@@ -8,7 +8,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
+// import de.codecentric.boot.admin.server.config.EnableAdminServer;
 
 @SpringBootApplication
 @EnableSwagger2

