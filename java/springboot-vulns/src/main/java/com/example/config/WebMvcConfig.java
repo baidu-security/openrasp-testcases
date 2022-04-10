@@ -11,7 +11,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(handlerInterceptor())
-                .addPathPatterns("/shiro/**");
+                .addPathPatterns("/permission/**");
     }
 
     @Bean

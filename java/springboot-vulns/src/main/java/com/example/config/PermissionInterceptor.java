@@ -19,11 +19,12 @@ public class PermissionInterceptor implements HandlerInterceptor {
         if (uri.contains("..") || uri.contains("./")) {
             return false;
         }
-        if (uri.startsWith("/admin/no-auth")) {
+
+        if (uri.startsWith("/permission/no-auth")) {
             return true;
         }
 
-        response.getWriter().println("Access is denied");
+        response.getWriter().println("Access is denied (by PermissionInterceptor)");
         return false;
     }
 }
