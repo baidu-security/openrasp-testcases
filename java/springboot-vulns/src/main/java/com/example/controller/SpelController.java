@@ -12,7 +12,7 @@ import org.springframework.expression.spel.support.*;
 @RequestMapping(value = "/spel")
 public class SpelController {
     @RequestMapping(value = "/parse")
-    public String parseJson(@RequestParam(name="spel", required=true) String name) {
+    public String parseJson(@RequestParam(name="expression", required=true) String name) {
         ExpressionParser parser = new SpelExpressionParser();
         Expression expression = parser.parseExpression(name);
         EvaluationContext context = new StandardEvaluationContext();

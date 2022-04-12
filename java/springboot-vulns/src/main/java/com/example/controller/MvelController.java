@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/mvel")
 public class MvelController {
     @RequestMapping(value = "/parse")
-    public String parseJson(@RequestParam(name="mvel", required=true) String expression) throws Exception {
+    public String parseJson(@RequestParam(name="expression", required=true) String expression) throws Exception {
         Map<String, Object> context = new HashMap<String, Object>();
         context.put("user", "123");
 
