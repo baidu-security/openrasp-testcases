@@ -16,4 +16,11 @@ public class JoddController {
         Object obj = jsonParser.parse(json, clazz);
         return obj.toString();
     }
+
+    @RequestMapping(value = "/parse2")
+    public String parseJson2(@RequestParam(name="json", required=true) String json, @RequestParam(name="type", required=true) String typeName) throws Exception {
+        JsonParser jsonParser = new JsonParser();
+        Object obj = jsonParser.setClassMetadataName(typeName).parse(json);
+        return obj.toString();
+    }    
 }
