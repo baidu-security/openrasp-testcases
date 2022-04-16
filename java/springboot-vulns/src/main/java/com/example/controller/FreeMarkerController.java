@@ -15,9 +15,9 @@ import freemarker.template.*;
 @RestController
 @RequestMapping(value = "/freemarker")
 public class FreeMarkerController {
-    private String run(String template, Boolean hardened) throws Exception {
+    private String run(String template, String username, Boolean hardened) throws Exception {
         Map<String, Object> data = new HashMap<String, Object>() {{
-            put("user", "test");
+            put("username", username);
         }};
 
         StringTemplateLoader tempLoader = new StringTemplateLoader();
@@ -37,11 +37,16 @@ public class FreeMarkerController {
 
     @RequestMapping(value = "/unsafe")
     public String parse_unsfe(@RequestParam(name="template", required=true) String template) throws Exception {
-        return run(template, false);
+        return run(template, "test", false);
     }
 
+    @RequestMapping(value = "/eval")
+    public String parse_eval(@RequestParam(name="username", required=true) String username) throws Exception {
+        return run("<#assign m=username?eval>", username, false);
+    }    
+
     @RequestMapping(value = "/safe")
-    public String parse_sfe(@RequestParam(name="template", required=true) String template) throws Exception {
-        return run(template, true);
+    public String parse_safe(@RequestParam(name="template", required=true) String template) throws Exception {
+        return run(template, "test", true);
     }
 }
