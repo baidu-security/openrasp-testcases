@@ -40,9 +40,12 @@ public class FreeMarkerController {
         return run(template, "test", false);
     }
 
+    // 参考
+    // https://xz.aliyun.com/t/11196
+    // https://freemarker.apache.org/docs/ref_builtins_expert.html#ref_builtin_eval
     @RequestMapping(value = "/eval")
     public String parse_eval(@RequestParam(name="username", required=true) String username) throws Exception {
-        return run("<#assign m=username?eval>", username, false);
+        return run("<#assign m = username?eval>", username, false);
     }    
 
     @RequestMapping(value = "/safe")
