@@ -144,8 +144,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-jmx</artifactId>
-			<version>3.5.0-Final</version>
+			<artifactId>hibernate-core</artifactId>
+			<!-- <version>5.0.5.Final</version> -->
+			<version>4.3.11.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
