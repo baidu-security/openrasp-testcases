@@ -66,6 +66,12 @@ curl 127.0.0.1:8080/jackson/parse -d 'json=["com.newrelic.agent.deps.ch.qos.logb
 curl 127.0.0.1:8080/xstream/parse -H 'Content-Type: text/xml' -d @test.xml
 ```
 
+#### xmldecoder
+
+```
+curl 127.0.0.1:8080/xmldecoder/parse -H 'Content-Type: text/xml' -d @test.xml
+```
+
 #### jodd-json
 
 ```
