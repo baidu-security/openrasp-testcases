@@ -20,4 +20,14 @@ public class SpelController {
         
         return expression.getValue(context).toString();
     }
+
+    @RequestMapping(value = "/parse2")
+    public String parseJson2(@RequestParam(name="expression", required=true) String name) {
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression expression = parser.parseExpression(name);
+        EvaluationContext context = SimpleEvaluationContext.forReadOnlyDataBinding().build();
+        context.setVariable("end", "!");
+        
+        return expression.getValue(context).toString();
+    }    
 }
