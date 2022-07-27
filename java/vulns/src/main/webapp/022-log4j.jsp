@@ -17,8 +17,8 @@
     }
 %>
 <p>触发: </p>
-<p>curl '<a href="<%=request.getRequestURL()+defaultQuery%>"
-            target="_blank"><%=request.getRequestURL() + defaultQuery%>
+<p>curl '<a href="<%=request.getRequestURI()+defaultQuery%>"
+            target="_blank"><%=request.getRequestURI() + defaultQuery%>
 </a>'</p>
 <br>
 </body>

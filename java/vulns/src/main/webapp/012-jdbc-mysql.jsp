@@ -10,7 +10,7 @@
         ResultSet rset = null; 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "test", "test");  
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai", "test", "test");  
             stmt = conn.createStatement();
             rset = stmt.executeQuery ("SELECT * FROM vuln WHERE id = " + id);
             return (formatResult(rset));
@@ -150,7 +150,7 @@ INSERT INTO test.vuln values (1, "rocks");
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <p>第二步: 尝试发起SQL注入攻击 - 为了保证性能，默认只会检测长度超过15的语句</p>
-                <form action="<%=javax.servlet.http.HttpUtils.getRequestURL(request)%>" method="get">
+                <form action="<%=request.getRequestURI() method="get">
                     <div class="form-group">
                          <label>查询条件</label>
                          <input class="form-control" name="id" value="<%=id%>" autofocus>

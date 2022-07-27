@@ -45,13 +45,13 @@ if (lib != null) {
 else {
 %>
 <p>UNC 加载: </p>
-<p>curl '<a href="<%=request.getRequestURL()+unc%>" target="_blank"><%=request.getRequestURL() + unc%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+unc%>" target="_blank"><%=request.getRequestURI() + unc%></a>'</p>
 
 <p>Windows 本地加载: </p>
-<p>curl '<a href="<%=request.getRequestURL()+local_win%>" target="_blank"><%=request.getRequestURL() + local_win%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+local_win%>" target="_blank"><%=request.getRequestURI() + local_win%></a>'</p>
 
 <p>Linux/Mac 本地加载: </p>
-<p>curl '<a href="<%=request.getRequestURL()+local_lin%>" target="_blank"><%=request.getRequestURL() + local_lin%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+local_lin%>" target="_blank"><%=request.getRequestURI() + local_lin%></a>'</p>
 
 
 <%

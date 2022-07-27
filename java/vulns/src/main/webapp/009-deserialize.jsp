@@ -60,9 +60,9 @@
     }
 %>
     <p>Linux 测试</p>
-    <p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
+    <p>curl '<a href="<%=request.getRequestURI()+linux_querystring%>" target="_blank"><%=request.getRequestURI()+linux_querystring%></a>'</p>
 
     <p>Windows 测试</p>
-    <p>curl '<a href="<%=request.getRequestURL()+windows_querystring%>" target="_blank"><%=request.getRequestURL()+windows_querystring%></a>'</p>
+    <p>curl '<a href="<%=request.getRequestURI()+windows_querystring%>" target="_blank"><%=request.getRequestURI()+windows_querystring%></a>'</p>
 </body>
 </html>

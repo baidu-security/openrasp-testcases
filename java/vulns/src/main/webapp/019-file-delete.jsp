@@ -47,8 +47,8 @@ if (fname != null) {
 }
 %>
 <p>正常调用</p>
-<p>curl '<a href="<%=request.getRequestURL()+normal_querystring%>" target="_blank"><%=request.getRequestURL()+normal_querystring%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+normal_querystring%>" target="_blank"><%=request.getRequestURI()+normal_querystring%></a>'</p>
 <p>不正常调用</p>
-<p>curl '<a href="<%=request.getRequestURL()+linux_querystring%>" target="_blank"><%=request.getRequestURL()+linux_querystring%></a>'</p>
+<p>curl '<a href="<%=request.getRequestURI()+linux_querystring%>" target="_blank"><%=request.getRequestURI()+linux_querystring%></a>'</p>
 </body>
 </html>
