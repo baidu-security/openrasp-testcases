@@ -80,6 +80,7 @@
                 {"name": "020 - RandomAccessFile 文件读写", "path": '020-random-file.jsp'},
                 {"name": "021 - NIO 文件操作", "path": '021-nio-file.jsp'},
                 {"name": "022 - Log4j 漏洞测试", "path": '022-log4j.jsp'},
+                {"name": "023 - URL重定向漏洞", "path": '023-url-redirection.jsp'},
             ]
         }
     ]);
