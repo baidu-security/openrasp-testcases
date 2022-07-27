@@ -10,7 +10,7 @@
         ResultSet rset = null; 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "test", "test");  
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC", "test", "test");  
             stmt = conn.createStatement();
             rset = stmt.executeQuery ("SELECT * FROM vuln WHERE id = " + id);
             return (formatResult(rset));
