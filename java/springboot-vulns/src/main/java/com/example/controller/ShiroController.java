@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class ShiroController {
     @RequestMapping(value = "/no-auth", method = RequestMethod.GET)
     public String noAuth() {
-        return "This interface does not required authentication\n";
+        return "This interface does not require authentication\n";
     }
  
     @RequestMapping(value = "/auth", method = RequestMethod.GET)
