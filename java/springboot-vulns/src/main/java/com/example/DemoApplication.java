@@ -1,8 +1,12 @@
 package com.example;
 
+import org.apache.ibatis.type.MappedTypes;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.example.models.Employee;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -12,6 +16,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
+@MappedTypes({Employee.class})
+@MapperScan("com.example.models")
 // @EnableAdminServer
 public class DemoApplication {
 	public static void main(String[] args) {
