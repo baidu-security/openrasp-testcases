@@ -173,10 +173,22 @@ curl 'http://127.0.0.1:8080/thymeleaf/path?lang=__%24%7BT(java.lang.Runtime).get
 
 ### 其他漏洞
 
-#### MyBatis
+#### 文件上传
 
 ```
-curl '127.0.0.1:8080/mybatis/select' -d "name=abc' and 1=1;--"
+curl '127.0.0.1:8080/file/upload' -F file=@/etc/passwd
+```
+
+#### MyBatis
+
+H2 SQL注入
+
+```
+# 插入数据
+curl '127.0.0.1:8080/mybatis/insert2?name=abc'
+
+# 搜索
+curl '127.0.0.1:8080/mybatis/select2' -d "name=abc' and 1=1;--"
 ```
 
 #### log4j漏洞
