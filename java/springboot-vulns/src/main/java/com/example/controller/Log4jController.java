@@ -14,6 +14,7 @@ public class Log4jController {
     @RequestMapping(value = "/log4j")
     public String testLog(@RequestParam(name="log", required=true) String input) {
         System.out.println(PropertiesUtil.class.getPackage().getImplementationVersion());
+        System.out.println(System.getProperty("java.version"));
 
         logger.error("str={}", input);
         return input;
