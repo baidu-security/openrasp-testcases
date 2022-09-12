@@ -229,8 +229,12 @@ curl 'http://127.0.0.1:8080/thymeleaf/path?lang=__%24%7BT(java.lang.Runtime).get
 
 #### 文件上传
 
+支持SpringBoot、Servlet、Commons三种方式
+
 ```
 curl '127.0.0.1:8080/file/upload' -F file=@/etc/passwd
+curl '127.0.0.1:8080/file2/upload' -F file=@/etc/passwd
+curl '127.0.0.1:8080/file3/upload' -F file=@/etc/passwd
 ```
 
 #### MyBatis
