@@ -24,7 +24,7 @@ public class MybatisController {
     public String select(@RequestParam(name="name", required=true) String name) throws Exception {
         Employee employee = employeeMapper.get(name);
         if (employee == null) {
-            return "not found\n";
+            return "user not found\n";
         }
 
         return employee.toString() + "\n";
@@ -34,7 +34,7 @@ public class MybatisController {
     public String select2(@RequestParam(name="name", required=true) String name) throws Exception {
         Employee employee = employeeMapper.get2(name);
         if (employee == null) {
-            return "not found\n";
+            return "user not found\n";
         }
 
         return employee.toString() + "\n";
