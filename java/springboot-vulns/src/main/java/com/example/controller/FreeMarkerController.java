@@ -18,15 +18,17 @@ public class FreeMarkerController {
     private String run(String template, String username, Boolean hardened) throws Exception {
         Map<String, Object> data = new HashMap<String, Object>() {{
             put("username", username);
+            put("object", new Object());
         }};
 
         StringTemplateLoader tempLoader = new StringTemplateLoader();
         tempLoader.putTemplate("test", template);
 
-        Configuration cfg = new Configuration(Configuration.VERSION_2_3_31);
+        Configuration cfg = new Configuration(Configuration.VERSION_2_3_20);
         if (hardened)
             cfg.setNewBuiltinClassResolver(TemplateClassResolver.SAFER_RESOLVER);
         cfg.setTemplateLoader(tempLoader);
+        cfg.setAPIBuiltinEnabled(true);
 
         Template tmpl = cfg.getTemplate("test");
         StringWriter writer = new StringWriter();
